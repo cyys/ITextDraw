@@ -1,0 +1,157 @@
+package pdf.base.unit;
+
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfWriter;
+
+import pdf.base.AbstractBaseChart;
+import pdf.base.AbstractBaseUnitChart;
+import pdf.base.TPoint;
+
+/**
+ * 单箭头图形
+ * @author cheny
+ *
+ */
+public class ArrowGraph extends AbstractBaseUnitChart {
+	
+	//箭头的方向
+	public static final int ARROW_UP=1;
+	public static final int ARROW_DOWN=2;
+	public static final int ARROW_RIGHT=3;
+	public static final int ARROW_LEFT=4;
+	
+	private float height=15;
+	private float width=5;
+	private float arrowWidth=5;
+	private int color;
+	private int arrowDirection=ARROW_RIGHT;
+	//箭头右：左上角 ，左：右上角，上：左下角，下：左上角
+	private float x;
+	private float y;
+
+	public ArrowGraph(AbstractBaseChart baseChart, PdfWriter writer, PdfContentByte contentByte, Document document) {
+		super(baseChart, writer, contentByte, document);
+	}
+
+	public ArrowGraph(PdfWriter writer, PdfContentByte contentByte, Document document) {
+		super(writer, contentByte, document);
+	}
+
+	@Override
+	public void chart() {
+		TPoint onePoint=new TPoint();
+		TPoint anotherPoint=new TPoint();
+		TPoint topPoint=new TPoint();
+		
+		switch (this.arrowDirection) {//根据方向确定箭头的坐标
+		case ARROW_UP : {
+			onePoint.setX(this.x);
+			onePoint.setY(this.y+this.width);
+			
+			anotherPoint.setX(this.x+this.height);
+			anotherPoint.setY(this.y+this.width);
+			
+			topPoint.setX(this.x+this.height/2);
+			topPoint.setY(this.y+this.width+this.arrowWidth);
+			break;
+		}
+		case ARROW_DOWN:{
+			onePoint.setX(this.x);
+			onePoint.setY(this.y-this.width);
+			
+			anotherPoint.setX(this.x+this.height);
+			anotherPoint.setY(this.y-this.width);
+			
+			topPoint.setX(this.x+this.height/2);
+			topPoint.setY(this.y-this.width-this.arrowWidth);
+			break;
+		}
+		case ARROW_RIGHT:{
+			onePoint.setX(this.x+this.width);
+			onePoint.setY(this.y);
+			
+			anotherPoint.setX(this.x+this.width);
+			anotherPoint.setY(this.y-this.height);
+			
+			topPoint.setX(this.x+this.width+this.arrowWidth);
+			topPoint.setY(this.y-this.height/2);
+			break;
+		}
+		case ARROW_LEFT:{
+			onePoint.setX(this.x-this.width);
+			onePoint.setY(this.y);
+			
+			anotherPoint.setX(this.x-this.width);
+			anotherPoint.setY(this.y-this.height);
+			
+			topPoint.setX(this.x-this.width-this.arrowWidth);
+			topPoint.setY(this.y-this.height/2);
+			break;
+		}		
+		default:
+			break;
+		}
+		
+		this.getBaseChart().moveRect(this.contentByte, this.x, this.y, anotherPoint.getX(), anotherPoint.getY(), this.color);
+		this.contentByte.setColorStroke(new BaseColor(this.color));
+		
+		float x0=onePoint.getX(),y0=onePoint.getY();
+		while(true){
+			switch (this.arrowDirection) {//根据方向，确定哪个坐标在变，来填充三角形
+			case ARROW_DOWN:
+			case ARROW_UP:	
+				x0+=0.1f;
+				break;
+			case ARROW_RIGHT:
+			case ARROW_LEFT:	
+				y0-=0.1f;
+				break;
+			default:
+				break;
+			} 
+			
+			if(x0>anotherPoint.getX()||y0<anotherPoint.getY()){
+				break;
+			}
+			
+			this.getBaseChart().moveLine(this.contentByte, x0,y0, topPoint.getX(), topPoint.getY());
+		}
+	}
+
+	public ArrowGraph setHeight(float height) {
+		this.height = height;
+		return this;
+	}
+
+	public ArrowGraph setWidth(float width) {
+		this.width = width;
+		return this;
+	}
+
+	public ArrowGraph setArrowWidth(float arrowWidth) {
+		this.arrowWidth = arrowWidth;
+		return this;
+	}
+
+	public ArrowGraph setX(float x) {
+		this.x = x;
+		return this;
+	}
+
+	public ArrowGraph setY(float y) {
+		this.y = y;
+		return this;
+	}
+
+	public ArrowGraph setColor(int color) {
+		this.color = color;
+		return this;
+	}
+
+	public ArrowGraph setArrowDirection(int arrowDirection) {
+		this.arrowDirection = arrowDirection;
+		return this;
+	}
+}
