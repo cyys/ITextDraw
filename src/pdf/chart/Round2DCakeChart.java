@@ -27,6 +27,10 @@ public class Round2DCakeChart extends AbstractChart {
 	private float fontSize = 10;
 	private float[] scores;// 分数百分比
 	private float positionY;// 画完图形之后，当前所在的横坐标
+	
+	private final int SIDE_NUM=3600;//将一个圆分成的等分
+	private final float MAX=180f;//画圆的一个常量数据
+	private float whiteSepLineWidth=1.5f;
 
 	public Round2DCakeChart() {
 		super();
@@ -48,11 +52,9 @@ public class Round2DCakeChart extends AbstractChart {
 									new BaseColor(0xA9D961),  new BaseColor(0xB3A2C7),  new BaseColor(0xFF0000)};
 		}
 		
-		int sideNum = 720;
-		float space = 360f / sideNum, spaceSize = space;
+		float space = 360f / this.SIDE_NUM, spaceSize = space;
 
 		float x0 = 0, y0 = 0;
-		final float max = 180f;
 
 		float tempValue = 0f;// 计算分数的总和
 		for (int i = 0; i < this.scores.length; i++) {
@@ -61,29 +63,29 @@ public class Round2DCakeChart extends AbstractChart {
 
 		float[] everyEreas = new float[this.scores.length];
 		for (int i = 0; i < this.scores.length; i++) {// 计算每一个百分百对应的图形的边数
-			everyEreas[i] = this.scores[i] / tempValue * sideNum;
+			everyEreas[i] = this.scores[i] / tempValue * this.SIDE_NUM;
 		}
 
 		// 开始画出图形
 		int areaNum = 0;
 		float areaSum = everyEreas[areaNum];
-		for (int i = 0; i < sideNum; i++) {
+		for (int i = 0; i < this.SIDE_NUM; i++) {
 			if (i <= areaSum) {
 				this.contentByte.setColorStroke(this.fillColors[areaNum]);
 			} else {
 				areaSum += everyEreas[++areaNum];
 			}
-			x0 = this.x + (float) (this.r * Math.sin(Math.PI * (space + this.rotation) / max));
-			y0 = this.y + (float) (this.r * Math.cos(Math.PI * (space + this.rotation) / max));
+			x0 = this.x + (float) (this.r * Math.sin(Math.PI * (space + this.rotation) / this.MAX));
+			y0 = this.y + (float) (this.r * Math.cos(Math.PI * (space + this.rotation) / this.MAX));
 			this.moveLine(this.contentByte, this.x, this.y, x0, y0);
 			space += spaceSize;
 		}
-		drawDataText(everyEreas, spaceSize, max);
+		drawDataText(everyEreas, spaceSize);
 		drawDesc();
 		 
 		// 画出中间白色的分界线
 		if(this.scores.length>1)
-			drawSepLine(everyEreas, sideNum, max);
+			drawSepLine(everyEreas);
 	}
 
 	/**
@@ -112,7 +114,7 @@ public class Round2DCakeChart extends AbstractChart {
 	 * @param spaceSize
 	 * @param max
 	 */
-	private void drawDataText(float[] everyEreas, float spaceSize, final float max) {
+	private void drawDataText(float[] everyEreas, float spaceSize) {
 		this.contentByte.setFontAndSize(this.baseFont, this.fontSize);
 		float curEreaHalf = 0f;
 		float space = 0f;
@@ -124,8 +126,8 @@ public class Round2DCakeChart extends AbstractChart {
 			space += spaceSize * curEreaHalf;
 
 			this.contentByte.setColorStroke(fillColors[i]);
-			x0 = this.x + (float) (this.r / 2 * Math.sin(Math.PI * (space + this.rotation) / max));
-			y0 = this.y + (float) (this.r / 2 * Math.cos(Math.PI * (space + this.rotation) / max));
+			x0 = this.x + (float) (this.r / 2 * Math.sin(Math.PI * (space + this.rotation) / this.MAX));
+			y0 = this.y + (float) (this.r / 2 * Math.cos(Math.PI * (space + this.rotation) / this.MAX));
 
 			if (this.scores[i] < 10) {// 当小于10的时候，画在图形的外面
 				tempValue = this.fontSize * ("" + this.scores[i]).length();
@@ -137,8 +139,8 @@ public class Round2DCakeChart extends AbstractChart {
 							: (oneNum % 3 == 1 ? 5f : tempValue);
 				}
 
-				offsetX = this.x + (float) ((this.r + tempValue) * Math.sin(Math.PI * (space + this.rotation) / max));
-				offsetY = this.y + (float) ((this.r + tempValue) * Math.cos(Math.PI * (space + this.rotation) / max));
+				offsetX = this.x + (float) ((this.r + tempValue) * Math.sin(Math.PI * (space + this.rotation) / this.MAX));
+				offsetY = this.y + (float) ((this.r + tempValue) * Math.cos(Math.PI * (space + this.rotation) / this.MAX));
 
 				this.moveLine(this.contentByte, x0, y0, offsetX, offsetY);
 				if (offsetX > this.x) {
@@ -153,8 +155,8 @@ public class Round2DCakeChart extends AbstractChart {
 			}
 
 			if (this.scores[i] < 20) {// 小于20的时候，将坐标偏移
-				offsetX = (float) (this.r / 2 * Math.sin(Math.PI * (space + this.rotation) / max)) * 6 / this.scores[i];
-				offsetY = (float) (this.r / 2 * Math.cos(Math.PI * (space + this.rotation) / max)) * 4 / this.scores[i];
+				offsetX = (float) (this.r / 2 * Math.sin(Math.PI * (space + this.rotation) / this.MAX)) * 6 / this.scores[i];
+				offsetY = (float) (this.r / 2 * Math.cos(Math.PI * (space + this.rotation) / this.MAX)) * 4 / this.scores[i];
 			}
 
 			if(this.scores.length<2){
@@ -175,26 +177,26 @@ public class Round2DCakeChart extends AbstractChart {
 	 * 
 	 * @param space
 	 */
-	private void drawSepLine(float[] everyEreas, int sideNum, final float max) {
-		float space = 360f / sideNum, spaceSize = space;
+	private void drawSepLine(float[] everyEreas) {
+		float space = 360f / this.SIDE_NUM, spaceSize = space;
 		int areaNum = 0;
 
 		float areaSum = everyEreas[areaNum];
 		float x0 = 0, y0 = 0;
 		this.contentByte.setColorStroke(BaseColor.WHITE);
-		this.contentByte.setLineWidth(2f);
+		this.contentByte.setLineWidth(this.whiteSepLineWidth);
 
-		for (int i = 0; i < sideNum; i++) {
+		for (int i = 0; i < this.SIDE_NUM; i++) {
 			if (i > areaSum) {
 				areaSum += everyEreas[++areaNum];
-				x0 = this.x + (float) (this.r * Math.sin(Math.PI * (space + this.rotation) / max));
-				y0 = this.y + (float) (this.r * Math.cos(Math.PI * (space + this.rotation) / max));
+				x0 = this.x + (float) (this.r * Math.sin(Math.PI * (space + this.rotation) / this.MAX));
+				y0 = this.y + (float) (this.r * Math.cos(Math.PI * (space + this.rotation) / this.MAX));
 				this.moveLine(this.contentByte, this.x, this.y, x0, y0);
 			}
 			space += spaceSize;
 		}
-		x0 = this.x + (float) (this.r * Math.sin(Math.PI * (spaceSize + this.rotation) / max));
-		y0 = this.y + (float) (this.r * Math.cos(Math.PI * (spaceSize + this.rotation) / max));
+		x0 = this.x + (float) (this.r * Math.sin(Math.PI * (spaceSize + this.rotation) / this.MAX));
+		y0 = this.y + (float) (this.r * Math.cos(Math.PI * (spaceSize + this.rotation) / this.MAX));
 		this.moveLine(this.contentByte, this.x, this.y, x0, y0);
 	}
 
@@ -235,6 +237,11 @@ public class Round2DCakeChart extends AbstractChart {
 
 	public Round2DCakeChart setFontSize(float fontSize) {
 		this.fontSize = fontSize;
+		return this;
+	}
+
+	public Round2DCakeChart setWhiteSepLineWidth(float whiteSepLineWidth) {
+		this.whiteSepLineWidth = whiteSepLineWidth;
 		return this;
 	}
 

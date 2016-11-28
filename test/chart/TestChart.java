@@ -57,22 +57,24 @@ public class TestChart {
 	public void testRound2DCakeChart() throws Exception {
 		doc.open();
 
+		doc.add(new Paragraph("安慰法", new Font(bfChinese)));
+//		
 		Round2DCakeChart round2dCakeChart = new Round2DCakeChart(writer, writer.getDirectContent(), doc, bfChinese);
-		round2dCakeChart.setX(250).setY(400)
+		round2dCakeChart.setX(250).setY(500).setR(80)
 				.setFillColors(
 						new BaseColor[] { new BaseColor(0xFe89fe), BaseColor.RED, BaseColor.BLUE, BaseColor.GREEN })
 				.setScores(new float[] { 70f, 15f, 5f, 10f }).setDescs(new String[] { "的的S的", "的的防盗网", "时光如梭", "核对" });
 		round2dCakeChart.chart();
+//
+//		writer.getDirectContent().setColorStroke(BaseColor.BLACK);
 
-		writer.getDirectContent().setColorStroke(BaseColor.BLACK);
-
-		float y = round2dCakeChart.getPositionY();
-
-		round2dCakeChart.moveLine(writer.getDirectContent(), 0, y, 550, y);
-
-		round2dCakeChart.setLine(29, doc);
-
-		doc.add(new Paragraph("安慰法", new Font(bfChinese)));
+//		float y = round2dCakeChart.getPositionY();
+//
+//		round2dCakeChart.moveLine(writer.getDirectContent(), 0, y, 550, y);
+//
+//		round2dCakeChart.setLine(29, doc);
+//
+//		doc.add(new Paragraph("安慰法", new Font(bfChinese)));
 
 		doc.close();
 	}
@@ -84,7 +86,7 @@ public class TestChart {
 		TableDoubleArrowCurveChart chart = new TableDoubleArrowCurveChart(writer, writer.getDirectContent(), doc,
 				bfChinese);
 		
-		 for (int i = 0; i < 20; i++) {
+		 for (int i = 0; i <15; i++) {
 		 doc.add(new Paragraph("极乐空间阿尔法", new Font(bfChinese)));
 		 }
 
@@ -117,9 +119,9 @@ public class TestChart {
 	public void testTableChartedDoubleArrowCurveChart() throws Exception {
 		doc.open();
 
-//		for (int i = 0; i < 20; i++) {
-//			doc.add(new Paragraph("极乐空间阿尔法", new Font(bfChinese)));
-//		}
+		for (int i = 0; i < 35; i++) {
+			doc.add(new Paragraph("极乐空间阿尔法", new Font(bfChinese)));
+		}
 
 		TableChartedDoubleArrowCurveChart chart = new TableChartedDoubleArrowCurveChart(writer,
 				writer.getDirectContent(), doc, bfChinese);
@@ -128,12 +130,12 @@ public class TestChart {
 		.setFontSize(9)
 		.setLineHeight(25)
 		.setWidths(new float[] { 10, 10, 10, 10, 10, 50 })
-		.setScoreLevels(new int[] { 0, 20, 40,  60, 80,100 })
+		.setScoreLevels(new int[] { 0, 2, 4,  6, 8,10 })
 		.setRowColors(new int[] { 0xFFFFFF, 0xF2F2F2 })
 		.setLevelFontSize(7)
 		.setColNumber(3)
-		.setMaxScoreColNum(2)
-		.setMinScoreColNum(1)
+		.setMaxScoreColNum(1)
+		.setMinScoreColNum(2)
 		.setCurScoreColNum(3)
 		.setScores(new float[][] { { 3f, 2f,2.2f }, { 6, 4, 5.11f }, { 5, 2, 3.0f }, { 7, 1, 2.12f },
  			{ 6, 2, 3.85f }, { 7, 3, 4.05f }, { 5, 2, 4.02f }/*, { 6, 2, 2.96f }, { 5, 2, 3.22f },
@@ -148,7 +150,7 @@ public class TestChart {
 						/*, "创新能力", "学习能力", "逻辑能力", "机械推理"   */});
 			}
 		})
-		.setParentTypes(new String[] { "基础工作能作工作能作", "基本基本潜能基本潜能潜能"/*, "领导者动力" */});
+		.setParentTypes(new String[] { "基础工作★能作工作能作", "基本基本潜能基本潜能潜能"/*, "领导者动力" */});
 
 		chart.chart();
 		
@@ -207,7 +209,7 @@ public class TestChart {
 		chart.setY(600).setX(60).setHeight(120).setShowDataColInTables(new int[] { 0, 1, 2, 3 })
 				.setTagNames(new String[] { "分数", "平均分", "最大", "最小" })
 				.setItemNames(new String[] { "勇担责任", "履行责任", "负责守信", "勤学善思", "创新实践", "程序执行", "善于经营", "团队管理", "团队管理理" })
-				.setScores(aScores);
+				.setScores(aScores).setWidth(450);
 
 		chart.chart();
 		
@@ -281,7 +283,7 @@ public class TestChart {
 		chart.setY(600).setX(60).setHeight(120).setShowDataColInTables(new int[] { 0, 1, 2, 3 })
 				.setTagNames(new String[] { "分数", "平均分", "最大", "最小" })
 				.setItemNames(new String[] { "勇担责任", "履行责任", "负责守信", "勤学善思", "创新实践", "程序执行", "善于经营", "团队管理", "团队管理理" })
-				.setScores(aScores);
+				.setScores(aScores).setWidth(320).setGradeRectWidth(20);
 
 		chart.chart();
 		
@@ -304,7 +306,7 @@ public class TestChart {
 
 		RadarSimpleRectChart chart = new RadarSimpleRectChart(writer, writer.getDirectContent(), doc, bfChinese);
 
-		chart.setX(270).setFontSize(19).setY(y - 200).setItemNames(itemNames).setScores(s);
+		chart.setX(270).setFontSize(9).setY(y - 200).setItemNames(itemNames).setScores(s);
 
 		chart.chart();
 
@@ -344,7 +346,7 @@ public class TestChart {
 		HistogramAreaExtremumChart chart = new HistogramAreaExtremumChart(writer, writer.getDirectContent(), doc,
 				bfChinese);
 
-		chart.setX(80).setFontSize(10).setWidth(450).setY(500).setItemNames(itemNames).setScores(s);
+		chart.setX(80).setFontSize(10).setWidth(150).setY(500).setItemNames(itemNames).setScores(s);
 
 		chart.chart();
 

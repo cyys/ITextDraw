@@ -41,10 +41,11 @@ public class DiamondBeforeParagraph extends AbstractBaseUnitChart {
 	public void chart() {
 
 		if (ObjectUtils.equals(null, this.itemNames) ||
+				ObjectUtils.equals(null, this.baseFont)||
 				ObjectUtils.equals(null, this.descs)
 				||this.itemNames.length < 1
 				 ||this.descs.length < 1)
-			return;
+			throw new RuntimeException("请确保baseFont、itemNames、descs被添加！");
 
 		BaseColor fontColor_ = new BaseColor(this.fontColor);
 		Font font = new Font(this.baseFont, this.fontSize, Font.NORMAL, fontColor_);

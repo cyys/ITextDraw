@@ -152,4 +152,9 @@ public class BalloonGraph extends AbstractBaseUnitChart {
 		return this;
 	}
 
+	public BalloonGraph setAreaHeight(float areaHeight) {
+		this.areaHeight = areaHeight;
+		return this;
+	}
+
 }

@@ -13,12 +13,13 @@ import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
-
+/**
+ * @author cheny
+ */
 public abstract class AbstractBaseChart {
 
 	/**
 	 * 换行
-	 * 
 	 * @param num
 	 * @param doc
 	 * @throws DocumentException
@@ -31,7 +32,6 @@ public abstract class AbstractBaseChart {
 
 	/**
 	 * 指定的字体大小换行
-	 * 
 	 * @param num
 	 * @param fontSize
 	 * @param doc
@@ -44,6 +44,18 @@ public abstract class AbstractBaseChart {
 		}
 	}
 
+	/**
+	 * @param table
+	 * @param pFont
+	 * @param fontSize
+	 * @param fontStyle
+	 * @param fontColor
+	 * @param str
+	 * @param backgroundColor
+	 * @param num
+	 * @param height
+	 * @param hasBorder
+	 */
 	public void addCell(PdfPTable table, BaseFont pFont, float fontSize, int fontStyle, int fontColor, String str,
 			BaseColor backgroundColor, int num, float height, boolean... hasBorder) {
 		PdfPCell pdfPCell = new PdfPCell(
@@ -58,6 +70,15 @@ public abstract class AbstractBaseChart {
 		table.addCell(pdfPCell);
 	}
 
+	/**
+	 * @param table
+	 * @param pFont
+	 * @param str
+	 * @param backgroundColor
+	 * @param num
+	 * @param height
+	 * @param hasBorder
+	 */
 	public void addCell(PdfPTable table, Font pFont, String str, BaseColor backgroundColor, int num, float height,
 			boolean... hasBorder) {
 		PdfPCell pdfPCell = new PdfPCell(new Paragraph(str, pFont));
@@ -73,7 +94,6 @@ public abstract class AbstractBaseChart {
 
 	/**
 	 * 边框与背景色相同的
-	 * 
 	 * @param table
 	 * @param pFont
 	 * @param str
@@ -103,7 +123,7 @@ public abstract class AbstractBaseChart {
 	 * @param backColor
 	 * @return
 	 */
-	public PdfPCell addCell(Font pFont,String str, float height, BaseColor backColor) {
+	public PdfPCell addCell(Font pFont,String str, float height,float borderWidth, BaseColor backColor) {
 		PdfPCell cell = new PdfPCell(new Paragraph(str, pFont));
 		cell.setHorizontalAlignment(Element.ALIGN_CENTER);// 定义水平方向
 		cell.setVerticalAlignment(Element.ALIGN_MIDDLE);// 定义垂直方向
@@ -112,22 +132,46 @@ public abstract class AbstractBaseChart {
 		cell.setPaddingBottom(6);// 设置下边距
 		cell.setFixedHeight(height);
 		cell.setBorderColor(BaseColor.BLACK);// 设置线的颜色
-		cell.setBorderWidth(0.2f);
+		cell.setBorderWidth(borderWidth);
 		return cell;
 	}
 
+	/**
+	 * @param cb
+	 * @param text
+	 * @param x1
+	 * @param y1
+	 * @param align
+	 * @param rotation
+	 */
 	public void moveText(PdfContentByte cb, String text, float x1, float y1, int align, float rotation) {
 		cb.beginText();
 		cb.showTextAligned(align, text, x1, y1, rotation);
 		cb.endText();
 	}
 
+	/**
+	 * @param cb
+	 * @param x1
+	 * @param y1
+	 * @param x2
+	 * @param y2
+	 */
 	public void moveLine(PdfContentByte cb, float x1, float y1, float x2, float y2) {
 		cb.moveTo(x1, y1);
 		cb.lineTo(x2, y2);
 		cb.stroke();
 	}
 
+	/**
+	 * @param cb
+	 * @param x1
+	 * @param y1
+	 * @param x2
+	 * @param y2
+	 * @param color
+	 * @param hasBorder
+	 */
 	public void moveRect(PdfContentByte cb, float x1, float y1, float x2, float y2, int color, boolean... hasBorder) {
 		Rectangle rect = new Rectangle(x1, y1, x2, y2);
 		if (hasBorder.length > 1 && hasBorder[0])
@@ -138,7 +182,6 @@ public abstract class AbstractBaseChart {
 
 	/**
 	 * 圆角矩形
-	 * 
 	 * @param cb
 	 * @param x
 	 * @param y
@@ -149,11 +192,31 @@ public abstract class AbstractBaseChart {
 		cb.roundRectangle(x, y, w, h, h / 2);
 		if (isFill.length < 1 || isFill[0])
 			cb.fillStroke();
+		else
+			cb.stroke();
 	}
 
 	/**
+	 * 有一定弧度的矩形
+	 * @param cb
+	 * @param x
+	 * @param y
+	 * @param w
+	 * @param h
+	 * @param radian
+	 * @param isFill
+	 */
+	public void moveRoundRect(PdfContentByte cb, float x, float y, float w, 
+								float h,float radian, boolean... isFill) {
+		cb.roundRectangle(x, y, w, h,radian);
+		if (isFill.length < 1 || isFill[0])
+			cb.fillStroke();
+		else
+			cb.stroke();
+	}
+	
+	/**
 	 * 填充圆形
-	 * 
 	 * @param cb
 	 * @param x1
 	 * @param y1
@@ -163,6 +226,55 @@ public abstract class AbstractBaseChart {
 		cb.circle(x1, y1, r);
 		if (isFill.length < 1 || isFill[0])
 			cb.fillStroke();
+		else
+			cb.stroke();
 	}
-
+	
+	/**
+	 * 根据字体的大小，计算一段文本的所占用的宽度
+	 * @param fontSize
+	 * @param text
+	 * @return
+	 */
+	public float calTextWidth(float fontSize,String text){
+		float width=0;
+		for(int i=0,len=text.length();i<len;i++){
+			if(text.charAt(i)<255){
+				width+=fontSize/2;
+			}else{
+				width+=fontSize;
+			}
+		}
+		return width;
+	}
+	
+	/**
+	 *  根据文本的长度和指定的绘画区域的宽度，换行或不换行显示出文本，在根据行高来文本垂直居中
+	 * 根据宽度水平居中;如果要将文本纵向显示，请自行计算X(文字居中的时候且仅仅显示一个字)
+	 * ，width指定为字体大小即可
+	 * @param cb
+	 * @param text
+	 * @param fontSize
+	 * @param width
+	 * @param lineHeight
+	 * @param x
+	 * @param y
+	 * @param rotation
+	 */
+	public void moveMultiLineText(PdfContentByte cb,String text,float fontSize,
+											float width,float lineHeight, float x, float y,int rotation){
+		float textTotalWidth=this.calTextWidth(fontSize, text);
+		
+		int lines=(int)Math.ceil(textTotalWidth/width);//根据文字宽度和区域宽度，计算出行数
+		int everyLength=text.length()/lines;//在多行的情况下，平均分配每段文本的长度
+		String textTemp=null;
+		
+		float x0=0,y0=y-(lineHeight-lines*fontSize)/2-fontSize*4.3f/5;
+		for(int i=0;i<lines;i++){
+			textTemp=text.substring(i*everyLength,i!=lines-1?(i+1)*everyLength:text.length());
+			x0=x+(width-this.calTextWidth(fontSize, textTemp))/2;
+			this.moveText(cb,textTemp, x0, y0, Element.ALIGN_LEFT, rotation);
+			y0-=fontSize;
+		}
+	}
 }

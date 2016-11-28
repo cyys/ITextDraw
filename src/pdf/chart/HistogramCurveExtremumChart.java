@@ -210,7 +210,6 @@ public class HistogramCurveExtremumChart extends AbstractChart {
 
 	/**
 	 * 将文字居中画出来
-	 * 
 	 * @param lineHeight
 	 * @param witdh
 	 * @param text
@@ -218,23 +217,7 @@ public class HistogramCurveExtremumChart extends AbstractChart {
 	 * @param y
 	 */
 	private void drawMulRowText(float lineHeight, float witdh, String text, float x, float y) {
-		// 如果是数值，宽度折半
-		float fontSize = text.matches("^(?:\\d{1,})|(?:\\d{1,}\\.\\d{1,})$") ? this.fontSize / 2 : this.fontSize;
-		float lineNumber = text.length() * fontSize / witdh;
-
-		lineNumber = lineNumber > 1 ? (float) Math.ceil(lineNumber) : 1;
-
-		int everyLen = (int) (Math.round(text.length() / lineNumber));
-
-		String tempText = null;
-		float x0 = 0, y0 = y - (lineHeight - lineNumber * this.fontSize) / 2 - this.fontSize + 1f;
-		for (int i = 0; i < lineNumber; i++) {
-			tempText = text.substring(i * everyLen,
-					(lineNumber > 1 && i == lineNumber - 1 ? text.length() : everyLen * (i + 1)));
-			x0 = x + (witdh - tempText.length() * fontSize) / 2;
-			this.moveText(this.contentByte, tempText, x0, y0, Element.ALIGN_LEFT, 0);
-			y0 -= this.fontSize + 1f;
-		}
+		this.moveMultiLineText(this.contentByte, text,this.fontSize, witdh, lineHeight, x, y, 0);
 	}
 
 	private float calTableHeadHeight(float width) {

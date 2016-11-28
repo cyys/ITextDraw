@@ -8,7 +8,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.PageSize;

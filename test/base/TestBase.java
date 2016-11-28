@@ -20,8 +20,11 @@ import pdf.base.unit.BalloonGraph;
 import pdf.base.unit.CurveHasRadianGraph;
 import pdf.base.unit.DoubleArrowGraph;
 import pdf.base.unit.FiveTopStarGraph;
+import pdf.base.unit.FourTopQuadrilateralGraph;
 import pdf.base.unit.NoteTipGraph;
 import pdf.base.unit.PolygonGraph;
+import pdf.base.unit.RectangleLineThroughGraph;
+import pdf.base.unit.ThreeTopTriangleGraph;
 import pdf.base.unit.TwoTriangleGraph;
 
 public class TestBase {
@@ -224,6 +227,64 @@ public class TestBase {
 		       .setDescs(new String[]{"发违法","案件范围","家居服挖坟","家居服挖坟","家居服挖坟","家居服挖坟"
 				,"家居服挖坟","家居服挖坟","家居服挖坟","案件范围","家居服挖坟","家居服挖坟","家居服挖坟","家居服挖坟"
 				,"家居服挖坟","家居服挖坟","家居服挖坟"});
+		
+		chart.chart();
+		 
+        doc.close();
+	}
+	
+	@Test
+	public void testThreeTopTriangleGraph() throws Exception{
+		doc.open();
+		 
+		ThreeTopTriangleGraph chart=new ThreeTopTriangleGraph(writer, writer.getDirectContent(), doc);
+		
+		chart.setBaseChart(new TestBaseChart());
+		
+		chart.setTop_x(300).setTop_y(450).setRight_x(350).setRight_y(400)
+		.setLeft_x(250).setLeft_y(350).setColor(0xFF0000)/*.setFillColor(false)*/;
+		
+		chart.chart();
+		
+		 
+		 
+        doc.close();
+	}
+	
+	@Test
+	public void testFourTopQuadrilateralGraph() throws Exception{
+		doc.open();
+		 
+		FourTopQuadrilateralGraph chart=new FourTopQuadrilateralGraph(writer, writer.getDirectContent(), doc);
+		
+		chart.setBaseChart(new TestBaseChart());
+		
+		chart.setFirst_x(250).setFirst_y(250).setSecond_x(450).setSecond_y(250)
+		.setThird_x(550).setThird_y(200).setColor(0xFF0000)
+		.setFourth_x(10).setFourth_y(200)/*.setFillColor(false)*/;
+		
+		chart.chart();
+		 
+        doc.close();
+	}
+	
+	@Test
+	public void testRectangleLineThroughGraph() throws Exception{
+		doc.open();
+		 
+		RectangleLineThroughGraph chart=new RectangleLineThroughGraph(writer, writer.getDirectContent(), doc);
+		
+		chart.setBaseChart(new TestBaseChart());
+		chart.setBaseFont(bfChinese);
+		
+		chart.setX(200)
+		.setY(500)
+		.setHeight(15)
+		.setWidth(30)
+		.setText("待发展")
+		.setFontColor(0xFFFFFF)
+		.setLineThrough(RectangleLineThroughGraph.LINE_THROUGH_X)
+		.setHasLineThrough(true);
 		
 		chart.chart();
 		 

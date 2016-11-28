@@ -96,32 +96,15 @@ public class TableDashTableRectChart extends AbstractChart {
 
 	/**
 	 * 将文字居中画出来
-	 * 
 	 * @param lineHeight
 	 * @param witdh
 	 * @param text
+	 * @param fontSize_
 	 * @param x
 	 * @param y
 	 */
 	private void drawMulRowText(float lineHeight, float witdh, float fontSize_, String text, float x, float y) {
-		// 如果是数值，宽度折半
-		float fontSize = text.matches("^(?:\\d{1,})|(?:\\d{1,}\\.\\d{1,})$") ? fontSize_ / 2 : fontSize_;
-		float lineNumber = text.length() * fontSize / witdh;
-
-		lineNumber = lineNumber > 1 ? (float) Math.ceil(lineNumber) : 1;
-
-		int everyLen = (int) (Math.round(text.length() / lineNumber));
-
-		String tempText = null;
-		float x0 = 0, y0 = y - (lineHeight - lineNumber * fontSize_) / 2 - fontSize_ + 1f;
-
-		for (int i = 0; i < lineNumber; i++) {
-			tempText = text.substring(i * everyLen,
-					(lineNumber > 1 && i == lineNumber - 1 ? text.length() : everyLen * (i + 1)));
-			x0 = x + (witdh - tempText.length() * fontSize) / 2;
-			this.moveText(this.contentByte, tempText, x0, y0, Element.ALIGN_LEFT, 0);
-			y0 -= fontSize_ + 1f;
-		}
+		this.moveMultiLineText(this.contentByte, text,fontSize_, witdh, lineHeight, x, y, 0);
 	}
 
 	private float calTableHeadHeight(float sum, float fontSize) {

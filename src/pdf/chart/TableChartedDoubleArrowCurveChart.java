@@ -166,53 +166,7 @@ public class TableChartedDoubleArrowCurveChart extends AbstractChart {
 	 * @param y
 	 */
 	private void drawMulRowText(float lineHeight, float witdh, String text, float x, float y) {
-		// 如果是数值，宽度折半
-		float fontSize = text.matches("^(?:\\d{1,})|(?:\\d{1,}\\.\\d{1,})$") ? this.fontSize / 2 : this.fontSize;
-		float lineNumber = text.length() * fontSize / witdh;
-
-		lineNumber = lineNumber > 1 ? (float) Math.ceil(lineNumber) : 1;
-		
-		int everyLen = (int) (Math.round(text.length() / lineNumber));
-		String tempText = null;
-		float x0 = 0, y0 = y - (lineHeight - lineNumber * this.fontSize) / 2 - this.fontSize + 1f;
-		for (int i = 0; i < lineNumber; i++) {
-			tempText = text.substring(i * everyLen,
-					(lineNumber > 1 && i == lineNumber - 1 ? text.length() : everyLen * (i + 1)));
-			x0 = x + (witdh - tempText.length() * fontSize) / 2;
-			this.moveText(this.contentByte, tempText, x0, y0, Element.ALIGN_LEFT, 0);
-			y0 -= this.fontSize + 1f;
-		}
-	}
-
-	/**
-	 * 将文字居中画出来
-	 * 
-	 * @param lineHeight
-	 * @param witdh
-	 * @param text
-	 * @param x
-	 * @param y
-	 */
-	private void drawMulRowText(float lineHeight, float witdh, String text, float x, float y, boolean isNewline) {
-		// 如果是数值，宽度折半
-		float fontSize = text.matches("^(?:\\d{1,})|(?:\\d{1,}\\.\\d{1,})$") ? this.fontSize / 2 : this.fontSize;
-
-		int lineNumber = (int) (lineHeight / this.lineHeight);
-
-		if (!isNewline) {
-			lineNumber = 1;
-		}
-		int everyLen = text.length() / lineNumber;
-		String tempText = null;
-		float x0 = 0, y0 = y - (lineHeight - lineNumber * this.fontSize) / 2 - this.fontSize;
-
-		for (int i = 0; i < lineNumber; i++) {
-			tempText = text.substring(i * everyLen,
-					(lineNumber > 1 && i == lineNumber - 1 ? text.length() : everyLen * (i + 1)));
-			x0 = x + (witdh - tempText.length() * fontSize) / 2;
-			this.moveText(this.contentByte, tempText, x0, y0, Element.ALIGN_LEFT, 0);
-			y0 -= this.fontSize;
-		}
+		this.moveMultiLineText(this.contentByte, text,this.fontSize, witdh, lineHeight, x, y, 0);
 	}
 
 	/**
@@ -278,21 +232,20 @@ public class TableChartedDoubleArrowCurveChart extends AbstractChart {
 				this.contentByte.setColorStroke(borderColor);
 				x0 += this.widths[curCol - 1] * this.width / sum;
 				this.moveLine(this.contentByte, x0, y0, x0, y0 - this.realRowHeight[i]);
-				this.moveRect(this.contentByte, x0, y0, x0 + this.widths[curCol] * this.width / 100,
+				this.moveRect(this.contentByte, x0, y0, x0 + this.widths[curCol] * this.width / sum,
 						y0 - this.realRowHeight[i], curColColor);
 
 				if (curCol != this.widths.length - 1) {
-					drawMulRowText(this.realRowHeight[i], this.widths[curCol] * this.width / 100, text, x0, y0,
-							curCol == 1);
+					drawMulRowText(this.realRowHeight[i], this.widths[curCol] * this.width / sum, text, x0, y0);
 				}
 
 				if ((isNewPage && this.lineNumber > 0 && i + 1 >= this.lineNumber)
 						|| ((!isNewPage || this.lineNumber <= 0) && i == this.scores.length - 1)) {
 					this.contentByte.setLineWidth(1f);
-					this.moveLine(this.contentByte, x0 - this.widths[curCol] * this.width / 100,
+					this.moveLine(this.contentByte, x0 - this.widths[curCol] * this.width / sum,
 							y0 - this.realRowHeight[i], x0, y0 - this.realRowHeight[i]);
 					this.moveLine(this.contentByte, x0, y0 - this.realRowHeight[i],
-							x0 + this.widths[curCol] * this.width / 100, y0 - this.realRowHeight[i]);
+							x0 + this.widths[curCol] * this.width / sum, y0 - this.realRowHeight[i]);
 				}
 			}
 			y0 -= this.realRowHeight[i];
