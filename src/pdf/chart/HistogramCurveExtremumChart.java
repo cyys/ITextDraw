@@ -78,7 +78,8 @@ public class HistogramCurveExtremumChart extends AbstractChart {
 				|| ObjectUtils.equals(null, this.maxScores) || this.maxScores.length < 1
 				|| ObjectUtils.equals(null, this.minScores) || this.minScores.length < 1
 				|| ObjectUtils.equals(null, this.avgScores) || this.avgScores.length < 1)
-			throw new RuntimeException("请检测itemNames" + "、maxScores、minScores、avgScores数据是否存在！");
+			throw new RuntimeException("请检测itemNames" + 
+												"、maxScores、minScores、avgScores数据是否存在！");
 
 		if (ObjectUtils.equals(null, this.levels)) {
 			this.levels = new float[] { 1f, 2f, 3f, 4f, 5f, 6f, 7f, 8f, 9f };

@@ -12,6 +12,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 /**
  * 多条折线+表格+ 分区域
  * @author cheny
+ * @see pdf.chart.PolyLineChart
  */
 public class LineMulCurveLineAreaTableChart extends AbstractChart {
 
@@ -38,7 +39,6 @@ public class LineMulCurveLineAreaTableChart extends AbstractChart {
 	private float positionY;// 画完表格之后，当前所在的横坐标
 	private int scoreDescWidth =60;// 文字描述的宽度
 	private String[] scoreDescNames;//每个批次分数的描述名称
-	private int[] areaScoreColors;
 
 	public LineMulCurveLineAreaTableChart setScoreDescWidth(int scoreDescWidth) {
 		this.scoreDescWidth = scoreDescWidth;
@@ -47,11 +47,6 @@ public class LineMulCurveLineAreaTableChart extends AbstractChart {
 
 	public LineMulCurveLineAreaTableChart setScoreDescNames(String[] scoreDescNames) {
 		this.scoreDescNames = scoreDescNames;
-		return this;
-	}
-
-	public LineMulCurveLineAreaTableChart setAreaScoreColors(int[] areaScoreColors) {
-		this.areaScoreColors = areaScoreColors;
 		return this;
 	}
 
@@ -70,7 +65,7 @@ public class LineMulCurveLineAreaTableChart extends AbstractChart {
 
 		if (ObjectUtils.equals(null, this.itemNames) || this.itemNames.length < 1
 				|| ObjectUtils.equals(null, this.scores) || this.scores.length < 1)
-			throw new RuntimeException("请检测itemNames" + "、scores数据是否存在！");
+			throw new RuntimeException("请检测itemNames、scores数据是否存在！");
 
 		if (ObjectUtils.equals(null, this.levels)) {
 			this.levels = new float[] { 1f, 2f, 3f, 4f, 5f, 6f, 7f, 8f, 9f };
@@ -88,12 +83,8 @@ public class LineMulCurveLineAreaTableChart extends AbstractChart {
 			this.rowColors =new int[] { 0xFFFFFF, 0xF2F2F2 };
 		}
 
-		if (ObjectUtils.equals(null, this.areaScoreColors)) {
-			this.areaScoreColors = new int[] { 0x72CBAD, 0xE47D54, 0x397BC6 };
-		}
-
 		if (ObjectUtils.equals(null, this.scoreDescNames)) {
-			this.scoreDescNames = new String[] { "第一批次", "第二批次", "第三批次","第四批","第五批" };
+			this.scoreDescNames = new String[] { "第一批次", "第二批次", "第三批次","第四批次","第五批次" };
 		}
 		
 		if (ObjectUtils.equals(null, this.jionLineColors)) {
@@ -200,6 +191,7 @@ public class LineMulCurveLineAreaTableChart extends AbstractChart {
 		float sepWidth = this.width / this.itemNames.length;
 		float temp = calTableHeadHeight(sepWidth);
 		float x0 = this.x, y0 = this.y - temp;
+		this.positionY+=temp;
 		
 		this.contentByte.setLineWidth(1f);
 		this.contentByte.setLineDash(1);
@@ -208,7 +200,7 @@ public class LineMulCurveLineAreaTableChart extends AbstractChart {
 			this.contentByte.setColorFill(tabelBorderColor);
 			this.contentByte.setColorStroke(tabelBorderColor);
 			this.moveRect(this.contentByte, x0, this.y, x0 + sepWidth - 1, y0 + 1,
-					this.tableHeadFillColors[i % this.tableHeadFillColors.length]);
+					this.tableHeadFillColors[i]);
 			this.moveLine(this.contentByte, x0 + sepWidth-1, this.y,
 										x0 + sepWidth-1, y0+ 1);
 
@@ -399,7 +391,7 @@ public class LineMulCurveLineAreaTableChart extends AbstractChart {
 	}
 
 	public float getPositionY() {
-		this.positionY = this.y - this.height - this.positionY + 10;
+		this.positionY = this.y- this.positionY-5;
 		return this.positionY;
 	}
 }

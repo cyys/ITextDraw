@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.ObjectUtils;
 
+import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.pdf.AsianFontMapper;
 import com.itextpdf.text.pdf.BaseFont;
@@ -18,7 +19,7 @@ import com.itextpdf.text.pdf.PdfTemplate;
 import com.itextpdf.text.pdf.PdfWriter;
 
 /**
- * 分区域+多条点线
+ * 分区域+多条点线  (使用的PdfTemplate+Graphics2D)
  * @author ruany
  * @see pdf.chart.LineMulCurveLineAreaTableChart
  */
@@ -28,6 +29,16 @@ public class PolyLineChart extends AbstractChart {
 	 * 数据
 	 */
 	private List<Float[]> dataList;
+	private String[] dataRowNames;//每一行数据的中文名称
+	private String[] dataColNames;//每一列的中文名称
+	private int[] dataColColors;//每一列的背景颜色
+	private float cellHeight = 20;// 表格的高度
+	
+	private float fontSize=9;//表格字体大小
+	private int tableBorderColor=0xCFCFCF;//表格边框的颜色
+	private int[] rowColors;// 表格行的背景颜色
+	private int fontColor = 0x000000;// 字体颜色
+	private int scoreDescWidth =60;// 文字描述的宽度
 	/**
 	 * 坐标最大值
 	 */
@@ -97,6 +108,18 @@ public class PolyLineChart extends AbstractChart {
 
 		if (ObjectUtils.equals(null, this.batchColor) || this.batchColor.length < 1) {
 			this.batchColor = new Integer[] { 0x9792DD, 0xFFCE54, 0x72CCAD, 0xE57D54, 0x89CFFF };
+		}
+		
+		if (ObjectUtils.equals(null, this.dataColColors)) {
+			this.dataColColors = new int[] { 0x59CFFF, 0xA9D961, 0xFFCE54};
+		}
+		
+		if (ObjectUtils.equals(null, this.rowColors)) {
+			this.rowColors =new int[] { 0xFFFFFF, 0xF2F2F2 };
+		}
+		
+		if (ObjectUtils.equals(null, this.dataRowNames)) {
+			this.dataRowNames = new String[] { "第一批次", "第二批次", "第三批次","第四批次","第五批次" };
 		}
 
 		// 图形格宽
@@ -185,6 +208,113 @@ public class PolyLineChart extends AbstractChart {
 			}
 		}
 		g2d.dispose();
+		
+		drawTable();
+	}
+	
+	/**
+	 * 画出表格部分
+	 */
+	private void drawTable(){
+		float curY=getPositionY()+5;
+		float sepWidth=(this.templateWidth - this.tableTitleWidth) / this.normBGColor.length;
+		float x0=this.xOffset+this.tableTitleWidth;
+		
+		BaseColor tabelBorderColor=new BaseColor(this.tableBorderColor);
+		this.contentByte.setFontAndSize(this.baseFont, this.fontSize);
+		
+		//画出表头信息
+		for(int i=0,len=this.dataColNames.length;i<len;i++){
+			this.moveRect(this.contentByte,x0, curY, x0+sepWidth, curY-this.cellHeight,this.dataColColors[i]);
+			this.contentByte.setColorFill(BaseColor.WHITE);
+			this.moveMultiLineText(this.contentByte, this.dataColNames[i], this.fontSize,
+							sepWidth, this.cellHeight, x0, curY, 0);	
+			
+			this.contentByte.setColorFill(tabelBorderColor);
+			this.contentByte.setColorStroke(tabelBorderColor);
+			this.moveLine(this.contentByte, x0+sepWidth, curY,
+					x0+sepWidth, curY-this.cellHeight+ 1);
+			
+			x0+=sepWidth;
+		}
+		
+		this.positionY=this.cellHeight;
+		curY-=this.cellHeight;
+		BaseColor fontColor_=new BaseColor(this.fontColor);
+		BaseColor[] lineColors_=new BaseColor[this.batchColor.length];
+		
+		for(int k=0,len=this.batchColor.length;k<len;k++){
+			lineColors_[k]=new BaseColor(this.batchColor[k]);
+		}
+		
+		x0 =this.xOffset+this.tableTitleWidth;
+		this.contentByte.setColorStroke(tabelBorderColor);
+		this.moveLine(this.contentByte, x0, curY,x0, curY +this.cellHeight + 1);
+		float temp=0;
+		
+		for (int i = 0,len=this.dataList.size(); i <len; i++) {
+			// 开始画出分数
+			for (int j = 0,l= this.dataList.get(i).length; j <l; j++) {
+
+				this.contentByte.setColorStroke(tabelBorderColor);
+				this.contentByte.setColorFill(tabelBorderColor);
+				this.moveRect(this.contentByte, x0, curY, x0 + sepWidth, curY - this.cellHeight + 1,
+						this.rowColors[i % 2]);
+				this.moveLine(this.contentByte, x0 + sepWidth, curY,
+																	x0 + sepWidth, curY - this.cellHeight+1);
+
+				this.contentByte.setColorFill(fontColor_);
+				this.moveMultiLineText(this.contentByte, this.dataList.get(i)[j] + "", this.fontSize,
+						sepWidth, this.cellHeight, x0, curY, 0);	
+
+				if(i==len-1)
+					this.moveLine(this.contentByte, x0, curY - this.cellHeight + 1,
+							x0 + sepWidth,curY - this.cellHeight + 1);
+				
+				x0 += sepWidth;
+			}
+			x0 =this.xOffset+this.tableTitleWidth;
+			this.moveRect(this.contentByte, x0 - 1, curY, x0 - 1 - this.scoreDescWidth, curY - this.cellHeight + 1,
+					this.rowColors[i % 2]);
+			
+			this.contentByte.setColorStroke(tabelBorderColor);
+			this.moveLine(this.contentByte, x0 - 1, curY,x0 - 1, curY - this.cellHeight + 1);
+			this.moveLine(this.contentByte, x0 - 1 - this.scoreDescWidth, curY,
+													x0 - 1 - this.scoreDescWidth, curY - this.cellHeight + 1);
+			if(i == 0)
+				this.moveLine(this.contentByte, x0 - 1, curY,
+												x0 - 1 - this.scoreDescWidth,curY);
+			if(i==len-1)
+				this.moveLine(this.contentByte, x0 - 1, curY - this.cellHeight + 1,
+						x0 - 1 - this.scoreDescWidth,curY - this.cellHeight + 1);
+			
+			this.contentByte.setColorFill(fontColor_);
+			temp=this.scoreDescWidth*4f/5;
+			this.moveMultiLineText(this.contentByte, this.dataRowNames[i], this.fontSize,
+					temp, this.cellHeight, x0 - 1 - temp, curY, 0);	
+			temp=(temp-this.calTextWidth(this.fontSize, this.dataRowNames[i]))/2;
+			temp=(this.scoreDescWidth/5+temp)/2;
+			
+			this.contentByte.setColorStroke(lineColors_[i]);
+			this.drawLineCircle(x0-1- this.scoreDescWidth+temp,
+					curY-this.cellHeight/2,2,false);
+			
+			curY -= this.cellHeight;
+			this.positionY += this.cellHeight;
+		}
+	}
+	
+	/**
+	 * 画出点贯穿线
+	 * @param x
+	 * @param y
+	 * @param r
+	 * @param isFill
+	 */
+	private void drawLineCircle(float x,float y,float r,boolean isFill){
+		this.moveCircle(this.contentByte, x,y, r, isFill);
+		this.moveLine(this.contentByte, x-r, y, x-r-5, y);
+		this.moveLine(this.contentByte, x+r, y, x+r+5, y);
 	}
 
 	public PolyLineChart setDataList(List<Float[]> dataList) {
@@ -247,8 +377,53 @@ public class PolyLineChart extends AbstractChart {
 		return this;
 	}
 	
+	public PolyLineChart setDataRowNames(String[] dataRowNames) {
+		this.dataRowNames = dataRowNames;
+		return this;
+	}
+
+	public PolyLineChart setDataColNames(String[] dataColNames) {
+		this.dataColNames = dataColNames;
+		return this;
+	}
+
+	public PolyLineChart setDataColColors(int[] dataColColors) {
+		this.dataColColors = dataColColors;
+		return this;
+	}
+
+	public PolyLineChart setCellHeight(float cellHeight) {
+		this.cellHeight = cellHeight;
+		return this;
+	}
+
+	public PolyLineChart setFontSize(float fontSize) {
+		this.fontSize = fontSize;
+		return this;
+	}
+
+	public PolyLineChart setTableBorderColor(int tableBorderColor) {
+		this.tableBorderColor = tableBorderColor;
+		return this;
+	}
+
+	public PolyLineChart setRowColors(int[] rowColors) {
+		this.rowColors = rowColors;
+		return this;
+	}
+
+	public PolyLineChart setFontColor(int fontColor) {
+		this.fontColor = fontColor;
+		return this;
+	}
+
+	public PolyLineChart setScoreDescWidth(int scoreDescWidth) {
+		this.scoreDescWidth = scoreDescWidth;
+		return this;
+	}
+
 	public float getPositionY() {
-		this.positionY=this.writer.getVerticalPosition(true)+30;
+		this.positionY=this.document.getPageSize().getHeight()-this.positionY;
 		this.positionY-=this.templateHeight;
 		this.positionY-=this.yOffset;
 		return this.positionY;

@@ -14,6 +14,7 @@ import com.itextpdf.text.PageSize;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import base.TestBaseChart;
 import pdf.table.TableCommonTable;
 import pdf.table.TableLikeSevenAndAlternateLine;
 
@@ -43,7 +44,7 @@ public class TestTable {
 	}
 
 	@Test
-	public void testTableRectLineCategoryChart() throws Exception {
+	public void testTableLikeSevenAndAlternateLine() throws Exception {
 		doc.open();
 
 		TableLikeSevenAndAlternateLine tableLikeSevenAndAlternateLine =
@@ -109,8 +110,13 @@ public class TestTable {
 		tableCommonTable
 		.setRowDatas(orgScoreOrders).setWidths(new float[]{15,15,35,35})
 		.setOtherColumnAlign(Element.ALIGN_LEFT).setFirstColumnColors(0x9090F0)
-		.setRowColors(new int[]{0xFFFFFF,0x00FFFF}).setFirstColumnFontColor(0xFF00FF)
+		.setRowColors(new int[]{0xFFFFFF,0xEFEFEF}).setFirstColumnFontColor(0xFF00FF)
 		 ;
+		
+		TestBaseChart.addDescText(tableCommonTable,
+				doc, bfChinese, "pdf.table.TableCommonTable",
+				"chart.TestTable.testTableCommonTable()");
+		tableCommonTable.setLine(1, doc);
 		
 		tableCommonTable.chart();
 

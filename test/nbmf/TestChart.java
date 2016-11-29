@@ -15,10 +15,12 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import base.TestBaseChart;
 import pdf.nbmf.CircleSeparateManySectorsChart;
 import pdf.nbmf.TableChartedPositionAreaCurveChart;
 import pdf.nbmf.TableChartedPositionAreaCurveScoresChart;
 import pdf.nbmf.TableGradeDistributionOnlyTextChart;
+import pdf.nbmf.TableGradeSimpleAreaCurveChart;
 
 public class TestChart {
 	// 写入器
@@ -50,11 +52,20 @@ public class TestChart {
 
 		TableGradeDistributionOnlyTextChart tableGradeDistributionChart = new TableGradeDistributionOnlyTextChart(writer,
 				writer.getDirectContent(), doc, bfChinese);
-		tableGradeDistributionChart.setX(80).setY(550)
+		tableGradeDistributionChart.setX(40).setY(700)
 		.setGradeDescs(new String[]{"前前前前15% ","前15%-前45% ","后55%-后15% ","后15% "})
 		.setMaxNumber(100).setCurNumber(15f)
-		.setMarkCurPositon(false).setWidth(200)
+		.setMarkCurPositon(false).setWidth(500)
 		.setShowSepLine(true)
+		;
+
+		tableGradeDistributionChart.chart();
+		
+		tableGradeDistributionChart.setX(40).setY(600)
+		.setGradeDescs(null)
+		.setMaxNumber(100).setCurNumber(15f)
+		/*.setMarkCurPositon(false)*/.setWidth(500)
+		.setShowSepLine(false)
 		;
 
 		tableGradeDistributionChart.chart();
@@ -62,7 +73,7 @@ public class TestChart {
 		writer.getDirectContent().setColorStroke(BaseColor.BLACK);
 
 		float y = tableGradeDistributionChart.getPositionY();
-		tableGradeDistributionChart.moveLine(writer.getDirectContent(), 0, y, 550, y);
+		tableGradeDistributionChart.moveLine(writer.getDirectContent(), 0, y, doc.getPageSize().getWidth(), y);
 
 		doc.close();
 	}
@@ -73,7 +84,7 @@ public class TestChart {
 
 		CircleSeparateManySectorsChart tableGradeDistributionChart = new CircleSeparateManySectorsChart(writer,
 				writer.getDirectContent(), doc, bfChinese);
-		tableGradeDistributionChart.setX(doc.getPageSize().getWidth()/2).setY(550)
+		tableGradeDistributionChart.setX(doc.getPageSize().getWidth()/2).setY(570)
 		.setScores(new float[]{10,
 				20,50,
 				60})
@@ -84,12 +95,17 @@ public class TestChart {
 		.setFillColors(new int[] { 0x1897BD, 0x2DBFD5, 0xBFBFBF, 0x16CA4})
 		;
  
+		TestBaseChart.addDescText(tableGradeDistributionChart,
+				doc, bfChinese, "pdf.nbmf.CircleSeparateManySectorsChart",
+				"nbmf.TestChart.testCircleSeparateManySectorsChart()");
+		tableGradeDistributionChart.setLine(1, doc);
+		
 		tableGradeDistributionChart.chart();
 
 		writer.getDirectContent().setColorStroke(BaseColor.BLACK);
 
 		float y = tableGradeDistributionChart.getPositionY();
-		tableGradeDistributionChart.moveLine(writer.getDirectContent(), 0, y, 550, y);
+		tableGradeDistributionChart.moveLine(writer.getDirectContent(), 0, y, doc.getPageSize().getWidth(), y);
 
 		doc.close();
 	}
@@ -98,7 +114,7 @@ public class TestChart {
 	public void testTableChartedPositionAreaCurveChart() throws Exception {
 		doc.open();
 
-		for (int i = 0; i < 30; i++) {
+		for (int i = 0; i < 25; i++) {
 			doc.add(new Paragraph("极乐空间阿尔法", new Font(bfChinese)));
 		}
 
@@ -128,12 +144,17 @@ public class TestChart {
 		})
 		.setParentTypes(new String[] { "基础机械推械推", "基本", "领导" });
 
+		TestBaseChart.addDescText(chart,
+				doc, bfChinese, "pdf.nbmf.TableChartedPositionAreaCurveChart",
+				"nbmf.TestChart.testTableChartedPositionAreaCurveChart()");
+		chart.setLine(1, doc);
+		
 		chart.chart();
 		
 		writer.getDirectContent().setColorStroke(BaseColor.BLACK);
 
 		float y = chart.getPositionY();
-		chart.moveLine(writer.getDirectContent(), 0, y, 550, y);
+		chart.moveLine(writer.getDirectContent(), 0, y, doc.getPageSize().getWidth(), y);
 
 		doc.close();
 	}
@@ -142,7 +163,7 @@ public class TestChart {
 	public void testTableChartedPositionAreaCurveScoresChart() throws Exception {
 		doc.open();
 
-		for (int i = 0; i < 30; i++) {
+		for (int i = 0; i < 25; i++) {
 			doc.add(new Paragraph("极乐空间阿尔法", new Font(bfChinese)));
 		}
 
@@ -173,12 +194,53 @@ public class TestChart {
 		})
 		.setParentTypes(new String[] { "基础机械推械推", "基本", "领导" });
 
+		TestBaseChart.addDescText(chart,
+				doc, bfChinese, "pdf.nbmf.TableChartedPositionAreaCurveScoresChart",
+				"nbmf.TestChart.testTableChartedPositionAreaCurveScoresChart()");
+		chart.setLine(1, doc);
+		
 		chart.chart();
 		
 		writer.getDirectContent().setColorStroke(BaseColor.BLACK);
 
 		float y = chart.getPositionY();
-		chart.moveLine(writer.getDirectContent(), 0, y, 550, y);
+		chart.moveLine(writer.getDirectContent(), 0, y, doc.getPageSize().getWidth(), y);
+
+		doc.close();
+	}
+	
+	
+	@Test
+	public void testTableGradeSimpleAreaCurveChart() throws Exception {
+		doc.open();
+
+		TableGradeSimpleAreaCurveChart chart = new TableGradeSimpleAreaCurveChart(writer,
+				writer.getDirectContent(), doc, bfChinese);
+
+		chart.setWidth(450)
+		.setX(80)
+		.setY(500)
+		.setFontSize(10)
+		.setLineHeight(30)
+		.setLevelFontSize(9)
+		.setGradeColors(new int[] { 0x5DD3B0, 0x92D050, 0xFFC000})
+		.setGradeNames(new String[] { "优秀", "良好", "合格"})
+		.setLevels(new float[] {2f, 4f,6f, 8f, 10f })
+		.setScores(new float[] {5.5f,8.25f ,2.3f,9f,4.9f})
+		.setItemNames(new String[]{"德德德德德德德德德德","智","体","美","劳"})
+		.setGradeUpperLimitScore(new float[]{9f,7f,5f});
+
+		TestBaseChart.addDescText(chart,
+				doc, bfChinese, "pdf.nbmf.TableGradeSimpleAreaCurveChart",
+				"nbmf.TestChart.testTableGradeSimpleAreaCurveChart()");
+		chart.setLine(1, doc);
+		
+		chart.chart();
+		
+		writer.getDirectContent().setColorStroke(BaseColor.BLACK);
+
+		float y = chart.getPositionY();
+		chart.moveLine(writer.getDirectContent(), 0, y, doc.getPageSize().getWidth(), y);
 
 		doc.close();
 	}

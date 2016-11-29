@@ -161,15 +161,15 @@ public class TestBase {
 		
 		DoubleArrowGraph chart=new DoubleArrowGraph(writer, writer.getDirectContent(), doc);
 		chart.setBaseChart(new TestBaseChart());
-		chart.setX(300).setY(600).setX0(300).setY0(600).setHeight(15).setColor(0xFF0000)
+		chart.setX(300).setY(650).setX0(400).setY0(650).setHeight(15).setColor(0xFF0000)
 		.setArrowWidth(5).setArrowLineWidth(1.2f);
 		
 		chart.chart();
 		
-//		chart.setX(400).setY(600).setX0(400).setY0(500).setHeight(15).setColor(0xFF0000).
-//		setArrowWidth(10).setArrowLineWidth(1.5f).setLevel(DoubleArrowGraph.LEVEL_Y);
-//		
-//		chart.chart();
+		chart.setX(200).setY(700).setX0(200).setY0(600).setHeight(15).setColor(0xFF0000).
+		setArrowWidth(10).setArrowLineWidth(1.5f).setLevel(DoubleArrowGraph.LEVEL_Y);
+		
+		chart.chart();
 		
         doc.close();
 	}
@@ -182,13 +182,13 @@ public class TestBase {
 		
 		chart.setBaseChart(new TestBaseChart());
 		
-		chart.setX(10).setY(550).setX0(20).setY0(520).setHasCircle(true).setColor(0xff0);
+		chart.setX(10).setY(650).setX0(20).setY0(620).setHasCircle(true).setColor(0xff0);
 		
 		chart.chart();
 		
 		writer.getDirectContent().setLineDash(1,1);
 		
-		chart.setX(20).setY(520).setX0(200).setY0(490);
+		chart.setX(20).setY(620).setX0(200).setY0(590);
 		
 		chart.chart();
 		 
@@ -203,11 +203,9 @@ public class TestBase {
 		
 		chart.setBaseChart(new TestBaseChart());
 		
-		chart.setX(200).setY(550);
+		chart.setX(200).setY(650);
 		
 		chart.chart();
-		
-		 
 		 
         doc.close();
 	}
@@ -221,12 +219,12 @@ public class TestBase {
 		chart.setBaseChart(new TestBaseChart());
 		chart.setBaseFont(bfChinese);
 		
-		chart.setItemNames(new String[]{"能力能力能力","我就垃圾费","邮箱箱邮邮箱","散步散步",
+		chart.setItemNames(new String[]{"能力能力能力","我就垃圾费"/*,"邮箱箱邮邮箱","散步散步",
 				"散步散步","散步散步","我就垃圾费","邮箱箱邮邮箱","散步散步","我就垃圾费","邮箱箱邮邮箱","散步散步",
-				"散步散步","散步散步","我就垃圾费","邮箱箱邮邮箱","散步散步"})
-		       .setDescs(new String[]{"发违法","案件范围","家居服挖坟","家居服挖坟","家居服挖坟","家居服挖坟"
+				"散步散步","散步散步","我就垃圾费","邮箱箱邮邮箱","散步散步"*/})
+		       .setDescs(new String[]{"发违法","案件范围"/*,"家居服挖坟","家居服挖坟","家居服挖坟","家居服挖坟"
 				,"家居服挖坟","家居服挖坟","家居服挖坟","案件范围","家居服挖坟","家居服挖坟","家居服挖坟","家居服挖坟"
-				,"家居服挖坟","家居服挖坟","家居服挖坟"});
+				,"家居服挖坟","家居服挖坟","家居服挖坟"*/});
 		
 		chart.chart();
 		 
@@ -241,13 +239,16 @@ public class TestBase {
 		
 		chart.setBaseChart(new TestBaseChart());
 		
-		chart.setTop_x(300).setTop_y(450).setRight_x(350).setRight_y(400)
-		.setLeft_x(250).setLeft_y(350).setColor(0xFF0000)/*.setFillColor(false)*/;
+		chart.setTop_x(300).setTop_y(650).setRight_x(350).setRight_y(600)
+		.setLeft_x(250).setLeft_y(550).setColor(0xFF0000)/*.setFillColor(false)*/;
 		
 		chart.chart();
 		
-		 
-		 
+		chart.setTop_x(200).setTop_y(650).setRight_x(250).setRight_y(600)
+		.setLeft_x(150).setLeft_y(550).setColor(0xFF0000).setFillColor(false);
+		
+		chart.chart();
+		
         doc.close();
 	}
 	
@@ -259,12 +260,18 @@ public class TestBase {
 		
 		chart.setBaseChart(new TestBaseChart());
 		
-		chart.setFirst_x(250).setFirst_y(250).setSecond_x(450).setSecond_y(250)
-		.setThird_x(550).setThird_y(200).setColor(0xFF0000)
-		.setFourth_x(10).setFourth_y(200)/*.setFillColor(false)*/;
+		chart.setFirst_x(20).setFirst_y(650).setSecond_x(150).setSecond_y(650)
+		.setThird_x(280).setThird_y(600).setColor(0xFF0000)
+		.setFourth_x(10).setFourth_y(600)/*.setFillColor(false)*/;
 		
 		chart.chart();
 		 
+		chart.setFirst_x(350).setFirst_y(650).setSecond_x(450).setSecond_y(650)
+		.setThird_x(550).setThird_y(600).setColor(0xFF0000)
+		.setFourth_x(320).setFourth_y(600).setFillColor(false);
+		
+		chart.chart();
+		
         doc.close();
 	}
 	
@@ -278,7 +285,7 @@ public class TestBase {
 		chart.setBaseFont(bfChinese);
 		
 		chart.setX(200)
-		.setY(500)
+		.setY(650)
 		.setHeight(15)
 		.setWidth(30)
 		.setText("待发展")
@@ -287,7 +294,44 @@ public class TestBase {
 		.setHasLineThrough(true);
 		
 		chart.chart();
-		 
+		
+		chart.setX(300)
+		.setY(650)
+		.setHeight(15)
+		.setWidth(30)
+		.setText("待发展")
+		.setFontColor(0xFFFFFF)
+		.setLineThrough(RectangleLineThroughGraph.LINE_THROUGH_X)
+		.setHasLineThrough(false);
+		
+		chart.chart();
+		
+		chart.setX(100)
+		.setY(650)
+		.setHeight(15)
+		.setWidth(30)
+		.setText("待发展")
+		.setFontColor(0xFFFFFF)
+		.setLineThrough(RectangleLineThroughGraph.LINE_THROUGH_Y)
+		.setHasLineThrough(true);
+		
+		chart.chart();
+		
+		chart.setX(50)
+		.setY(650)
+		.setHeight(15)
+		.setWidth(30)
+		.setText("待发展")
+		.setFontColor(0xFFFFFF)
+		.setLineThrough(RectangleLineThroughGraph.LINE_THROUGH_Y)
+		.setHasLineThrough(false);
+		
+		chart.chart();
+		
+		TestBaseChart.addDescText(chart.getBaseChart(),
+				doc, bfChinese, "pdf.base.unit.RectangleLineThroughGraph",
+				"base.TestBase.testRectangleLineThroughGraph()");
+		
         doc.close();
 	}
 }

@@ -16,6 +16,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import base.TestBaseChart;
 import pdf.base.text.DiamondBeforeParagraph;
 import pdf.chart.HistogramAreaExtremumChart;
 import pdf.chart.HistogramManyHistogramChart;
@@ -70,7 +71,7 @@ public class TestChart {
 
 //		float y = round2dCakeChart.getPositionY();
 //
-//		round2dCakeChart.moveLine(writer.getDirectContent(), 0, y, 550, y);
+//		round2dCakeChart.moveLine(writer.getDirectContent(), 0, y, doc.getPageSize().getWidth(), y);
 //
 //		round2dCakeChart.setLine(29, doc);
 //
@@ -216,7 +217,7 @@ public class TestChart {
 //		 writer.getDirectContent().setColorStroke(BaseColor.BLACK);
 //		
 //		 float y=chart.getPositionY();
-//		 chart.moveLine(writer.getDirectContent(),0, y, 550, y);
+//		 chart.moveLine(writer.getDirectContent(),0, y, doc.getPageSize().getWidth(), y);
 		
 		doc.close();
 	}
@@ -235,7 +236,7 @@ public class TestChart {
 		// writer.getDirectContent().setColorStroke(BaseColor.BLACK);
 		//
 		// float y=tableHistogramChart.getPositionY();
-		// tableHistogramChart.moveLine(writer.getDirectContent(),0, y, 550, y);
+		// tableHistogramChart.moveLine(writer.getDirectContent(),0, y, doc.getPageSize().getWidth(), y);
 
 		doc.close();
 	}
@@ -257,7 +258,7 @@ public class TestChart {
 		writer.getDirectContent().setColorStroke(BaseColor.BLACK);
 
 		float y = tableGradeDistributionChart.getPositionY();
-		tableGradeDistributionChart.moveLine(writer.getDirectContent(), 0, y, 550, y);
+		tableGradeDistributionChart.moveLine(writer.getDirectContent(), 0, y, doc.getPageSize().getWidth(), y);
 
 		doc.close();
 	}
@@ -280,17 +281,17 @@ public class TestChart {
 		aScores.add(maxScore);
 		aScores.add(minScore);
 
-		chart.setY(600).setX(60).setHeight(120).setShowDataColInTables(new int[] { 0, 1, 2, 3 })
+		chart.setY(450).setX(60).setHeight(120).setShowDataColInTables(new int[] { 0, 1, 2, 3 })
 				.setTagNames(new String[] { "分数", "平均分", "最大", "最小" })
 				.setItemNames(new String[] { "勇担责任", "履行责任", "负责守信", "勤学善思", "创新实践", "程序执行", "善于经营", "团队管理", "团队管理理" })
-				.setScores(aScores).setWidth(320).setGradeRectWidth(20);
+				.setScores(aScores).setWidth(450).setGradeRectWidth(50);
 
 		chart.chart();
 		
 //		 writer.getDirectContent().setColorStroke(BaseColor.BLACK);
 //		
 //		 float y=chart.getPositionY();
-//		 chart.moveLine(writer.getDirectContent(),0, y, 550, y);
+//		 chart.moveLine(writer.getDirectContent(),0, y, doc.getPageSize().getWidth(), y);
 		
 		doc.close();
 	}
@@ -317,7 +318,7 @@ public class TestChart {
 		chart.setLine(28, doc);
 
 		float y1 = chart.getPositionY();
-		chart.moveLine(writer.getDirectContent(), 0, y1, 550, y1);
+		chart.moveLine(writer.getDirectContent(), 0, y1, doc.getPageSize().getWidth(), y1);
 
 		// ========================================================
 
@@ -346,14 +347,14 @@ public class TestChart {
 		HistogramAreaExtremumChart chart = new HistogramAreaExtremumChart(writer, writer.getDirectContent(), doc,
 				bfChinese);
 
-		chart.setX(80).setFontSize(10).setWidth(150).setY(500).setItemNames(itemNames).setScores(s);
+		chart.setX(80).setFontSize(10).setWidth(450).setY(500).setItemNames(itemNames).setScores(s);
 
 		chart.chart();
 
 		writer.getDirectContent().setColorStroke(BaseColor.BLACK);
 
 		float y1 = chart.getPositionY();
-		chart.moveLine(writer.getDirectContent(), 0, y1, 550, y1);
+		chart.moveLine(writer.getDirectContent(), 0, y1, doc.getPageSize().getWidth(), y1);
 
 		doc.close();
 	}
@@ -380,7 +381,7 @@ public class TestChart {
 		writer.getDirectContent().setColorStroke(BaseColor.BLACK);
 
 		float y1 = chart.getPositionY();
-		chart.moveLine(writer.getDirectContent(), 0, y1, 550, y1);
+		chart.moveLine(writer.getDirectContent(), 0, y1, doc.getPageSize().getWidth(), y1);
 
 		doc.close();
 	}
@@ -392,16 +393,27 @@ public class TestChart {
 		HistogramXOrYDirectionChart chart = new HistogramXOrYDirectionChart(writer, writer.getDirectContent(), doc,
 				bfChinese);
 
-		chart.setItemNames(new String[] { "男性", "女性", "人妖" }).setY(500).setX(50).setHeight(80).setWidth(100)
+		chart.setItemNames(new String[] { "男性", "女性", "人妖" }).setY(600).setX(50).setHeight(80).setWidth(200)
 				.setScores(new float[] { 2f, 6f, 9f }).setItemColors(new int[] { 0x72CBAD, 0xE47D54, 0xFF0F00 })
 				.setHistogramDirection(HistogramXOrYDirectionChart.DIRECTION_Y);
 
 		chart.chart();
+		
+		chart.setItemNames(new String[] { "男性", "女性", "人妖" }).setY(600).setX(300).setHeight(80).setWidth(200)
+		.setScores(new float[] { 2f, 6f, 9f }).setItemColors(new int[] { 0x72CBAD, 0xE47D54, 0xFF0F00 })
+		.setHistogramDirection(HistogramXOrYDirectionChart.DIRECTION_X);
 
+		TestBaseChart.addDescText(chart,
+				doc, bfChinese, "pdf.chart.HistogramXOrYDirectionChart",
+				"chart.TestChart.testHistogramXOrYDirectionChart()");
+		chart.setLine(1, doc);
+		
+		chart.chart();
+		
 		// writer.getDirectContent().setColorStroke(BaseColor.BLACK);
 		//
 		// float y1 =chart.getPositionY();
-		// chart.moveLine(writer.getDirectContent(), 0, y1, 550, y1);
+		// chart.moveLine(writer.getDirectContent(), 0, y1, doc.getPageSize().getWidth(), y1);
 
 		doc.close();
 	}

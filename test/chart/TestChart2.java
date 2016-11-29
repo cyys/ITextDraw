@@ -10,12 +10,11 @@ import org.junit.Test;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
-import com.itextpdf.text.Font;
 import com.itextpdf.text.PageSize;
-import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import base.TestBaseChart;
 import pdf.chart.HistogramCurveExtremumChart;
 import pdf.chart.HistogramGradeDistributionChart;
 import pdf.chart.LineMulCurveLineAreaTableChart;
@@ -51,7 +50,7 @@ public class TestChart2 {
 
 		HistogramCurveExtremumChart histogramCurveExtremumChart = new HistogramCurveExtremumChart(writer, writer.getDirectContent(), doc, bfChinese);
 
-		histogramCurveExtremumChart.setX(100).setY(500).setWidth(450)
+		histogramCurveExtremumChart.setX(100).setY(550).setWidth(450)
 		.setItemNames(new String[]{"我我我我我我我","你","他","他"})
 		.setMaxScores(new float[]{2.5f,8,6,9}).setMinScores(new float[]{1.5f,2.5f,5f,5.4f})
 		.setAvgScores(new float[]{1.5f,8f,5f,8.5f});
@@ -69,7 +68,7 @@ public class TestChart2 {
 
 		HistogramGradeDistributionChart histogramGradeDistributionChart = new HistogramGradeDistributionChart(writer, writer.getDirectContent(), doc, bfChinese);
 
-		histogramGradeDistributionChart.setX(50).setY(450).setWidth(150).setCellHeight(15)
+		histogramGradeDistributionChart.setX(30).setY(500).setWidth(400).setCellHeight(15)
 		.setHeight(150).setFrameLeftOffsetX(100)
 		.setItemNames(new String[]{"我我我我我我我","你","他","他","就拉尔夫"})
 		.setScores(new float[]{25.229f,30,60,90,50});
@@ -79,7 +78,7 @@ public class TestChart2 {
 		 writer.getDirectContent().setColorStroke(BaseColor.BLACK);
 		
 		 float y1 =histogramGradeDistributionChart.getPositionY();
-		 histogramGradeDistributionChart.moveLine(writer.getDirectContent(), 0, y1, 550, y1);	
+		 histogramGradeDistributionChart.moveLine(writer.getDirectContent(), 0, y1, doc.getPageSize().getWidth(), y1);	
 		doc.close();
 	}
 
@@ -89,7 +88,7 @@ public class TestChart2 {
 
 		TableDashTableRectChart tableDashTableRectChart = new TableDashTableRectChart(writer, writer.getDirectContent(), doc, bfChinese);
 
-		tableDashTableRectChart.setX(40).setY(650).setWidth(250)
+		tableDashTableRectChart.setX(40).setY(700).setWidth(450)
 		.setHeadNames(new String[]{"我我我我我我我","你","他"})
 		.setItemNames(new String[]{"我我我我我我我","你","他","他","就拉尔夫"})
 		.setScores(new float[]{25.229f,0,60,90,50});
@@ -99,7 +98,7 @@ public class TestChart2 {
 		 writer.getDirectContent().setColorStroke(BaseColor.BLACK);
 		
 		 float y1 =tableDashTableRectChart.getPositionY();
-		 tableDashTableRectChart.moveLine(writer.getDirectContent(), 0, y1, 550, y1);	
+		 tableDashTableRectChart.moveLine(writer.getDirectContent(), 0, y1, doc.getPageSize().getWidth(), y1);	
 		doc.close();
 	}
 	
@@ -117,8 +116,8 @@ public class TestChart2 {
 		dataList.add(batchData);
 		batchData = new Float[] { 4.6f, 3.2f, 4.3f };
 		dataList.add(batchData);
-		batchData = new Float[] { 5.3f, 1.7f, 6.6f };
-		dataList.add(batchData);
+//		batchData = new Float[] { 5.3f, 1.7f, 6.6f };
+//		dataList.add(batchData);
 		// 指标颜色
 		final Integer[] normColor = new Integer[] { 0x59cfff, 0xa9d961, 0xffce54 };
 		// 指标背景色
@@ -133,11 +132,11 @@ public class TestChart2 {
 		// 画板高
 		int templateHeight =200;
 		// 距页面顶部距离
-		final int yOffset =50;
+		final int yOffset =150;
 		// 距页面左侧距离
 		final int xOffset =50;
 		// 表格表头宽
-		final int tableTitleWidth =20;
+		final int tableTitleWidth =30;
 		// 表格行高
 		final int tableRowHeight =25;
 
@@ -171,8 +170,12 @@ public class TestChart2 {
 		.setTemplateHeight(templateHeight)
 		.setyOffset(yOffset)
 		.setxOffset(xOffset)
-//		.setLeftBlank(20)
+		.setDataColNames(new String[]{"安慰费","哇嘎","爱国和我"})
+		.setDataColColors(new int[] { 0x59CFFF, 0xA9D961, 0xFFCE54})
+		.setDataRowNames( new String[] { "第一批次", "第二批次", "第三批次","第四批次","第五批次" })
+//		.setLeftBlank(29)
 		.setTableTitleWidth(tableTitleWidth)		
+		.setScoreDescWidth(60)
 		;
 		
 		chart.chart();
@@ -180,7 +183,7 @@ public class TestChart2 {
 		 writer.getDirectContent().setColorStroke(BaseColor.BLACK);
 		  
 		 float y1 =chart.getPositionY();
-		 chart.moveLine(writer.getDirectContent(), 0, y1, 550, y1);	
+		 chart.moveLine(writer.getDirectContent(), 0, y1, doc.getPageSize().getWidth(), y1);	
 		doc.close();
 	}
 	
@@ -190,18 +193,27 @@ public class TestChart2 {
 
 		LineMulCurveLineAreaTableChart chart = new LineMulCurveLineAreaTableChart(writer, writer.getDirectContent(), doc, bfChinese);
 
-		chart.setX(100).setY(500).setWidth(450)
+		chart.setX(100).setY(580).setWidth(450)
 		.setItemNames(new String[]{"我我我我我我","你","他","他我"})
 		.setScoreDescWidth(60)
+		.setTableHeadFillColors( new int[] { 0x59CFFF, 0xA9D961, 0xFFCE54, 0x59CFFF})
 		.setScoreDescNames(new String[] { "第一批次", "第二批次", "第三批次", "第4批次" })
 		.setScores(new float[][]{{8.8f,3.9f,3.2f,3.2f},{1.3f,5.5f,3.5f,3.2f},{7.5f,8.3f,4f,3.2f},{2.5f,3.5f,4.5f,3.2f}})
-		.setAreaBackgroundColors(new int[] { 0xDEF5FF, 0xEEF7DF, 0xFFF5DD, 0x9792DC})
+		.setAreaBackgroundColors(new int[] { 0xDEF5FF, 0xEEF7DF, 0xFFF5DD, 0xDEF5FF})
 		;
 		
 		chart.chart();
 		 
+		TestBaseChart.addDescText(chart,
+				doc, bfChinese, "pdf.chart.LineMulCurveLineAreaTableChart",
+				"chart.TestChart2.testLineMulCurveLineAreaTableChart()");
+		chart.setLine(1, doc);
+		
 		 writer.getDirectContent().setColorStroke(BaseColor.BLACK);
 		
+		 float y1 =chart.getPositionY();
+		 chart.moveLine(writer.getDirectContent(), 0, y1, doc.getPageSize().getWidth(), y1);	
+			
 		doc.close();
 	}
 	

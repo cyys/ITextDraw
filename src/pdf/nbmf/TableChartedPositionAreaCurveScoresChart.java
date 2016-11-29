@@ -134,7 +134,6 @@ public class TableChartedPositionAreaCurveScoresChart extends AbstractChart {
 
 	/**
 	 * 根据数据，计算整个表格的高度，确定是否要换一个新的页面，或者可以在当前画出一部分表格。
-	 * 
 	 * @param y0
 	 * @param sum
 	 * @return 表格体部分的行数
