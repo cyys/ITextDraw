@@ -93,6 +93,16 @@ public class HistogramManyHistogramChart extends AbstractChart {
 		}
 	}
 
+	private float calTableHeadHeight(float width) {
+		float sum = 0;
+		for (int i = 0; i < this.itemNames.length; i++) {
+			sum = Math.max(sum, this.itemNames[i].length());
+		}
+		sum = sum * this.fontSize % width == 0 ? sum * this.fontSize / width
+				: (float) (Math.floor(sum * this.fontSize / width) + 1);
+		return (sum - 1) * this.fontSize + this.cellHeight;
+	}
+	
 	private void drawScore(BaseColor fontColor, BaseColor tabelBorderColor) {
 		float kHeight = this.height / (this.levels[this.levels.length - 1] - this.levels[0]);
 		
@@ -113,13 +123,13 @@ public class HistogramManyHistogramChart extends AbstractChart {
 	
 	private void drawTable(BaseColor fontColor, BaseColor tabelBorderColor) {
 		float sepWidth = this.width / this.itemNames.length;
-		float x0 = this.x, y0 = this.y - this.cellHeight, tempX = 0;
+		float x0 = this.x,temp=calTableHeadHeight(sepWidth), y0 = this.y - temp;
 
 		for (int i = 0; i < this.itemNames.length; i++) {
 			this.moveRect(this.contentByte, x0, this.y, x0 + sepWidth - 1, y0, this.itemBackgroundColor);
 
 			this.contentByte.setColorFill(BaseColor.WHITE);
-			drawMulRowText(this.cellHeight, sepWidth, this.itemNames[i], x0, this.y);
+			drawMulRowText(temp, sepWidth, this.itemNames[i], x0, this.y);
 
 			this.contentByte.setColorStroke(tabelBorderColor);
 			this.contentByte.setLineDash(1);
@@ -127,6 +137,7 @@ public class HistogramManyHistogramChart extends AbstractChart {
 			x0 += sepWidth;
 		}
 
+		this.positionY+=temp;
 		this.contentByte.setColorStroke(tabelBorderColor);
 		this.contentByte.setLineDash(1);
 		this.moveLine(this.contentByte, x0, this.y, x0, y0);
@@ -155,10 +166,10 @@ public class HistogramManyHistogramChart extends AbstractChart {
 			this.moveRect(this.contentByte, x0 - 1, y0, x0 - 1 - this.typeWidth, y0 - this.cellHeight,
 					this.rowColors[i % 2]);
 
-			tempX = drawMulRowText(this.cellHeight, this.typeWidth - 5, this.typeNames[i] + "", x0 + 5 - this.typeWidth,
+			temp = drawMulRowText(this.cellHeight, this.typeWidth - 5, this.typeNames[i] + "", x0 + 5 - this.typeWidth,
 					y0);
 
-			this.moveRect(this.contentByte, tempX - 2, y0 - this.cellHeight / 2 + 2.5f, tempX - 7,
+			this.moveRect(this.contentByte, temp - 2, y0 - this.cellHeight / 2 + 2.5f, temp - 7,
 					y0 - this.cellHeight / 2 - 2.5f, this.typeFillColors[i % this.typeNames.length]);
 
 			this.contentByte.setColorStroke(tabelBorderColor);
@@ -170,7 +181,6 @@ public class HistogramManyHistogramChart extends AbstractChart {
 			this.positionY+=this.cellHeight;
 		}
 		
-		this.positionY+=this.cellHeight;
 		this.contentByte.setColorStroke(tabelBorderColor);
 		this.contentByte.setLineDash(1);
 		this.moveLine(this.contentByte, this.x, y0, this.x + this.width, y0);

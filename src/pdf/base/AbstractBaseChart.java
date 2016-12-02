@@ -119,9 +119,9 @@ public abstract class AbstractBaseChart {
 	 * @param pFont
 	 * @param str
 	 * @param height
-	 * @param fontColor
+	 * @param borderWidth
 	 * @param backColor
-	 * @return
+	 * @return PdfPCell
 	 */
 	public PdfPCell addCell(Font pFont,String str, float height,float borderWidth, BaseColor backColor) {
 		PdfPCell cell = new PdfPCell(new Paragraph(str, pFont));
@@ -231,10 +231,11 @@ public abstract class AbstractBaseChart {
 	}
 	
 	/**
+	 *显示窄的文本:主要是含有数字的文本
 	 * 根据字体的大小，计算一段文本的所占用的宽度
 	 * @param fontSize
 	 * @param text
-	 * @return
+	 * @return float
 	 */
 	public float calTextWidth(float fontSize,String text){
 		float width=0;
@@ -249,6 +250,7 @@ public abstract class AbstractBaseChart {
 	}
 	
 	/**
+	 *  显示窄的文本:主要是含有数字的文本
 	 *  根据文本的长度和指定的绘画区域的宽度，换行或不换行显示出文本，在根据行高来文本垂直居中
 	 * 根据宽度水平居中;如果要将文本纵向显示，请自行计算X(文字居中的时候且仅仅显示一个字)
 	 * ，width指定为字体大小即可
@@ -267,6 +269,52 @@ public abstract class AbstractBaseChart {
 		
 		int lines=(int)Math.ceil(textTotalWidth/width);//根据文字宽度和区域宽度，计算出行数
 		int everyLength=text.length()/lines;//在多行的情况下，平均分配每段文本的长度
+		String textTemp=null;
+		
+		float x0=0,y0=y-(lineHeight-lines*fontSize)/2-fontSize*4.3f/5;
+		for(int i=0;i<lines;i++){
+			textTemp=text.substring(i*everyLength,i!=lines-1?(i+1)*everyLength:text.length());
+			x0=x+(width-this.calTextWidth(fontSize, textTemp))/2;
+			this.moveText(cb,textTemp, x0, y0, Element.ALIGN_LEFT, rotation);
+			y0-=fontSize;
+		}
+	}
+	
+	/**
+	 * 主要是汉字
+	 * 通过即将显示的文本、宽度、字体和固定行高，计算出文字多行显示的高度 
+	 * @param text
+	 * @param fontSize
+	 * @param width
+	 * @param lineHeight
+	 * @return float
+	 */
+	public float calRealHeight(String text,float fontSize,float width,float lineHeight){
+		int everyLength=(int)(width/fontSize);//在多行的情况下，平均分配每段文本的长度
+		int lines=(int)Math.ceil(text.length()/everyLength);//根据文字宽度和区域宽度，计算出行数
+		lines=text.length()%everyLength==0?lines:lines+1;
+		return lines*fontSize+lineHeight;
+	}
+	
+	/**
+	 * 主要是汉字
+	 *  根据文本的长度和指定的绘画区域的宽度，换行或不换行显示出文本，在根据行高来文本垂直居中
+	 * 根据宽度水平居中;如果要将文本纵向显示，请自行计算X(文字居中的时候且仅仅显示一个字)
+	 * ，width指定为字体大小即可
+	 * @param cb
+	 * @param text
+	 * @param fontSize
+	 * @param width
+	 * @param lineHeight
+	 * @param x
+	 * @param y
+	 * @param rotation
+	 */
+	public void moveMultiLineWText(PdfContentByte cb,String text,float fontSize,
+											float width,float lineHeight, float x, float y,int rotation){
+		int everyLength=(int)(width/fontSize);//在多行的情况下，平均分配每段文本的长度
+		int lines=(int)Math.ceil(text.length()/everyLength);//根据文字宽度和区域宽度，计算出行数
+		lines=text.length()%everyLength==0?lines:lines+1;
 		String textTemp=null;
 		
 		float x0=0,y0=y-(lineHeight-lines*fontSize)/2-fontSize*4.3f/5;

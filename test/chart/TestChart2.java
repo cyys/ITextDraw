@@ -70,7 +70,7 @@ public class TestChart2 {
 
 		histogramGradeDistributionChart.setX(30).setY(500).setWidth(400).setCellHeight(15)
 		.setHeight(150).setFrameLeftOffsetX(100)
-		.setItemNames(new String[]{"我我我我我我我","你","他","他","就拉尔夫"})
+		.setItemNames(new String[]{"我我我我我我我我我我我我我我我我我","你","他","他","就拉尔夫"})
 		.setScores(new float[]{25.229f,30,60,90,50});
 		
 		histogramGradeDistributionChart.chart();
@@ -170,7 +170,7 @@ public class TestChart2 {
 		.setTemplateHeight(templateHeight)
 		.setyOffset(yOffset)
 		.setxOffset(xOffset)
-		.setDataColNames(new String[]{"安慰费","哇嘎","爱国和我"})
+		.setDataColNames(new String[]{"安慰费安慰费安慰安慰费安慰费安慰费费安慰费","哇嘎","爱国和我"})
 		.setDataColColors(new int[] { 0x59CFFF, 0xA9D961, 0xFFCE54})
 		.setDataRowNames( new String[] { "第一批次", "第二批次", "第三批次","第四批次","第五批次" })
 //		.setLeftBlank(29)
@@ -194,7 +194,7 @@ public class TestChart2 {
 		LineMulCurveLineAreaTableChart chart = new LineMulCurveLineAreaTableChart(writer, writer.getDirectContent(), doc, bfChinese);
 
 		chart.setX(100).setY(580).setWidth(450)
-		.setItemNames(new String[]{"我我我我我我","你","他","他我"})
+		.setItemNames(new String[]{"我我我我我我我我我我我我我我","你","他","他我"})
 		.setScoreDescWidth(60)
 		.setTableHeadFillColors( new int[] { 0x59CFFF, 0xA9D961, 0xFFCE54, 0x59CFFF})
 		.setScoreDescNames(new String[] { "第一批次", "第二批次", "第三批次", "第4批次" })

@@ -176,7 +176,7 @@ public class TableRectLineRightCategoryChart extends AbstractChart {
 			if(i>0){
 				this.contentByte.setColorStroke(leveLineColor);
 				this.contentByte.setLineDash(1f, 2f, 0f);
-				this.moveLine(this.contentByte, x1, y1, x1 + this.width, y1);
+				this.moveLine(this.contentByte, x1, y1, x1 + this.width+sepWidth, y1);
 			}
 		}
 

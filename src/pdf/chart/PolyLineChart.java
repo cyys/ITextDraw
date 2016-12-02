@@ -213,11 +213,27 @@ public class PolyLineChart extends AbstractChart {
 	}
 	
 	/**
+	 * 计算出表格的头部宽度
+	 * @param width
+	 * @return
+	 */
+	private float calTableHeadHeight(float width) {
+		float sum = 0;
+		for (int i = 0; i < this.dataColNames.length; i++) {
+			sum = Math.max(sum, this.dataColNames[i].length());
+		}
+		sum = sum * this.fontSize % width == 0 ? sum * this.fontSize / width
+				: (float) (Math.floor(sum * this.fontSize / width) + 1);
+		return (sum - 1) * this.fontSize + this.cellHeight;
+	}
+	
+	/**
 	 * 画出表格部分
 	 */
 	private void drawTable(){
 		float curY=getPositionY()+5;
 		float sepWidth=(this.templateWidth - this.tableTitleWidth) / this.normBGColor.length;
+		float temp = calTableHeadHeight(sepWidth);
 		float x0=this.xOffset+this.tableTitleWidth;
 		
 		BaseColor tabelBorderColor=new BaseColor(this.tableBorderColor);
@@ -225,10 +241,10 @@ public class PolyLineChart extends AbstractChart {
 		
 		//画出表头信息
 		for(int i=0,len=this.dataColNames.length;i<len;i++){
-			this.moveRect(this.contentByte,x0, curY, x0+sepWidth, curY-this.cellHeight,this.dataColColors[i]);
+			this.moveRect(this.contentByte,x0, curY, x0+sepWidth, curY-temp,this.dataColColors[i]);
 			this.contentByte.setColorFill(BaseColor.WHITE);
 			this.moveMultiLineText(this.contentByte, this.dataColNames[i], this.fontSize,
-							sepWidth, this.cellHeight, x0, curY, 0);	
+							sepWidth, temp, x0, curY, 0);	
 			
 			this.contentByte.setColorFill(tabelBorderColor);
 			this.contentByte.setColorStroke(tabelBorderColor);
@@ -238,8 +254,8 @@ public class PolyLineChart extends AbstractChart {
 			x0+=sepWidth;
 		}
 		
-		this.positionY=this.cellHeight;
-		curY-=this.cellHeight;
+		this.positionY=temp;
+		curY-=temp;
 		BaseColor fontColor_=new BaseColor(this.fontColor);
 		BaseColor[] lineColors_=new BaseColor[this.batchColor.length];
 		
@@ -250,7 +266,7 @@ public class PolyLineChart extends AbstractChart {
 		x0 =this.xOffset+this.tableTitleWidth;
 		this.contentByte.setColorStroke(tabelBorderColor);
 		this.moveLine(this.contentByte, x0, curY,x0, curY +this.cellHeight + 1);
-		float temp=0;
+		temp=0;
 		
 		for (int i = 0,len=this.dataList.size(); i <len; i++) {
 			// 开始画出分数

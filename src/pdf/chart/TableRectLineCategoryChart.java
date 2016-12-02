@@ -224,16 +224,16 @@ public class TableRectLineCategoryChart extends AbstractChart {
 		 * 标题数据
 		 */
 		float[] rowScores = null;
-		for (int j = 0; j < scores.size(); j++) {
+		for (int j = 0; j < this.scores.size(); j++) {
 			if (ArrayUtils.contains(this.showDataColInTables,  j)) {
-				rowScores = scores.get(j);
+				rowScores = this.scores.get(j);
 				for (int k = 0; k < rowScores.length; k++) {
 					this.moveRect(this.contentByte, x0, y0 - cellHeight, x0 + sepWidth, y0, this.tableBackColor);
 					drawMulRowText(cellHeight, sepWidth, rowScores[k] + "", x0, y0);
 					x0 += sepWidth + 1f;
 				}
+				y0 -= cellHeight + 1;
 			}
-			y0 -= cellHeight + 1;
 			x0 = this.x;
 		}
 		
@@ -342,10 +342,12 @@ public class TableRectLineCategoryChart extends AbstractChart {
 		this.positionY=rowHeight;
 		
 		for (int i = 0; i < this.tagNames.length; i++) {
-			this.moveRect(this.contentByte, this.x - sepWidth, y1, this.x - 1, y1 - cellHeight, this.tableBackColor);
-			drawMulRowText(cellHeight, sepWidth, this.tagNames[i], x1, y1);
-			y1 -= cellHeight+1;
-			this.positionY+=cellHeight;
+			if (ArrayUtils.contains(this.showDataColInTables, i)) {
+				this.moveRect(this.contentByte, this.x - sepWidth, y1, this.x - 1, y1 - cellHeight, this.tableBackColor);
+				drawMulRowText(cellHeight, sepWidth, this.tagNames[i], x1, y1);
+				y1 -= cellHeight+1;
+				this.positionY+=cellHeight;
+			}
 		}
 	}
 

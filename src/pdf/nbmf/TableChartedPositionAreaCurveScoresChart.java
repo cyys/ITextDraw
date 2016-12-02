@@ -21,7 +21,7 @@ import pdf.base.unit.FourTopQuadrilateralGraph;
 import pdf.chart.AbstractChart;
 
 /**
- * 可以在两页显示的表格+双箭头+圆滑曲线图，positionY为画好图形后当前的Y坐标
+ * 可以在两页显示的表格+一条点连接线+阴影区域图，positionY为画好图形后当前的Y坐标
  * @author cheny
  */
 public class TableChartedPositionAreaCurveScoresChart extends AbstractChart {

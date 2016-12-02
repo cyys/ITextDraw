@@ -241,21 +241,23 @@ public class TableGradeSimpleAreaCurveChart extends AbstractChart {
 		BaseColor tableBorderColor_=new BaseColor(this.tableBorderColor);
 		this.contentByte.setColorStroke(tableBorderColor_);
 		this.moveLine(this.contentByte, x0, y0, x0+this.width, y0);
+		float temp=calTableHeadHeight(sepWidth);
+		this.positionY=temp;
 		//表头中文信息
 		for(int i=0,len=this.itemNames.length;i<len;i++){
-			this.moveRect(this.contentByte, x0, y0, x0+sepWidth-1, y0-this.lineHeight, this.tableBackgroundColor);
+			this.moveRect(this.contentByte, x0, y0, x0+sepWidth-1, y0-temp, this.tableBackgroundColor);
 			this.contentByte.setColorStroke(tableBorderColor_);
-			this.moveLine(this.contentByte, x0+sepWidth, y0, x0+sepWidth, y0-this.lineHeight);
-			this.moveLine(this.contentByte, x0, y0, x0, y0-this.lineHeight);
+			this.moveLine(this.contentByte, x0+sepWidth, y0, x0+sepWidth, y0-temp);
+			this.moveLine(this.contentByte, x0, y0, x0, y0-temp);
 			
 			this.contentByte.setColorFill(fontColor);
-			this.moveMultiLineText(this.contentByte, this.itemNames[i], this.fontSize,
-							sepWidth, lineHeight, x0, y0, 0);
+			this.moveMultiLineWText(this.contentByte, this.itemNames[i], this.fontSize,
+							sepWidth, temp, x0, y0, 0);
 			x0+=sepWidth;
 		}
 		
 		//表格底部的边框
-		y0-=this.lineHeight;
+		y0-=temp;
 		x0=this.x;
 		this.contentByte.setColorStroke(tableBorderColor_);
 		this.moveLine(this.contentByte, x0, y0, x0+this.width, y0);
@@ -275,9 +277,20 @@ public class TableGradeSimpleAreaCurveChart extends AbstractChart {
 		
 		//表格底部的边框
 		y0-=this.lineHeight;
+		this.positionY+=this.lineHeight;
 		x0=this.x;
 		this.contentByte.setColorStroke(tableBorderColor_);
 		this.moveLine(this.contentByte, x0, y0, x0+this.width, y0);
+	}
+	
+	private float calTableHeadHeight(float width) {
+		String maxLenText="";
+		for (int i = 0; i < this.itemNames.length; i++) {
+			if(maxLenText.length()<this.itemNames[i].length()){
+				maxLenText=this.itemNames[i];
+			}
+		}
+		return this.calRealHeight(maxLenText, this.fontSize, width, this.lineHeight);
 	}
 	
 	public TableGradeSimpleAreaCurveChart setWidth(float width) {
@@ -311,7 +324,7 @@ public class TableGradeSimpleAreaCurveChart extends AbstractChart {
 	}
 
 	public float getPositionY() {
-		return this.positionY;
+		return this.y-this.positionY-10;
 	}
 
 	public TableGradeSimpleAreaCurveChart setFontColor(int fontColor) {

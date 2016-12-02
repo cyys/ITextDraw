@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -17,10 +18,12 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 import base.TestBaseChart;
 import pdf.nbmf.CircleSeparateManySectorsChart;
+import pdf.nbmf.TableChartedManyCurveScoresChart;
 import pdf.nbmf.TableChartedPositionAreaCurveChart;
 import pdf.nbmf.TableChartedPositionAreaCurveScoresChart;
 import pdf.nbmf.TableGradeDistributionOnlyTextChart;
 import pdf.nbmf.TableGradeSimpleAreaCurveChart;
+import pdf.nbmf.TableSmallRectCurveLineChart;
 
 public class TestChart {
 	// 写入器
@@ -53,7 +56,7 @@ public class TestChart {
 		TableGradeDistributionOnlyTextChart tableGradeDistributionChart = new TableGradeDistributionOnlyTextChart(writer,
 				writer.getDirectContent(), doc, bfChinese);
 		tableGradeDistributionChart.setX(40).setY(700)
-		.setGradeDescs(new String[]{"前前前前15% ","前15%-前45% ","后55%-后15% ","后15% "})
+		.setGradeDescs(new String[]{"前前前前前15% ","前15%-前45% ","后55%-后15% ","后15% "})
 		.setMaxNumber(100).setCurNumber(15f)
 		.setMarkCurPositon(false).setWidth(500)
 		.setShowSepLine(true)
@@ -64,12 +67,17 @@ public class TestChart {
 		tableGradeDistributionChart.setX(40).setY(600)
 		.setGradeDescs(null)
 		.setMaxNumber(100).setCurNumber(15f)
-		/*.setMarkCurPositon(false)*/.setWidth(500)
+		.setMarkCurPositon(true).setWidth(500)
 		.setShowSepLine(false)
 		;
 
 		tableGradeDistributionChart.chart();
 
+		TestBaseChart.addDescText(tableGradeDistributionChart,
+				doc, bfChinese, "pdf.nbmf.TableGradeDistributionOnlyTextChart",
+				"nbmf.TestChart.testTableGradeDistributionOnlyTextChart()");
+		tableGradeDistributionChart.setLine(1, doc);
+		
 		writer.getDirectContent().setColorStroke(BaseColor.BLACK);
 
 		float y = tableGradeDistributionChart.getPositionY();
@@ -127,7 +135,7 @@ public class TestChart {
 		.setWidths(new float[] { 10, 35, 5, 50 })
 		.setScoreLevels(new int[] { 0, 1, 2, 3, 4,5 })
 		.setRowColors(new int[] { 0xFFFFFF, 0xF2F2F2 })
-		.setLevelFontSize(7)
+		.setLevelFontSize(12)
 		.setColNumber(2)
 		.setScores(new float[] {   1.5f ,   2.25f ,   3 ,  4 ,
  			  4.2f ,  1.5f ,   0f , 5 , 0.5f ,  
@@ -192,7 +200,7 @@ public class TestChart {
 						, "创新能力属组织归属组织归属组织归属组织归属组织归属组织归属", "学习能力", "逻辑能力", "机械推理"   });
 			}
 		})
-		.setParentTypes(new String[] { "基础机械推械推", "基本", "领导" });
+		.setParentTypes(new String[] { "基础机基础机基础机械推械", "基本", "领导" });
 
 		TestBaseChart.addDescText(chart,
 				doc, bfChinese, "pdf.nbmf.TableChartedPositionAreaCurveScoresChart",
@@ -221,13 +229,14 @@ public class TestChart {
 		.setX(80)
 		.setY(500)
 		.setFontSize(10)
-		.setLineHeight(30)
+		.setLineHeight(15)
 		.setLevelFontSize(9)
 		.setGradeColors(new int[] { 0x5DD3B0, 0x92D050, 0xFFC000})
 		.setGradeNames(new String[] { "优秀", "良好", "合格"})
 		.setLevels(new float[] {2f, 4f,6f, 8f, 10f })
-		.setScores(new float[] {5.5f,8.25f ,2.3f,9f,4.9f})
-		.setItemNames(new String[]{"德德德德德德德德德德","智","体","美","劳"})
+		.setScores(new float[] {5.55f,8.25f ,2.3f,9f,4.9f,5.5f,8.25f ,2.3f,9f,4.9f,5.5f,8.25f ,2.3f,9f,4.9f,9f,4.9f})
+		.setItemNames(new String[]{"德德德德德德德德德德","智","体","美","劳"
+				,"德德德德德","智","体","美","劳","德德德德","智","体","美","劳","美","劳"})
 		.setGradeUpperLimitScore(new float[]{9f,7f,5f});
 
 		TestBaseChart.addDescText(chart,
@@ -242,6 +251,94 @@ public class TestChart {
 		float y = chart.getPositionY();
 		chart.moveLine(writer.getDirectContent(), 0, y, doc.getPageSize().getWidth(), y);
 
+		doc.close();
+	}
+	
+	@Test
+	public void testTableChartedManyCurveScoresChart() throws Exception {
+		doc.open();
+
+		for (int i = 0; i < 25; i++) {
+			doc.add(new Paragraph("极乐空间阿尔法", new Font(bfChinese)));
+		}
+
+		TableChartedManyCurveScoresChart chart = new TableChartedManyCurveScoresChart(writer,
+				writer.getDirectContent(), doc, bfChinese);
+
+		chart.setWidth(450)
+		.setFontSize(8)
+		.setLineHeight(15)
+		.setWidths(new float[] { 10, 30,5,5,5, 5, 50 })
+		.setScoreLevels(new int[] { 0, 1, 2, 3, 4,5 })
+		.setRowColors(new int[] { 0xFFFFFF, 0xF2F2F2 })
+		.setLevelFontSize(7)
+		.setScores(new float[][] { { 3f, 2f,1.5f,4f }, { 2, 2.5f, 2.0f,3.5f }, { 3f, 2f,1.5f,4f }, { 2, 1, 0.8f ,2.2f},
+ 			{ 3.2f, 2, 1.85f,3.2f }, { 2.3f, 3.1f, 1.05f,3.2f }, { 5, 4, 3.02f,5f }, { 2, 2.5f, 2.0f,3.5f },  { 2, 1, 0.8f ,2.2f},
+ 			{ 3.2f, 2, 1.85f,3.2f },{ 2.3f, 3.1f, 1.05f,3.2f }, { 3f, 2f,1.5f,4f }, { 5, 4, 3.02f,5f }})
+		.setTableHeads(new String[] { "指  标", "维度", "得分", "平均", "最低", "最高", "  " })
+		.setChildrenTypes(new ArrayList<String[]>() {
+			{
+				add(new String[] { "沟通能力沟通能力沟通能力沟通能力沟通能力", "合作能力"});
+				add(new String[] { "语言能力沟通能力沟通能力沟通能力沟通能力", "数字能力"});
+				add(new String[] { "组织归", "物质回报", "理想抱负", "自我实现", "获得尊重"
+						, "创新能力属组织归属组织归属组织归属组织归属组织归属组织归属", "学习能力", "逻辑能力", "机械推理"   });
+			}
+		})
+		.setParentTypes(new String[] { "基础机基础机基础机械推械", "基本", "领导" });
+
+		TestBaseChart.addDescText(chart,
+				doc, bfChinese, "pdf.nbmf.TableChartedManyCurveScoresChart",
+				"nbmf.TestChart.testTableChartedManyCurveScoresChart()");
+		chart.setLine(3, doc);
+		
+		chart.chart();
+		
+		writer.getDirectContent().setColorStroke(BaseColor.BLACK);
+
+		float y = chart.getPositionY();
+		chart.moveLine(writer.getDirectContent(), 0, y, doc.getPageSize().getWidth(), y);
+
+		doc.close();
+	}
+	
+	
+	
+	@Test
+	public void testTableSmallRectCurveLineChart() throws Exception {
+		doc.open();
+
+		TableSmallRectCurveLineChart chart = new TableSmallRectCurveLineChart(writer, writer.getDirectContent(),
+				doc, bfChinese);
+
+		List<float[]> aScores = new ArrayList<float[]>();
+		float[] indicatorScore = new float[] { 0.99f, 0.95f, 0.91f, 1.10f, 1.00f, 1.15f, 0.82f, 0.89f, 1.08f };
+		float[] avgScore = new float[] { 0.96f, 0.94f, 0.92f, 1.07f, 1.09f, 1.10f, 0.90f, 0.80f, 1.02f };
+		float[] maxScore = new float[] { 1.00f, 0.97f, 0.99f, 1.15f, 0.8f, 1.20f, 0.88f, 0.93f, 1.12f };
+		float[] minScore = new float[] { 0.92f, 0.90f, 0.87f, 1.02f, 1.13f, 1.08f, 0.81f, 0.80f, 1.00f };
+
+		aScores.add(indicatorScore);
+		aScores.add(avgScore);
+		aScores.add(maxScore);
+		aScores.add(minScore);
+
+		chart.setY(600).setX(90).setHeight(80).setShowDataColInTables(new int[] { 0, 1, 2,3})
+				.setTagNameRowRectWidth(80)
+				.setTagNames(new String[] { "分数", "平均分", "最大", "最小" })
+				.setItemNames(new String[] { "勇担责任", "履行责任", "负责守信", "勤学善思", "创新实践", "程序执行", "善于经营", "团队管理", "团队管理理" })
+				.setScores(aScores).setWidth(450);
+
+		TestBaseChart.addDescText(chart,
+				doc, bfChinese,"pdf.nbmf.TableSmallRectCurveLineChart",
+				"nbmf.TestChart.testTableSmallRectCurveLineChart()");
+		chart.setLine(3, doc);
+		
+		chart.chart();
+		
+		 writer.getDirectContent().setColorStroke(BaseColor.BLACK);
+		
+		 float y=chart.getPositionY();
+		 chart.moveLine(writer.getDirectContent(),0, y, doc.getPageSize().getWidth(), y);
+		
 		doc.close();
 	}
 }
