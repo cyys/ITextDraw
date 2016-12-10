@@ -40,11 +40,21 @@ public class LineMulCurveLineAreaTableChart extends AbstractChart {
 	private int scoreDescWidth =60;// 文字描述的宽度
 	private String[] scoreDescNames;//每个批次分数的描述名称
 
+	/**
+	 * 文字描述的宽度
+	 * @param scoreDescWidth
+	 * @return LineMulCurveLineAreaTableChart
+	 */
 	public LineMulCurveLineAreaTableChart setScoreDescWidth(int scoreDescWidth) {
 		this.scoreDescWidth = scoreDescWidth;
 		return this;
 	}
 
+	/**
+	 * 每个批次分数的描述名称
+	 * @param scoreDescNames
+	 * @return LineMulCurveLineAreaTableChart
+	 */
 	public LineMulCurveLineAreaTableChart setScoreDescNames(String[] scoreDescNames) {
 		this.scoreDescNames = scoreDescNames;
 		return this;
@@ -310,86 +320,170 @@ public class LineMulCurveLineAreaTableChart extends AbstractChart {
 				, x1 - 6, y1 - 3, Element.ALIGN_RIGHT,0);
 	}
 
+	/**
+	 * X坐标
+	 * @param x
+	 * @return LineMulCurveLineAreaTableChart
+	 */
 	public LineMulCurveLineAreaTableChart setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * Y坐标
+	 * @param y
+	 * @return LineMulCurveLineAreaTableChart
+	 */
 	public LineMulCurveLineAreaTableChart setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * Y轴高度
+	 * @param height
+	 * @return LineMulCurveLineAreaTableChart
+	 */
 	public LineMulCurveLineAreaTableChart setHeight(float height) {
 		this.height = height;
 		return this;
 	}
 
+	/**
+	 * X轴宽度
+	 * @param width
+	 * @return LineMulCurveLineAreaTableChart
+	 */
 	public LineMulCurveLineAreaTableChart setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
+	/**
+	 * 字体大小
+	 * @param fontSize
+	 * @return LineMulCurveLineAreaTableChart
+	 */
 	public LineMulCurveLineAreaTableChart setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 * 刻度
+	 * @param levels
+	 * @return LineMulCurveLineAreaTableChart
+	 */
 	public LineMulCurveLineAreaTableChart setLevels(float[] levels) {
 		this.levels = levels;
 		return this;
 	}
 
+	/**
+	 * 名称。比如：指标
+	 * @param itemNames
+	 * @return LineMulCurveLineAreaTableChart
+	 */
 	public LineMulCurveLineAreaTableChart setItemNames(String[] itemNames) {
 		this.itemNames = itemNames;
 		return this;
 	}
 
+	/**
+	 * 每块区域的背景颜色
+	 * @param areaBackgroundColors
+	 * @return LineMulCurveLineAreaTableChart
+	 */
 	public LineMulCurveLineAreaTableChart setAreaBackgroundColors(int[] areaBackgroundColors) {
 		this.areaBackgroundColors = areaBackgroundColors;
 		return this;
 	}
 
+	/**
+	 * 表头的填充颜色
+	 * @param tableHeadFillColors
+	 * @return LineMulCurveLineAreaTableChart
+	 */
 	public LineMulCurveLineAreaTableChart setTableHeadFillColors(int[] tableHeadFillColors) {
 		this.tableHeadFillColors = tableHeadFillColors;
 		return this;
 	}
 
+	/**
+	 * 点连接线的颜色
+	 * @param jionLineColors
+	 * @return LineMulCurveLineAreaTableChart
+	 */
 	public LineMulCurveLineAreaTableChart setJionLineColors(int[] jionLineColors) {
 		this.jionLineColors = jionLineColors;
 		return this;
 	}
 
+	/**
+	 * 字体颜色
+	 * @param fontColor
+	 * @return LineMulCurveLineAreaTableChart
+	 */
 	public LineMulCurveLineAreaTableChart setFontColor(int fontColor) {
 		this.fontColor = fontColor;
 		return this;
 	}
 
+	/**
+	 * 边框的颜色
+	 * @param borderColor
+	 * @return LineMulCurveLineAreaTableChart
+	 */
 	public LineMulCurveLineAreaTableChart setBorderColor(int borderColor) {
 		this.borderColor = borderColor;
 		return this;
 	}
 
+	/**
+	 * 各个批次的分数
+	 * @param scores
+	 * @return LineMulCurveLineAreaTableChart
+	 */
 	public LineMulCurveLineAreaTableChart setScores(float[][] scores) {
 		this.scores = scores;
 		return this;
 	}
 
+	/**
+	 * 表格行的背景颜色
+	 * @param rowColors
+	 * @return LineMulCurveLineAreaTableChart
+	 */
 	public LineMulCurveLineAreaTableChart setRowColors(int[] rowColors) {
 		this.rowColors = rowColors;
 		return this;
 	}
 
+	/**
+	 * 表格的高度
+	 * @param cellHeight
+	 * @return LineMulCurveLineAreaTableChart
+	 */
 	public LineMulCurveLineAreaTableChart setCellHeight(float cellHeight) {
 		this.cellHeight = cellHeight;
 		return this;
 	}
 
+	/**
+	 * 表格边框的颜色
+	 * @param tableBorderColor
+	 * @return LineMulCurveLineAreaTableChart
+	 */
 	public LineMulCurveLineAreaTableChart setTableBorderColor(int tableBorderColor) {
 		this.tableBorderColor = tableBorderColor;
 		return this;
 	}
 
+	/**
+	 * 画完表格之后，当前所在的横坐标
+	 * @return float
+	 */
 	public float getPositionY() {
 		this.positionY = this.y- this.positionY-5;
 		return this.positionY;

@@ -293,105 +293,209 @@ public class TableGradeSimpleAreaCurveChart extends AbstractChart {
 		return this.calRealHeight(maxLenText, this.fontSize, width, this.lineHeight);
 	}
 	
+	/**
+	 * X轴宽度
+	 * @param width
+	 * @return TableGradeSimpleAreaCurveChart
+	 */
 	public TableGradeSimpleAreaCurveChart setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
+	/**
+	 *  每一行的每列的分数
+	 * @param scores
+	 * @return TableGradeSimpleAreaCurveChart
+	 */
 	public TableGradeSimpleAreaCurveChart setScores(float[] scores) {
 		this.scores = scores;
 		return this;
 	}
 
+	/**
+	 * 折现的颜色
+	 * @param curveColor
+	 * @return TableGradeSimpleAreaCurveChart
+	 */
 	public TableGradeSimpleAreaCurveChart setCurveColor(int curveColor) {
 		this.curveColor = curveColor;
 		return this;
 	}
 
+	/**
+	 *  每一行的高度
+	 * @param lineHeight
+	 * @return TableGradeSimpleAreaCurveChart
+	 */
 	public TableGradeSimpleAreaCurveChart setLineHeight(float lineHeight) {
 		this.lineHeight = lineHeight;
 		return this;
 	}
 
+	/**
+	 * 除了刻线之外的文字大小
+	 * @param fontSize
+	 * @return TableGradeSimpleAreaCurveChart
+	 */
 	public TableGradeSimpleAreaCurveChart setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 * 刻度文本的字体大小
+	 * @param levelFontSize
+	 * @return TableGradeSimpleAreaCurveChart
+	 */
 	public TableGradeSimpleAreaCurveChart setLevelFontSize(float levelFontSize) {
 		this.levelFontSize = levelFontSize;
 		return this;
 	}
 
+	/**
+	 * 画完表格之后，当前所在的横坐标
+	 * @return float
+	 */
 	public float getPositionY() {
 		return this.y-this.positionY-10;
 	}
 
+	/**
+	 * 字体的颜色
+	 * @param fontColor
+	 * @return TableGradeSimpleAreaCurveChart
+	 */
 	public TableGradeSimpleAreaCurveChart setFontColor(int fontColor) {
 		this.fontColor = fontColor;
 		return this;
 	}
 
+	/**
+	 * 表格边框的颜色
+	 * @param borderColor
+	 * @return TableGradeSimpleAreaCurveChart
+	 */
 	public TableGradeSimpleAreaCurveChart setBorderColor(int borderColor) {
 		this.borderColor = borderColor;
 		return this;
 	}
 
+	/**
+	 * 级别的名称
+	 * @param gradeNames
+	 * @return TableGradeSimpleAreaCurveChart
+	 */
 	public TableGradeSimpleAreaCurveChart setGradeNames(String[] gradeNames) {
 		this.gradeNames = gradeNames;
 		return this;
 	}
 
+	/**
+	 * 级别的颜色
+	 * @param gradeColors
+	 * @return TableGradeSimpleAreaCurveChart
+	 */
 	public TableGradeSimpleAreaCurveChart setGradeColors(int[] gradeColors) {
 		this.gradeColors = gradeColors;
 		return this;
 	}
 
+	/**
+	 * 级别的上限分数
+	 * @param gradeUpperLimitScore
+	 * @return TableGradeSimpleAreaCurveChart
+	 */
 	public TableGradeSimpleAreaCurveChart setGradeUpperLimitScore(float[] gradeUpperLimitScore) {
 		this.gradeUpperLimitScore = gradeUpperLimitScore;
 		return this;
 	}
 
+	/**
+	 * 垂直线的颜色
+	 * @param verticalLineColor
+	 * @return TableGradeSimpleAreaCurveChart
+	 */
 	public TableGradeSimpleAreaCurveChart setVerticalLineColor(int verticalLineColor) {
 		this.verticalLineColor = verticalLineColor;
 		return this;
 	}
 
+	/**
+	 * 垂直线所在区域的颜色
+	 * @param verticalAreaColor
+	 * @return TableGradeSimpleAreaCurveChart
+	 */
 	public TableGradeSimpleAreaCurveChart setVerticalAreaColor(int verticalAreaColor) {
 		this.verticalAreaColor = verticalAreaColor;
 		return this;
 	}
 
+	/**
+	 * 级别颜色标注框与表格间的空隙
+	 * @param gradeRectangeGap
+	 * @return TableGradeSimpleAreaCurveChart
+	 */
 	public TableGradeSimpleAreaCurveChart setGradeRectangeGap(float gradeRectangeGap) {
 		this.gradeRectangeGap = gradeRectangeGap;
 		return this;
 	}
 
+	/**
+	 * Y轴高
+	 * @param height
+	 * @return TableGradeSimpleAreaCurveChart
+	 */
 	public TableGradeSimpleAreaCurveChart setHeight(float height) {
 		this.height = height;
 		return this;
 	}
 
+	/**
+	 * X坐标
+	 * @param x
+	 * @return TableGradeSimpleAreaCurveChart
+	 */
 	public TableGradeSimpleAreaCurveChart setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * Y坐标
+	 * @param y
+	 * @return TableGradeSimpleAreaCurveChart
+	 */
 	public TableGradeSimpleAreaCurveChart setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * 表格背景颜色
+	 * @param tableBackgroundColor
+	 * @return TableGradeSimpleAreaCurveChart
+	 */
 	public TableGradeSimpleAreaCurveChart setTableBackgroundColor(int tableBackgroundColor) {
 		this.tableBackgroundColor = tableBackgroundColor;
 		return this;
 	}
 
+	/**
+	 * 名称。比如：指标
+	 * @param itemNames
+	 * @return TableGradeSimpleAreaCurveChart
+	 */
 	public TableGradeSimpleAreaCurveChart setItemNames(String[] itemNames) {
 		this.itemNames = itemNames;
 		return this;
 	}
 
+	/**
+	 * 刻度
+	 * @param levels
+	 * @return TableGradeSimpleAreaCurveChart
+	 */
 	public TableGradeSimpleAreaCurveChart setLevels(float[] levels) {
 		this.levels = levels;
 		return this;

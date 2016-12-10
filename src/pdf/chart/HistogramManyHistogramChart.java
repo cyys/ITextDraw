@@ -232,91 +232,180 @@ public class HistogramManyHistogramChart extends AbstractChart {
 				0);
 	}
 
+	/**
+	 * 画完表格之后，当前所在的横坐标
+	 * @return float
+	 */
 	public float getPositionY() {
 		this.positionY = this.y - this.positionY - 10;
 		return this.positionY;
 	}
 
+	/**
+	 * X坐标
+	 * @param x
+	 * @return HistogramManyHistogramChart
+	 */
 	public HistogramManyHistogramChart setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * Y坐标
+	 * @param y
+	 * @return HistogramManyHistogramChart
+	 */
 	public HistogramManyHistogramChart setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * Y轴高度
+	 * @param height
+	 * @return HistogramManyHistogramChart
+	 */
 	public HistogramManyHistogramChart setHeight(float height) {
 		this.height = height;
 		return this;
 	}
 
+	/**
+	 * X轴宽度
+	 * @param width
+	 * @return HistogramManyHistogramChart
+	 */
 	public HistogramManyHistogramChart setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
+	/**
+	 * 字体大小
+	 * @param fontSize
+	 * @return HistogramManyHistogramChart
+	 */
 	public HistogramManyHistogramChart setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 *  刻度
+	 * @param levels
+	 * @return HistogramManyHistogramChart
+	 */
 	public HistogramManyHistogramChart setLevels(int[] levels) {
 		this.levels = levels;
 		return this;
 	}
 
+	/**
+	 * 分数对应的名称
+	 * @param itemNames
+	 * @return HistogramManyHistogramChart
+	 */
 	public HistogramManyHistogramChart setItemNames(String[] itemNames) {
 		this.itemNames = itemNames;
 		return this;
 	}
 
+	/**
+	 *  分数
+	 * @param scores
+	 * @return HistogramManyHistogramChart
+	 */
 	public HistogramManyHistogramChart setScores(List<float[]> scores) {
 		this.scores = scores;
 		return this;
 	}
 
+	/**
+	 * 坐标轴框的颜色
+	 * @param borderColor
+	 * @return HistogramManyHistogramChart
+	 */
 	public HistogramManyHistogramChart setBorderColor(int borderColor) {
 		this.borderColor = borderColor;
 		return this;
 	}
 
+	/**
+	 * 字体的颜色
+	 * @param fontColor
+	 * @return HistogramManyHistogramChart
+	 */
 	public HistogramManyHistogramChart setFontColor(int fontColor) {
 		this.fontColor = fontColor;
 		return this;
 	}
 
+	/**
+	 * 背景颜色
+	 * @param itemBackgroundColor
+	 * @return HistogramManyHistogramChart
+	 */
 	public HistogramManyHistogramChart setItemBackgroundColor(int itemBackgroundColor) {
 		this.itemBackgroundColor = itemBackgroundColor;
 		return this;
 	}
 
+	/**
+	 * 坐标轴的背景颜色
+	 * @param frameBackgroundColor
+	 * @return HistogramManyHistogramChart
+	 */
 	public HistogramManyHistogramChart setFrameBackgroundColor(int frameBackgroundColor) {
 		this.frameBackgroundColor = frameBackgroundColor;
 		return this;
 	}
 
+	/**
+	 * 类型名称
+	 * @param typeNames
+	 * @return HistogramManyHistogramChart
+	 */
 	public HistogramManyHistogramChart setTypeNames(String[] typeNames) {
 		this.typeNames = typeNames;
 		return this;
 	}
 
+	/**
+	 * 类型的背景颜色
+	 * @param typeFillColors
+	 * @return HistogramManyHistogramChart
+	 */
 	public HistogramManyHistogramChart setTypeFillColors(int[] typeFillColors) {
 		this.typeFillColors = typeFillColors;
 		return this;
 	}
 
+	/**
+	 * 多个类型时候，行的交替颜色
+	 * @param rowColors
+	 * @return HistogramManyHistogramChart
+	 */
 	public HistogramManyHistogramChart setRowColors(int[] rowColors) {
 		this.rowColors = rowColors;
 		return this;
 	}
 
+	/**
+	 * 表格高度
+	 * @param cellHeight
+	 * @return HistogramManyHistogramChart
+	 */
 	public HistogramManyHistogramChart setCellHeight(float cellHeight) {
 		this.cellHeight = cellHeight;
 		return this;
 	}
 
+	/**
+	 * 类型的宽度
+	 * @param typeWidth
+	 * @return HistogramManyHistogramChart
+	 */
 	public HistogramManyHistogramChart setTypeWidth(float typeWidth) {
 		this.typeWidth = typeWidth;
 		return this;

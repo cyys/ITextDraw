@@ -17,6 +17,7 @@ import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import base.TestBaseChart;
+import pdf.nbmf.CircleSeparateFixedSectorsChart;
 import pdf.nbmf.CircleSeparateManySectorsChart;
 import pdf.nbmf.TableChartedManyCurveScoresChart;
 import pdf.nbmf.TableChartedPositionAreaCurveChart;
@@ -56,8 +57,8 @@ public class TestChart {
 		TableGradeDistributionOnlyTextChart tableGradeDistributionChart = new TableGradeDistributionOnlyTextChart(writer,
 				writer.getDirectContent(), doc, bfChinese);
 		tableGradeDistributionChart.setX(40).setY(700)
-		.setGradeDescs(new String[]{"前前前前前15% ","前15%-前45% ","后55%-后15% ","后15% "})
-		.setMaxNumber(100).setCurNumber(15f)
+		.setGradeDescs(new String[]{"前前前前前w15% ","前15%-前45% ","后55%-后15% ","后15% "})
+		.setMaxNumber(100).setCurNumber("15").setCurPercentage(15)
 		.setMarkCurPositon(false).setWidth(500)
 		.setShowSepLine(true)
 		;
@@ -66,7 +67,7 @@ public class TestChart {
 		
 		tableGradeDistributionChart.setX(40).setY(600)
 		.setGradeDescs(null)
-		.setMaxNumber(100).setCurNumber(15f)
+		.setMaxNumber(100).setCurNumber("60").setCurPercentage(95)
 		.setMarkCurPositon(true).setWidth(500)
 		.setShowSepLine(false)
 		;
@@ -272,6 +273,7 @@ public class TestChart {
 		.setScoreLevels(new int[] { 0, 1, 2, 3, 4,5 })
 		.setRowColors(new int[] { 0xFFFFFF, 0xF2F2F2 })
 		.setLevelFontSize(7)
+		.setStringOnCurve( new String[] { "■", "★", "●", "▲" })
 		.setScores(new float[][] { { 3f, 2f,1.5f,4f }, { 2, 2.5f, 2.0f,3.5f }, { 3f, 2f,1.5f,4f }, { 2, 1, 0.8f ,2.2f},
  			{ 3.2f, 2, 1.85f,3.2f }, { 2.3f, 3.1f, 1.05f,3.2f }, { 5, 4, 3.02f,5f }, { 2, 2.5f, 2.0f,3.5f },  { 2, 1, 0.8f ,2.2f},
  			{ 3.2f, 2, 1.85f,3.2f },{ 2.3f, 3.1f, 1.05f,3.2f }, { 3f, 2f,1.5f,4f }, { 5, 4, 3.02f,5f }})
@@ -339,6 +341,36 @@ public class TestChart {
 		 float y=chart.getPositionY();
 		 chart.moveLine(writer.getDirectContent(),0, y, doc.getPageSize().getWidth(), y);
 		
+		doc.close();
+	}
+	
+	@Test
+	public void testCircleSeparateFixedSectorsChart() throws Exception {
+		doc.open();
+
+		CircleSeparateFixedSectorsChart tableGradeDistributionChart = new CircleSeparateFixedSectorsChart(writer,
+				writer.getDirectContent(), doc, bfChinese);
+		tableGradeDistributionChart.setX(doc.getPageSize().getWidth()/2).setY(570)
+		.setScores(new float[]{30,70})
+		.setR(120)
+		/*.setItemNames(new String[]{"沟通能力沟通能力",
+				"负责守信"})*/.setTotalScore(30).setTotalScoreNameColor(0x16CA4)
+		.setFillColors(new int[] { 0xD9D9D9, 0x16CA4})
+		.setTotalScoreColorFontSize(20)
+		;
+ 
+		TestBaseChart.addDescText(tableGradeDistributionChart,
+				doc, bfChinese, "pdf.nbmf.CircleSeparateFixedSectorsChart",
+				"nbmf.TestChart1.testCircleSeparateFixedSectorsChart()");
+		tableGradeDistributionChart.setLine(1, doc);
+		
+		tableGradeDistributionChart.chart();
+
+		writer.getDirectContent().setColorStroke(BaseColor.BLACK);
+
+		float y = tableGradeDistributionChart.getPositionY();
+		tableGradeDistributionChart.moveLine(writer.getDirectContent(), 0, y, doc.getPageSize().getWidth(), y);
+
 		doc.close();
 	}
 }

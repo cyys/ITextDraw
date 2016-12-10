@@ -23,11 +23,11 @@ public class DoubleArrowGraph extends AbstractBaseUnitChart {
 	private float y;
 	private float x0;
 	private float y0;
-	private float height;
-	private float arrowWidth=5;
-	private int level=LEVEL_X;
-	private int color;
-	private float arrowLineWidth=1.5f;
+	private float height;//箭头的高度
+	private float arrowWidth=5;//箭头的宽度
+	private int level=LEVEL_X;//箭头所在的水平线：LEVEL_X or LEVEL_Y
+	private int color;//图形的颜色
+	private float arrowLineWidth=1.5f;//箭头线的宽度
 	
 
 	public DoubleArrowGraph(AbstractBaseChart baseChart, PdfWriter writer, PdfContentByte contentByte,
@@ -91,46 +91,91 @@ public class DoubleArrowGraph extends AbstractBaseUnitChart {
 		this.getBaseChart().moveLine(this.contentByte, anotherPoint_1.getX(), anotherPoint_1.getY(), this.x0, this.y0);
 	}
 
+	/**
+	 *  矩形的一个点的X坐标
+	 * @param x
+	 * @return DoubleArrowGraph
+	 */
 	public DoubleArrowGraph setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * 矩形的一个点的Y坐标
+	 * @param y
+	 * @return DoubleArrowGraph
+	 */
 	public DoubleArrowGraph setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 *  矩形的下一个点的X坐标
+	 * @param x0
+	 * @return DoubleArrowGraph
+	 */
 	public DoubleArrowGraph setX0(float x0) {
 		this.x0 = x0;
 		return this;
 	}
 
+	/**
+	 * 矩形的下一个点的Y坐标
+	 * @param y0
+	 * @return DoubleArrowGraph
+	 */
 	public DoubleArrowGraph setY0(float y0) {
 		this.y0 = y0;
 		return this;
 	}
 
+	/**
+	 * 箭头的高度
+	 * @param height
+	 * @return DoubleArrowGraph
+	 */
 	public DoubleArrowGraph setHeight(float height) {
 		this.height = height;
 		return this;
 	}
 
+	/**
+	 * 箭头的宽度
+	 * @param arrowWidth
+	 * @return DoubleArrowGraph
+	 */
 	public DoubleArrowGraph setArrowWidth(float arrowWidth) {
 		this.arrowWidth = arrowWidth;
 		return this;
 	}
 
+	/**
+	 * 箭头所在的水平线：LEVEL_X or LEVEL_Y
+	 * @param level
+	 * @return DoubleArrowGraph
+	 */
 	public DoubleArrowGraph setLevel(int level) {
 		this.level = level;
 		return this;
 	}
 
+	/**
+	 * 图形的颜色
+	 * @param color
+	 * @return DoubleArrowGraph
+	 */
 	public DoubleArrowGraph setColor(int color) {
 		this.color = color;
 		return this;
 	}
 
+	/**
+	 * 箭头线的宽度
+	 * @param arrowLineWidth
+	 * @return DoubleArrowGraph
+	 */
 	public DoubleArrowGraph setArrowLineWidth(float arrowLineWidth) {
 		this.arrowLineWidth = arrowLineWidth;
 		return this;

@@ -303,121 +303,240 @@ public class TableSmallRectCurveLineChart extends AbstractChart {
 		}
 	}
 
+	/**
+	 * X坐标
+	 * @param x
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * Y轴高度
+	 * @param height
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setHeight(float height) {
 		this.height = height;
 		return this;
 	}
 
+	/**
+	 * X轴宽度
+	 * @param width
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
+	/**
+	 * Y坐标
+	 * @param y
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * 刻度
+	 * @param levels
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setLevels(float[] levels) {
 		this.levels = levels;
 		return this;
 	}
 
+	/**
+	 * 名称。比如：指标
+	 * @param itemNames
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setItemNames(String[] itemNames) {
 		this.itemNames = itemNames;
 		return this;
 	}
 
+	/**
+	 * 标识名称
+	 * @param tagNames
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setTagNames(String[] tagNames) {
 		this.tagNames = tagNames;
 		return this;
 	}
 
+	/**
+	 * 分数
+	 * @param scores
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setScores(List<float[]> scores) {
 		this.scores = scores;
 		return this;
 	}
 
+	/**
+	 * 线条颜色
+	 * @param levleLineColor
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setLevleLineColor(int levleLineColor) {
 		this.levleLineColor = levleLineColor;
 		return this;
 	}
 
+	/**
+	 * 矩形填充颜色
+	 * @param fillRectColor
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setFillRectColor(int fillRectColor) {
 		this.fillRectColor = fillRectColor;
 		return this;
 	}
 
+	/**
+	 * 垂直的分数线
+	 * @param scoreLineColor
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setScoreLineColor(int scoreLineColor) {
 		this.scoreLineColor = scoreLineColor;
 		return this;
 	}
 
+	/**
+	 * 坐标轴线
+	 * @param frameLineColor
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setFrameLineColor(int frameLineColor) {
 		this.frameLineColor = frameLineColor;
 		return this;
 	}
 
+	/**
+	 * 刻度文字颜色
+	 * @param levleTextColor
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setLevleTextColor(int levleTextColor) {
 		this.levleTextColor = levleTextColor;
 		return this;
 	}
 
+	/**
+	 * 分数填充点的颜色
+	 * @param scorePointColor
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setScorePointColor(int scorePointColor) {
 		this.scorePointColor = scorePointColor;
 		return this;
 	}
 
+	/**
+	 * 矩形边框颜色
+	 * @param rectLineColor
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setRectLineColor(int rectLineColor) {
 		this.rectLineColor = rectLineColor;
 		return this;
 	}
 
+	/**
+	 * 最大分数在集合的下标
+	 * @param maxScoreColNum
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setMaxScoreColNum(int maxScoreColNum) {
 		this.maxScoreColNum = maxScoreColNum;
 		return this;
 	}
 
+	/**
+	 * 最小分数在集合的下标
+	 * @param minScoreColNum
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setMinScoreColNum(int minScoreColNum) {
 		this.minScoreColNum = minScoreColNum;
 		return this;
 	}
 
+	/**
+	 * 分数在集合的下标
+	 * @param curScoreColNum
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setCurScoreColNum(int curScoreColNum) {
 		this.curScoreColNum = curScoreColNum;
 		return this;
 	}
 
+	/**
+	 * 表格背景颜色
+	 * @param tableBackColor
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setTableBackColor(int tableBackColor) {
 		this.tableBackColor = tableBackColor;
 		return this;
 	}
 
+	/**
+	 * 字体大小
+	 * @param fontSize
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 * 显示在表格中的数据，在集合的下标:请确保 scores 的顺序与tagNames一一对应
+	 * @param showDataColInTables
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setShowDataColInTables(int[] showDataColInTables) {
 		this.showDataColInTables = showDataColInTables;
 		return this;
 	}
 
+	/**
+	 * 表头是否粗体
+	 * @param tableHeadIsFontBold
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setTableHeadIsFontBold(boolean tableHeadIsFontBold) {
 		this.tableHeadIsFontBold = tableHeadIsFontBold;
 		return this;
 	}
 
+	/**
+	 * 每一行分数对应的名称
+	 * @param tagNameRowRectWidth
+	 * @return TableSmallRectCurveLineChart
+	 */
 	public TableSmallRectCurveLineChart setTagNameRowRectWidth(float tagNameRowRectWidth) {
 		this.tagNameRowRectWidth = tagNameRowRectWidth;
 		return this;
 	}
 
+	/**
+	 * 画完表格之后，当前所在的横坐标
+	 * @return float
+	 */
 	public float getPositionY() {
 		this.positionY=this.y-this.positionY-10;
 		return this.positionY;

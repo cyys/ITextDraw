@@ -10,21 +10,5 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="E:/workspace/ITextDraw/lib/commons-lang3-3.1.jar"/>
 	<classpathentry kind="lib" path="E:/workspace/ITextDraw/lib/commons-io-2.4.jar"/>
-	<classpathentry kind="lib" path="E:/workspace/ITextDraw/lib/annotations-api.jar"/>
-	<classpathentry kind="lib" path="E:/workspace/ITextDraw/lib/catalina.jar"/>
-	<classpathentry kind="lib" path="E:/workspace/ITextDraw/lib/catalina-ant.jar"/>
-	<classpathentry kind="lib" path="E:/workspace/ITextDraw/lib/catalina-ha.jar"/>
-	<classpathentry kind="lib" path="E:/workspace/ITextDraw/lib/catalina-tribes.jar"/>
-	<classpathentry kind="lib" path="E:/workspace/ITextDraw/lib/el-api.jar"/>
-	<classpathentry kind="lib" path="E:/workspace/ITextDraw/lib/jasper.jar"/>
-	<classpathentry kind="lib" path="E:/workspace/ITextDraw/lib/jasper-el.jar"/>
-	<classpathentry kind="lib" path="E:/workspace/ITextDraw/lib/jasper-jdt.jar"/>
-	<classpathentry kind="lib" path="E:/workspace/ITextDraw/lib/jsp-api.jar"/>
-	<classpathentry kind="lib" path="E:/workspace/ITextDraw/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="E:/workspace/ITextDraw/lib/tomcat-coyote.jar"/>
-	<classpathentry kind="lib" path="E:/workspace/ITextDraw/lib/tomcat-dbcp.jar"/>
-	<classpathentry kind="lib" path="E:/workspace/ITextDraw/lib/tomcat-i18n-es.jar"/>
-	<classpathentry kind="lib" path="E:/workspace/ITextDraw/lib/tomcat-i18n-fr.jar"/>
-	<classpathentry kind="lib" path="E:/workspace/ITextDraw/lib/tomcat-i18n-ja.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

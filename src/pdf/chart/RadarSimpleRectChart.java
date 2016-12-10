@@ -168,61 +168,120 @@ public class RadarSimpleRectChart extends AbstractChart {
 		return pointAttr;
 	}
 
+	/**
+	 * X坐标
+	 * @param x
+	 * @return RadarSimpleRectChart
+	 */
 	public RadarSimpleRectChart setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * Y坐标
+	 * @param y
+	 * @return RadarSimpleRectChart
+	 */
 	public RadarSimpleRectChart setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * 名称。比如：指标
+	 * @param itemNames
+	 * @return RadarSimpleRectChart
+	 */
 	public RadarSimpleRectChart setItemNames(String[] itemNames) {
 		this.itemNames = itemNames;
 		return this;
 	}
 
+	/**
+	 * 字体大小
+	 * @param fontSize
+	 * @return RadarSimpleRectChart
+	 */
 	public RadarSimpleRectChart setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 * 半径
+	 * @param r
+	 * @return RadarSimpleRectChart
+	 */
 	public RadarSimpleRectChart setR(float r) {
 		this.r = r;
 		return this;
 	}
 
+	/**
+	 * 填充的颜色
+	 * @param fillColor
+	 * @return RadarSimpleRectChart
+	 */
 	public RadarSimpleRectChart setFillColor(int fillColor) {
 		this.fillColor = fillColor;
 		return this;
 	}
 
+	/**
+	 * 分数
+	 * @param scores
+	 * @return RadarSimpleRectChart
+	 */
 	public RadarSimpleRectChart setScores(float[] scores) {
 		this.scores = scores;
 		return this;
 	}
 
+	/**
+	 * 保留的小数点位数
+	 * @param scale
+	 * @return RadarSimpleRectChart
+	 */
 	public RadarSimpleRectChart setScale(int scale) {
 		this.scale = scale;
 		return this;
 	}
 
+	/**
+	 *  最高分数
+	 * @param maxScore
+	 * @return RadarSimpleRectChart
+	 */
 	public RadarSimpleRectChart setMaxScore(float maxScore) {
 		this.maxScore = maxScore;
 		return this;
 	}
 
+	/**
+	 * 边框的颜色
+	 * @param borderColor
+	 * @return RadarSimpleRectChart
+	 */
 	public RadarSimpleRectChart setBorderColor(BaseColor borderColor) {
 		this.borderColor = borderColor;
 		return this;
 	}
 
+	/**
+	 * 每个节点上小圆圈的半径
+	 * @param smallCircle
+	 * @return RadarSimpleRectChart
+	 */
 	public RadarSimpleRectChart setSmallCircle(float smallCircle) {
 		this.smallCircle = smallCircle;
 		return this;
 	}
 
+	/**
+	 * 画完表格之后，当前所在的横坐标
+	 * @return float
+	 */
 	public float getPositionY() {
 		this.positionY = this.y - this.r - textMaxLength() * this.fontSize
 				- ("" + NumberUtils.max(this.scores)).length() * this.fontSize;

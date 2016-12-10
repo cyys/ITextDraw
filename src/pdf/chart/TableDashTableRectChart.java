@@ -224,91 +224,180 @@ public class TableDashTableRectChart extends AbstractChart {
 
 	}
 
+	/**
+	 * 宽度
+	 * @param width
+	 * @return TableDashTableRectChart
+	 */
 	public TableDashTableRectChart setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
+	/**
+	 * 分数
+	 * @param scores
+	 * @return TableDashTableRectChart
+	 */
 	public TableDashTableRectChart setScores(float[] scores) {
 		this.scores = scores;
 		return this;
 	}
 
+	/**
+	 * X坐标
+	 * @param x
+	 * @return TableDashTableRectChart
+	 */
 	public TableDashTableRectChart setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * Y坐标
+	 * @param y
+	 * @return TableDashTableRectChart
+	 */
 	public TableDashTableRectChart setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * 刻度
+	 * @param levels
+	 * @return TableDashTableRectChart
+	 */
 	public TableDashTableRectChart setLevels(int[] levels) {
 		this.levels = levels;
 		return this;
 	}
 
+	/**
+	 * 名称。比如：指标
+	 * @param itemNames
+	 * @return TableDashTableRectChart
+	 */
 	public TableDashTableRectChart setItemNames(String[] itemNames) {
 		this.itemNames = itemNames;
 		return this;
 	}
 
+	/**
+	 * 表头名称
+	 * @param headNames
+	 * @return TableDashTableRectChart
+	 */
 	public TableDashTableRectChart setHeadNames(String[] headNames) {
 		this.headNames = headNames;
 		return this;
 	}
 
+	/**
+	 * 字体大小
+	 * @param fontSize
+	 * @return TableDashTableRectChart
+	 */
 	public TableDashTableRectChart setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 * 矩形填充颜色
+	 * @param fillRectColor
+	 * @return TableDashTableRectChart
+	 */
 	public TableDashTableRectChart setFillRectColor(int fillRectColor) {
 		this.fillRectColor = fillRectColor;
 		return this;
 	}
 
+	/**
+	 * 第一列背景颜色
+	 * @param fristColmunBackgroundColor
+	 * @return TableDashTableRectChart
+	 */
 	public TableDashTableRectChart setFristColmunBackgroundColor(int fristColmunBackgroundColor) {
 		this.fristColmunBackgroundColor = fristColmunBackgroundColor;
 		return this;
 	}
 
+	/**
+	 * 边框的颜色
+	 * @param borderColor
+	 * @return TableDashTableRectChart
+	 */
 	public TableDashTableRectChart setBorderColor(int borderColor) {
 		this.borderColor = borderColor;
 		return this;
 	}
 
+	/**
+	 * 表头的颜色
+	 * @param headBackgroundColor
+	 * @return TableDashTableRectChart
+	 */
 	public TableDashTableRectChart setHeadBackgroundColor(int headBackgroundColor) {
 		this.headBackgroundColor = headBackgroundColor;
 		return this;
 	}
 
+	/**
+	 * 刻度所在的列
+	 * @param levelShowInColmun
+	 * @return TableDashTableRectChart
+	 */
 	public TableDashTableRectChart setLevelShowInColmun(int levelShowInColmun) {
 		this.levelShowInColmun = levelShowInColmun;
 		return this;
 	}
 
+	/**
+	 * 每一列的宽度
+	 * @param colWidths
+	 * @return TableDashTableRectChart
+	 */
 	public TableDashTableRectChart setColWidths(float[] colWidths) {
 		this.colWidths = colWidths;
 		return this;
 	}
 
+	/**
+	 * 字体的颜色
+	 * @param fontColor
+	 * @return TableDashTableRectChart
+	 */
 	public TableDashTableRectChart setFontColor(int fontColor) {
 		this.fontColor = fontColor;
 		return this;
 	}
 
+	/**
+	 *  每一个单元格的高度
+	 * @param cellHeight
+	 * @return TableDashTableRectChart
+	 */
 	public TableDashTableRectChart setCellHeight(float cellHeight) {
 		this.cellHeight = cellHeight;
 		return this;
 	}
 
+	/**
+	 * 表头的字体大小
+	 * @param headFontSize
+	 * @return TableDashTableRectChart
+	 */
 	public TableDashTableRectChart setHeadFontSize(float headFontSize) {
 		this.headFontSize = headFontSize;
 		return this;
 	}
 
+	/**
+	 * 画完表格之后，当前所在的横坐标
+	 * @return float
+	 */
 	public float getPositionY() {
 		this.positionY=this.y-this.positionY-10;
 		return this.positionY;

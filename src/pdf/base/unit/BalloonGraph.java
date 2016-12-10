@@ -10,7 +10,15 @@ import com.itextpdf.text.pdf.PdfWriter;
 import pdf.base.AbstractBaseChart;
 import pdf.base.AbstractBaseUnitChart;
 import pdf.base.TPoint;
-
+/**
+ * 一个类似于气球的图形
+ * @author cheny
+ *
+ */
+/**
+ * @author cheny
+ *
+ */
 public class BalloonGraph extends AbstractBaseUnitChart {
 
 	// 气球的半径
@@ -19,12 +27,12 @@ public class BalloonGraph extends AbstractBaseUnitChart {
 	// 直线的下面的坐标，高度，宽度
 	private float x;
 	private float y;
-	private float lineHeight = 20;
-	private float lineWidth = 1.5f;
+	private float lineHeight = 20;//气球系线的高度
+	private float lineWidth = 1.5f;//气球系线的宽度
 
-	private BaseColor color;
-	private float balloonBorder = 2f;
-	private float areaHeight =8;
+	private BaseColor color;//图形的颜色
+	private float balloonBorder = 2f;//气球的边框的宽度
+	private float areaHeight =8;//线到气球的填充区域的高度
 
 	public BalloonGraph(AbstractBaseChart baseChart, PdfWriter writer, PdfContentByte contentByte, Document document) {
 		super(baseChart, writer, contentByte, document);
@@ -117,41 +125,81 @@ public class BalloonGraph extends AbstractBaseUnitChart {
 		}
 	}
 
+	/**
+	 * 气球系线的横坐标
+	 * @param x
+	 * @return BalloonGraph
+	 */
 	public BalloonGraph setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * 气球的半径
+	 * @param ballR
+	 * @return BalloonGraph
+	 */
 	public BalloonGraph setBallR(float ballR) {
 		this.ballR = ballR;
 		return this;
 	}
 
+	/**
+	 * 气球系线的纵坐标
+	 * @param y
+	 * @return BalloonGraph
+	 */
 	public BalloonGraph setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * 气球系线的高度
+	 * @param lineHeight
+	 * @return BalloonGraph
+	 */
 	public BalloonGraph setLineHeight(float lineHeight) {
 		this.lineHeight = lineHeight;
 		return this;
 	}
 
+	/**
+	 * 气球系线的宽度
+	 * @param lineWidth
+	 * @return BalloonGraph
+	 */
 	public BalloonGraph setLineWidth(float lineWidth) {
 		this.lineWidth = lineWidth;
 		return this;
 	}
 
+	/**
+	 * 图形的颜色
+	 * @param color
+	 * @return BalloonGraph
+	 */
 	public BalloonGraph setColor(BaseColor color) {
 		this.color = color;
 		return this;
 	}
 
+/**
+ * 气球的边框的宽度
+ * @param balloonBorder
+ * @return BalloonGraph
+ */
 	public BalloonGraph setBalloonBorder(float balloonBorder) {
 		this.balloonBorder = balloonBorder;
 		return this;
 	}
 
+	/**
+	 * 线到气球的填充区域的高度
+	 * @param areaHeight
+	 * @return BalloonGraph
+	 */
 	public BalloonGraph setAreaHeight(float areaHeight) {
 		this.areaHeight = areaHeight;
 		return this;

@@ -22,10 +22,10 @@ public class FiveTopStarGraph extends AbstractBaseUnitChart {
 	
 	private float x;
 	private float y;
-	private float r=6;
-	private BaseColor color=BaseColor.BLACK;
-	private float rotation;
-	private boolean isFillColor;
+	private float r=6;//半径。越大，图形越大
+	private BaseColor color=BaseColor.BLACK;//图形颜色
+	private float rotation;//旋转的角度
+	private boolean isFillColor;//是否填充
 
 	public FiveTopStarGraph(AbstractBaseChart baseChart, PdfWriter writer, PdfContentByte contentByte,
 			Document document) {
@@ -110,31 +110,61 @@ public class FiveTopStarGraph extends AbstractBaseUnitChart {
         
 	}
 
+	/**
+	 * 是否填充
+	 * @param isFillColor
+	 * @return FiveTopStarGraph
+	 */
 	public FiveTopStarGraph setFillColor(boolean isFillColor) {
 		this.isFillColor = isFillColor;
 		return this;
 	}
 
+	/**
+	 * X坐标
+	 * @param x
+	 * @return FiveTopStarGraph
+	 */
 	public FiveTopStarGraph setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * Y坐标
+	 * @param y
+	 * @return FiveTopStarGraph
+	 */
 	public FiveTopStarGraph setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * 半径。越大，图形越大
+	 * @param r
+	 * @return FiveTopStarGraph
+	 */
 	public FiveTopStarGraph setR(float r) {
 		this.r = r;
 		return this;
 	}
 
+	/**
+	 * 图形颜色
+	 * @param color
+	 * @return FiveTopStarGraph
+	 */
 	public FiveTopStarGraph setColor(BaseColor color) {
 		this.color = color;
 		return this;
 	}
 	
+	/**
+	 * 旋转的角度
+	 * @param rotation
+	 * @return FiveTopStarGraph
+	 */
 	public FiveTopStarGraph setRotation(float rotation) {
 		this.rotation = rotation;
 		return this;

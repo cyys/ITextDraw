@@ -99,61 +99,121 @@ public class RectangleLineThroughGraph extends AbstractBaseUnitChart {
 		}
 	}
 
+	/**
+	 * 矩形区域高度
+	 * @param height
+	 * @return RectangleLineThroughGraph
+	 */
 	public RectangleLineThroughGraph setHeight(float height) {
 		this.height = height;
 		return this;
 	}
 
+	/**
+	 * 矩形区域宽度
+	 * @param width
+	 * @return RectangleLineThroughGraph
+	 */
 	public RectangleLineThroughGraph setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
+	/**
+	 * X坐标
+	 * @param x
+	 * @return RectangleLineThroughGraph
+	 */
 	public RectangleLineThroughGraph setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * Y坐标
+	 * @param y
+	 * @return RectangleLineThroughGraph
+	 */
 	public RectangleLineThroughGraph setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * 图形颜色
+	 * @param color
+	 * @return RectangleLineThroughGraph
+	 */
 	public RectangleLineThroughGraph setColor(int color) {
 		this.color = color;
 		return this;
 	}
 
+	/**
+	 * 贯穿线所在的水平线：LINE_THROUGH_X 和 LINE_THROUGH_Y
+	 * @param lineThrough
+	 * @return RectangleLineThroughGraph
+	 */
 	public RectangleLineThroughGraph setLineThrough(int lineThrough) {
 		this.lineThrough = lineThrough;
 		return this;
 	}
 
+	/**
+	 * 字体大小
+	 * @param fontSize
+	 * @return RectangleLineThroughGraph
+	 */
 	public RectangleLineThroughGraph setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 * 字体颜色
+	 * @param fontColor
+	 * @return RectangleLineThroughGraph
+	 */
 	public RectangleLineThroughGraph setFontColor(int fontColor) {
 		this.fontColor = fontColor;
 		return this;
 	}
 
+	/**
+	 * 在矩形中显示的文本
+	 * @param text
+	 * @return RectangleLineThroughGraph
+	 */
 	public RectangleLineThroughGraph setText(String text) {
 		this.text = text;
 		return this;
 	}
 
+	/**
+	 * 贯穿线的长度
+	 * @param lineThroughLength
+	 * @return RectangleLineThroughGraph
+	 */
 	public RectangleLineThroughGraph setLineThroughLength(float lineThroughLength) {
 		this.lineThroughLength = lineThroughLength;
 		return this;
 	}
 
+	/**
+	 * 贯穿线的宽度
+	 * @param lineThroughWidth
+	 * @return RectangleLineThroughGraph
+	 */
 	public RectangleLineThroughGraph setLineThroughWidth(float lineThroughWidth) {
 		this.lineThroughWidth = lineThroughWidth;
 		return this;
 	}
 
+	/**
+	 * 是否有贯穿线
+	 * @param hasLineThrough
+	 * @return RectangleLineThroughGraph
+	 */
 	public RectangleLineThroughGraph setHasLineThrough(boolean hasLineThrough) {
 		this.hasLineThrough = hasLineThrough;
 		return this;

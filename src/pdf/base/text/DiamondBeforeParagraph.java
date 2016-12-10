@@ -79,26 +79,51 @@ public class DiamondBeforeParagraph extends AbstractBaseUnitChart {
 
 	}
 
+	/**
+	 * 文字顏色
+	 * @param fontColor
+	 * @return DiamondBeforeParagraph
+	 */
 	public DiamondBeforeParagraph setFontColor(int fontColor) {
 		this.fontColor = fontColor;
 		return this;
 	}
 
+	/**
+	 * 文字字体大小
+	 * @param fontSize
+	 * @return DiamondBeforeParagraph
+	 */
 	public DiamondBeforeParagraph setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 * 描述的文字左边的偏移量
+	 * @param textOffsetY
+	 * @return DiamondBeforeParagraph
+	 */
 	public DiamondBeforeParagraph setTextOffsetY(float textOffsetY) {
 		this.textOffsetY = textOffsetY;
 		return this;
 	}
 
+	/**
+	 * 比如：指标名称
+	 * @param itemNames
+	 * @return DiamondBeforeParagraph
+	 */
 	public DiamondBeforeParagraph setItemNames(String[] itemNames) {
 		this.itemNames = itemNames;
 		return this;
 	}
 
+	/**
+	 * 对itemNames的详细描述
+	 * @param descs
+	 * @return DiamondBeforeParagraph
+	 */
 	public DiamondBeforeParagraph setDescs(String[] descs) {
 		this.descs = descs;
 		return this;

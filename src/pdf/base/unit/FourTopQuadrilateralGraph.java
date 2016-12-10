@@ -144,51 +144,101 @@ public class FourTopQuadrilateralGraph extends AbstractBaseUnitChart {
 		}
     }
 	
+	/**
+	 * 第一个点X坐标
+	 * @param first_x
+	 * @return FourTopQuadrilateralGraph
+	 */
 	public FourTopQuadrilateralGraph setFirst_x(float first_x) {
 		this.first_x = first_x;
 		return this;
 	}
 
+	/**
+	 * 第一个点Y坐标
+	 * @param first_y
+	 * @return FourTopQuadrilateralGraph
+	 */
 	public FourTopQuadrilateralGraph setFirst_y(float first_y) {
 		this.first_y = first_y;
 		return this;
 	}
 
+	/**
+	 * 第二个点X坐标
+	 * @param second_x
+	 * @return FourTopQuadrilateralGraph
+	 */
 	public FourTopQuadrilateralGraph setSecond_x(float second_x) {
 		this.second_x = second_x;
 		return this;
 	}
 
+	/**
+	 * 第二个点Y坐标
+	 * @param second_y
+	 * @return FourTopQuadrilateralGraph
+	 */
 	public FourTopQuadrilateralGraph setSecond_y(float second_y) {
 		this.second_y = second_y;
 		return this;
 	}
 
+	/**
+	 * 第三个点X坐标
+	 * @param third_x
+	 * @return FourTopQuadrilateralGraph
+	 */
 	public FourTopQuadrilateralGraph setThird_x(float third_x) {
 		this.third_x = third_x;
 		return this;
 	}
 
+	/**
+	 * 第三个点Y坐标
+	 * @param third_y
+	 * @return FourTopQuadrilateralGraph
+	 */
 	public FourTopQuadrilateralGraph setThird_y(float third_y) {
 		this.third_y = third_y;
 		return this;
 	}
 
+	/**
+	 * 第四个点X坐标
+	 * @param fourth_x
+	 * @return FourTopQuadrilateralGraph
+	 */
 	public FourTopQuadrilateralGraph setFourth_x(float fourth_x) {
 		this.fourth_x = fourth_x;
 		return this;
 	}
 
+	/**
+	 * 第四个点Y坐标
+	 * @param fourth_y
+	 * @return FourTopQuadrilateralGraph
+	 */
 	public FourTopQuadrilateralGraph setFourth_y(float fourth_y) {
 		this.fourth_y = fourth_y;
 		return this;
 	}
 
+	/**
+	 * 图形颜色
+	 * @param color
+	 * @return FourTopQuadrilateralGraph
+	 */
 	public FourTopQuadrilateralGraph setColor(int color) {
 		this.color = color;
 		return this;
 	}
 
+	/**
+	 * 是否填充
+	 * @param isFillColor
+	 * @return FourTopQuadrilateralGraph
+	 */
 	public FourTopQuadrilateralGraph setFillColor(boolean isFillColor) {
 		this.isFillColor = isFillColor;
 		return this;

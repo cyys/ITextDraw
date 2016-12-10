@@ -59,33 +59,73 @@ public class CurveHasRadianGraph extends AbstractBaseUnitChart {
 		}
 	}
 
+	/**
+	 * 一个点的X坐标
+	 * @param x
+	 * @return CurveHasRadianGraph
+	 */
 	public CurveHasRadianGraph setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * 一个点的Y坐标
+	 * @param y
+	 * @return CurveHasRadianGraph
+	 */
 	public CurveHasRadianGraph setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * 另一个点的X坐标
+	 * @param x0
+	 * @return CurveHasRadianGraph
+	 */
 	public CurveHasRadianGraph setX0(float x0) {
 		this.x0 = x0;
 		return this;
 	}
 
+	/**
+	 * 另一个点的Y坐标
+	 * @param y0
+	 * @return CurveHasRadianGraph
+	 */
 	public CurveHasRadianGraph setY0(float y0) {
 		this.y0 = y0;
 		return this;
 	}
 
+	/**
+	 * 颜色
+	 * @param color
+	 * @return CurveHasRadianGraph
+	 */
 	public CurveHasRadianGraph setColor(int color) {
 		this.color = color;
 		return this;
 	}
 
+	/**
+	 * 是否有圆圈
+	 * @param hasCircle
+	 * @return CurveHasRadianGraph
+	 */
 	public CurveHasRadianGraph setHasCircle(boolean hasCircle) {
 		this.hasCircle = hasCircle;
+		return this;
+	}
+
+	/**
+	 * 线的宽度
+	 * @param lineWidth
+	 * @return CurveHasRadianGraph
+	 */
+	public CurveHasRadianGraph setLineWidth(float lineWidth) {
+		this.lineWidth = lineWidth;
 		return this;
 	}
 }

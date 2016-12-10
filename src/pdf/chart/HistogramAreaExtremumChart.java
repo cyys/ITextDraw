@@ -210,81 +210,160 @@ public class HistogramAreaExtremumChart extends AbstractChart {
 		}
 	}
 	
+	/**
+	 * 画完表格之后，当前所在的横坐标
+	 * @return float
+	 */
 	public float getPositionY() {
 		this.positionY=this.y-this.positionY-10;
 		return this.positionY;
 	}
 
+	/**
+	 * X坐标
+	 * @param x
+	 * @return HistogramAreaExtremumChart
+	 */
 	public HistogramAreaExtremumChart setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * Y坐标
+	 * @param y
+	 * @return HistogramAreaExtremumChart
+	 */
 	public HistogramAreaExtremumChart setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * Y轴高度
+	 * @param height
+	 * @return HistogramAreaExtremumChart
+	 */
 	public HistogramAreaExtremumChart setHeight(float height) {
 		this.height = height;
 		return this;
 	}
 
+	/**
+	 * X轴宽度
+	 * @param width
+	 * @return HistogramAreaExtremumChart
+	 */
 	public HistogramAreaExtremumChart setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
+	/**
+	 * 字体大小
+	 * @param fontSize
+	 * @return HistogramAreaExtremumChart
+	 */
 	public HistogramAreaExtremumChart setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 * 刻度
+	 * @param levels
+	 * @return HistogramAreaExtremumChart
+	 */
 	public HistogramAreaExtremumChart setLevels(int[] levels) {
 		this.levels = levels;
 		return this;
 	}
 
+	/**
+	 * 分数对应的名称
+	 * @param itemNames
+	 * @return HistogramAreaExtremumChart
+	 */
 	public HistogramAreaExtremumChart setItemNames(String[] itemNames) {
 		this.itemNames = itemNames;
 		return this;
 	}
 
+	/**
+	 * 分数
+	 * @param scores
+	 * @return HistogramAreaExtremumChart
+	 */
 	public HistogramAreaExtremumChart setScores(float[] scores) {
 		this.scores = scores;
 		return this;
 	}
 
+	/**
+	 * 极值的分数所在的列
+	 * @param extremumIndex
+	 * @return HistogramAreaExtremumChart
+	 */
 	public HistogramAreaExtremumChart setExtremumIndex(int[] extremumIndex) {
 		this.extremumIndex = extremumIndex;
 		return this;
 	}
 
+	/**
+	 * 极值的描述名称
+	 * @param extremumNames
+	 * @return HistogramAreaExtremumChart
+	 */
 	public HistogramAreaExtremumChart setExtremumNames(String[] extremumNames) {
 		this.extremumNames = extremumNames;
 		return this;
 	}
 
+	/**
+	 * 极值填充的颜色
+	 * @param extremumColors
+	 * @return HistogramAreaExtremumChart
+	 */
 	public HistogramAreaExtremumChart setExtremumColors(int[] extremumColors) {
 		this.extremumColors = extremumColors;
 		return this;
 	}
 
+	/**
+	 * 极值区域块的颜色
+	 * @param extremumAreaColors
+	 * @return HistogramAreaExtremumChart
+	 */
 	public HistogramAreaExtremumChart setExtremumAreaColors(int[] extremumAreaColors) {
 		this.extremumAreaColors = extremumAreaColors;
 		return this;
 	}
 
+	/**
+	 * 坐标轴框的颜色
+	 * @param borderColor
+	 * @return HistogramAreaExtremumChart
+	 */
 	public HistogramAreaExtremumChart setBorderColor(int borderColor) {
 		this.borderColor = borderColor;
 		return this;
 	}
 
+	/**
+	 * 字体的颜色
+	 * @param fontColor
+	 * @return HistogramAreaExtremumChart
+	 */
 	public HistogramAreaExtremumChart setFontColor(int fontColor) {
 		this.fontColor = fontColor;
 		return this;
 	}
 
+	/**
+	 * 显示分数的矩形区域高度
+	 * @param showScoreAreaHeight
+	 * @return HistogramAreaExtremumChart
+	 */
 	public HistogramAreaExtremumChart setShowScoreAreaHeight(float showScoreAreaHeight) {
 		this.showScoreAreaHeight = showScoreAreaHeight;
 		return this;

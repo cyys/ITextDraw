@@ -46,16 +46,31 @@ public class HistogramGradeDistributionChart extends AbstractChart {
 	private int scale=2;//保留的小数点位数
 	private float itemRightOffsetX=10;
 
+	/**
+	 * 保留的小数点位数
+	 * @param scale
+	 * @return HistogramGradeDistributionChart
+	 */
 	public HistogramGradeDistributionChart setScale(int scale) {
 		this.scale = scale;
 		return this;
 	}
 
+	/**
+	 * 坐标左边的偏移量
+	 * @param frameLeftOffsetX
+	 * @return HistogramGradeDistributionChart
+	 */
 	public HistogramGradeDistributionChart setFrameLeftOffsetX(float frameLeftOffsetX) {
 		this.frameLeftOffsetX = frameLeftOffsetX;
 		return this;
 	}
 
+	/**
+	 * itemName距离x坐标的距离
+	 * @param itemRightOffsetX
+	 * @return HistogramGradeDistributionChart
+	 */
 	public HistogramGradeDistributionChart setItemRightOffsetX(float itemRightOffsetX) {
 		this.itemRightOffsetX = itemRightOffsetX;
 		return this;
@@ -234,96 +249,190 @@ public class HistogramGradeDistributionChart extends AbstractChart {
 		 this.moveLine(this.contentByte,x-width,y,x-r,y);
 	 }
 
+	/**
+	 * X坐标
+	 * @param x
+	 * @return HistogramGradeDistributionChart
+	 */
 	public HistogramGradeDistributionChart setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * Y坐标
+	 * @param y
+	 * @return HistogramGradeDistributionChart
+	 */
 	public HistogramGradeDistributionChart setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * Y轴高度
+	 * @param height
+	 * @return HistogramGradeDistributionChart
+	 */
 	public HistogramGradeDistributionChart setHeight(float height) {
 		this.height = height;
 		return this;
 	}
 
+	/**
+	 * X轴宽度
+	 * @param width
+	 * @return HistogramGradeDistributionChart
+	 */
 	public HistogramGradeDistributionChart setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
+	/**
+	 * 字体大小
+	 * @param fontSize
+	 * @return HistogramGradeDistributionChart
+	 */
 	public HistogramGradeDistributionChart setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 * 刻度
+	 * @param levels
+	 * @return HistogramGradeDistributionChart
+	 */
 	public HistogramGradeDistributionChart setLevels(int[] levels) {
 		this.levels = levels;
 		return this;
 	}
 
+	/**
+	 * 级别名称
+	 * @param gradeNames
+	 * @return HistogramGradeDistributionChart
+	 */
 	public HistogramGradeDistributionChart setGradeNames(String[] gradeNames) {
 		this.gradeNames = gradeNames;
 		return this;
 	}
 
+	/**
+	 * 分数
+	 * @param scores
+	 * @return HistogramGradeDistributionChart
+	 */
 	public HistogramGradeDistributionChart setScores(float[] scores) {
 		this.scores = scores;
 		return this;
 	}
 
+	/**
+	 * 字体颜色
+	 * @param fontColor
+	 * @return HistogramGradeDistributionChart
+	 */
 	public HistogramGradeDistributionChart setFontColor(int fontColor) {
 		this.fontColor = fontColor;
 		return this;
 	}
 
+	/**
+	 * 名称。比如：指标名称
+	 * @param itemNames
+	 * @return HistogramGradeDistributionChart
+	 */
 	public HistogramGradeDistributionChart setItemNames(String[] itemNames) {
 		this.itemNames = itemNames;
 		return this;
 	}
 
+	/**
+	 * 级别的背景颜色
+	 * @param gradeBackgroundColors
+	 * @return HistogramGradeDistributionChart
+	 */
 	public HistogramGradeDistributionChart setGradeBackgroundColors(int[] gradeBackgroundColors) {
 		this.gradeBackgroundColors = gradeBackgroundColors;
 		return this;
 	}
 
+	/**
+	 * 每一个分数对应的颜色
+	 * @param scoreBackgroundColors
+	 * @return HistogramGradeDistributionChart
+	 */
 	public HistogramGradeDistributionChart setScoreBackgroundColors(int[] scoreBackgroundColors) {
 		this.scoreBackgroundColors = scoreBackgroundColors;
 		return this;
 	}
 
+	/**
+	 * 柱状体背景颜色
+	 * @param histogramBackgroundColor
+	 * @return HistogramGradeDistributionChart
+	 */
 	public HistogramGradeDistributionChart setHistogramBackgroundColor(int histogramBackgroundColor) {
 		this.histogramBackgroundColor = histogramBackgroundColor;
 		return this;
 	}
 
+	/**
+	 * 边框的颜色
+	 * @param levelSepLineXColor
+	 * @return HistogramGradeDistributionChart
+	 */
 	public HistogramGradeDistributionChart setLevelSepLineXColor(int levelSepLineXColor) {
 		this.levelSepLineXColor = levelSepLineXColor;
 		return this;
 	}
 
+	/**
+	 * 刻度线的颜色
+	 * @param levelYBorderColor
+	 * @return HistogramGradeDistributionChart
+	 */
 	public HistogramGradeDistributionChart setLevelYBorderColor(int levelYBorderColor) {
 		this.levelYBorderColor = levelYBorderColor;
 		return this;
 	}
 
+	/**
+	 * 单元格背景颜色
+	 * @param levelBackgroundColor
+	 * @return HistogramGradeDistributionChart
+	 */
 	public HistogramGradeDistributionChart setLevelBackgroundColor(int levelBackgroundColor) {
 		this.levelBackgroundColor = levelBackgroundColor;
 		return this;
 	}
 
+	/**
+	 * 单元格的高度
+	 * @param cellHeight
+	 * @return HistogramGradeDistributionChart
+	 */
 	public HistogramGradeDistributionChart setCellHeight(float cellHeight) {
 		this.cellHeight = cellHeight;
 		return this;
 	}
 
+	/**
+	 * 显示刻度的矩形框宽度
+	 * @param levelCellWidth
+	 * @return HistogramGradeDistributionChart
+	 */
 	public HistogramGradeDistributionChart setLevelCellWidth(float levelCellWidth) {
 		this.levelCellWidth = levelCellWidth;
 		return this;
 	}
 
+	/**
+	 * 画完表格之后，当前所在的横坐标
+	 * @return float
+	 */
 	public float getPositionY() {
 		this.positionY = this.y - this.fontSize * 2 - 10;
 		return this.positionY;

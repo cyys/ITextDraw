@@ -17,7 +17,13 @@ import com.itextpdf.text.pdf.PdfWriter;
  */
 public class HistogramXOrYDirectionChart extends AbstractChart {
 //方向
+	/**
+	 * X轴方向
+	 */
 	public static final int DIRECTION_X=0;
+	/**
+	 * Y轴方向
+	 */
 	public static final int DIRECTION_Y=1;
 	
 	private float x;
@@ -186,66 +192,130 @@ public class HistogramXOrYDirectionChart extends AbstractChart {
 		}
 	}
 
+	/**
+	 * 画完表格之后，当前所在的横坐标
+	 * @return float
+	 */
 	public float getPositionY() {
 		this.positionY=this.y-this.height-this.positionY+10;
 		return this.positionY;
 	}
 
+	/**
+	 * X坐标
+	 * @param x
+	 * @return HistogramXOrYDirectionChart
+	 */
 	public HistogramXOrYDirectionChart setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * Y坐标
+	 * @param y
+	 * @return HistogramXOrYDirectionChart
+	 */
 	public HistogramXOrYDirectionChart setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * Y轴高度
+	 * @param height
+	 * @return HistogramXOrYDirectionChart
+	 */
 	public HistogramXOrYDirectionChart setHeight(float height) {
 		this.height = height;
 		return this;
 	}
 
+	/**
+	 * X轴宽度
+	 * @param width
+	 * @return HistogramXOrYDirectionChart
+	 */
 	public HistogramXOrYDirectionChart setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
+	/**
+	 * 字体大小
+	 * @param fontSize
+	 * @return HistogramXOrYDirectionChart
+	 */
 	public HistogramXOrYDirectionChart setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 * 刻度
+	 * @param levels
+	 * @return HistogramXOrYDirectionChart
+	 */
 	public HistogramXOrYDirectionChart setLevels(int[] levels) {
 		this.levels = levels;
 		return this;
 	}
 
+	/**
+	 * 名称。比如：指标
+	 * @param itemNames
+	 * @return HistogramXOrYDirectionChart
+	 */
 	public HistogramXOrYDirectionChart setItemNames(String[] itemNames) {
 		this.itemNames = itemNames;
 		return this;
 	}
 
+	/**
+	 * 分数
+	 * @param scores
+	 * @return HistogramXOrYDirectionChart
+	 */
 	public HistogramXOrYDirectionChart setScores(float[] scores) {
 		this.scores = scores;
 		return this;
 	}
 
+	/**
+	 * 柱状图的背景颜色
+	 * @param itemColors
+	 * @return HistogramXOrYDirectionChart
+	 */
 	public HistogramXOrYDirectionChart setItemColors(int[] itemColors) {
 		this.itemColors = itemColors;
 		return this;
 	}
 
+	/**
+	 * 字体颜色
+	 * @param fontColor
+	 * @return HistogramXOrYDirectionChart
+	 */
 	public HistogramXOrYDirectionChart setFontColor(int fontColor) {
 		this.fontColor = fontColor;
 		return this;
 	}
 
+	/**
+	 * 边框的颜色
+	 * @param borderColor
+	 * @return HistogramXOrYDirectionChart
+	 */
 	public HistogramXOrYDirectionChart setBorderColor(int borderColor) {
 		this.borderColor = borderColor;
 		return this;
 	}
 
+	/**
+	 * 设置坐标的方向 DIRECTION_X or DIRECTION_Y
+	 * @param histogramDirection
+	 * @return HistogramXOrYDirectionChart
+	 */
 	public HistogramXOrYDirectionChart setHistogramDirection(int histogramDirection) {
 		this.histogramDirection = histogramDirection;
 		return this;

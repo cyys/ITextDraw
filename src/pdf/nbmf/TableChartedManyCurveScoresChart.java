@@ -525,130 +525,239 @@ public class TableChartedManyCurveScoresChart extends AbstractChart {
 		return cell;
 	}
 
+	/**
+	 * 表格的宽度
+	 * @param width
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
+	/**
+	 * 表头字体颜色
+	 * @param tableHeadFontColor
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setTableHeadFontColor(int tableHeadFontColor) {
 		this.tableHeadFontColor = tableHeadFontColor;
 		return this;
 	}
 
+	/**
+	 * 表格表头信息
+	 * @param tableHeads
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setTableHeads(String[] tableHeads) {
 		this.tableHeads = tableHeads;
 		return this;
 	}
 
+	/**
+	 * 分数的刻度值
+	 * @param scoreLevels
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setScoreLevels(int[] scoreLevels) {
 		this.scoreLevels = scoreLevels;
 		return this;
 	}
 
+	/**
+	 * 表头背景颜色
+	 * @param tableHeadColor
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setTableHeadColor(int tableHeadColor) {
 		this.tableHeadColor = tableHeadColor;
 		return this;
 	}
 
+	/**
+	 *  父类名称
+	 * @param parentTypes
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setParentTypes(String[] parentTypes) {
 		this.parentTypes = parentTypes;
 		return this;
 	}
 
+	/**
+	 * 父类背景颜色
+	 * @param parentTypeColor
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setParentTypeColor(int parentTypeColor) {
 		this.parentTypeColor = parentTypeColor;
 		return this;
 	}
 
+	/**
+	 * 子类分组及每一行名称
+	 * @param childrenTypes
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setChildrenTypes(List<String[]> childrenTypes) {
 		this.childrenTypes = childrenTypes;
 		return this;
 	}
 
+	/**
+	 *  每一行的每列的分数
+	 * @param scores
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setScores(float[][] scores) {
 		this.scores = scores;
 		return this;
 	}
 
+	/**
+	 * 行的交替颜色
+	 * @param rowColors
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setRowColors(int[] rowColors) {
 		this.rowColors = rowColors;
 		return this;
 	}
 
+	/**
+	 * 折现的颜色
+	 * @param curveColors
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setCurveColor(int[] curveColors) {
 		this.curveColors = curveColors;
 		return this;
 	}
 
+	/**
+	 *  每一行的高度
+	 * @param lineHeight
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setLineHeight(float lineHeight) {
 		this.lineHeight = lineHeight;
 		return this;
 	}
 
+	/**
+	 * 除了刻线之外的文字大小
+	 * @param fontSize
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 * 表格每一列的宽度
+	 * @param widths
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setWidths(float[] widths) {
 		this.widths = widths;
 		return this;
 	}
 
+	/**
+	 * 刻度文本的字体大小
+	 * @param levelFontSize
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setLevelFontSize(float levelFontSize) {
 		this.levelFontSize = levelFontSize;
 		return this;
 	}
 
+	/**
+	 *  画完表格之后，当前所在的横坐标
+	 * @return float
+	 */
 	public float getPositionY() {
 		return this.positionY;
 	}
 
+	/**
+	 * 字体的颜色
+	 * @param fontColor
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setFontColor(int fontColor) {
 		this.fontColor = fontColor;
 		return this;
 	}
 
+	/**
+	 * 表格边框的颜色
+	 * @param borderColor
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setBorderColor(int borderColor) {
 		this.borderColor = borderColor;
 		return this;
 	}
 
-	public TableChartedManyCurveScoresChart setRealRowHeight(float[] realRowHeight) {
-		this.realRowHeight = realRowHeight;
-		return this;
-	}
-
-	public TableChartedManyCurveScoresChart setLineNumber(int lineNumber) {
-		this.lineNumber = lineNumber;
-		return this;
-	}
-
+	/**
+	 * 级别颜色标注框与表格间的空隙
+	 * @param itemMarkRectangeGap
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setItemMarkRectangeGap(float itemMarkRectangeGap) {
 		this.itemMarkRectangeGap = itemMarkRectangeGap;
 		return this;
 	}
 
+	/**
+	 * 分数的列描述字体大小
+	 * @param itemMarkFontSize
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setItemMarkFontSize(float itemMarkFontSize) {
 		this.itemMarkFontSize = itemMarkFontSize;
 		return this;
 	}
 
+	/**
+	 * 表头字体大小
+	 * @param tableHeadFontSize
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setTableHeadFontSize(float tableHeadFontSize) {
 		this.tableHeadFontSize = tableHeadFontSize;
 		return this;
 	}
 
+	/**
+	 *  第一列字体的大小
+	 * @param firstColumnFontSize
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setFirstColumnFontSize(float firstColumnFontSize) {
 		this.firstColumnFontSize = firstColumnFontSize;
 		return this;
 	}
 
+	/**
+	 * 折现的颜色
+	 * @param curveColors
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setCurveColors(int[] curveColors) {
 		this.curveColors = curveColors;
 		return this;
 	}
 
+	/**
+	 * 在折线上的文字
+	 * @param stringOnCurve
+	 * @return TableChartedManyCurveScoresChart
+	 */
 	public TableChartedManyCurveScoresChart setStringOnCurve(String[] stringOnCurve) {
 		this.stringOnCurve = stringOnCurve;
 		return this;

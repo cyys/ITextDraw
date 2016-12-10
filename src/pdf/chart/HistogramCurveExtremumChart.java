@@ -41,21 +41,36 @@ public class HistogramCurveExtremumChart extends AbstractChart {
 	private float positionY;// 画完表格之后，当前所在的横坐标
 	private int scoreDescWidth = 50;// 文字描述的宽度
 	private String[] scoreDescNames;
-	private int[] areaScoreColors;
+	private int[] areaScoreColors;//各个分数区域的颜色
 	private int maxScoreIndex = 0;
 	private int minScoreIndex = 1;
 	private int avgScoreIndex = 2;
 
+	/**
+	 * scoreDescName的所在列的宽度
+	 * @param scoreDescWidth
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setScoreDescWidth(int scoreDescWidth) {
 		this.scoreDescWidth = scoreDescWidth;
 		return this;
 	}
 
+	/**
+	 * 表格中每一行分数的描述名称
+	 * @param scoreDescNames
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setScoreDescNames(String[] scoreDescNames) {
 		this.scoreDescNames = scoreDescNames;
 		return this;
 	}
 
+	/**
+	 * 表格中每一行分数的描述名称，所在单元格的颜色 或 各个分数区域的颜色
+	 * @param areaScoreColors
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setAreaScoreColors(int[] areaScoreColors) {
 		this.areaScoreColors = areaScoreColors;
 		return this;
@@ -304,106 +319,210 @@ public class HistogramCurveExtremumChart extends AbstractChart {
 				, x1 - 6, y1 - 3, Element.ALIGN_RIGHT,0);
 	}
 
+	/**
+	 * X坐标
+	 * @param x
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * Y坐标
+	 * @param y
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * Y轴高度
+	 * @param height
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setHeight(float height) {
 		this.height = height;
 		return this;
 	}
 
+	/**
+	 * X轴宽度
+	 * @param width
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
+	/**
+	 * 字体大小
+	 * @param fontSize
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 *  刻度
+	 * @param levels
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setLevels(float[] levels) {
 		this.levels = levels;
 		return this;
 	}
 
+	/**
+	 * 名称。比如：指标名称
+	 * @param itemNames
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setItemNames(String[] itemNames) {
 		this.itemNames = itemNames;
 		return this;
 	}
 
+	/**
+	 * 最高分数
+	 * @param maxScores
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setMaxScores(float[] maxScores) {
 		this.maxScores = maxScores;
 		return this;
 	}
 
+	/**
+	 * 最低分数
+	 * @param minScores
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setMinScores(float[] minScores) {
 		this.minScores = minScores;
 		return this;
 	}
 
+	/**
+	 * 当前分数
+	 * @param avgScores
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setAvgScores(float[] avgScores) {
 		this.avgScores = avgScores;
 		return this;
 	}
 
+	/**
+	 * 每块区域的背景颜色
+	 * @param areaBackgroundColors
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setAreaBackgroundColors(int[] areaBackgroundColors) {
 		this.areaBackgroundColors = areaBackgroundColors;
 		return this;
 	}
 
+	/**
+	 * 柱状图的填充颜色
+	 * @param histogramFillColors
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setHistogramFillColors(int[] histogramFillColors) {
 		this.histogramFillColors = histogramFillColors;
 		return this;
 	}
 
+	/**
+	 * 点连接线的颜色
+	 * @param jionLineColor
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setJionLineColor(int jionLineColor) {
 		this.jionLineColor = jionLineColor;
 		return this;
 	}
 
+	/**
+	 * 字体颜色
+	 * @param fontColor
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setFontColor(int fontColor) {
 		this.fontColor = fontColor;
 		return this;
 	}
 
+	/**
+	 * 边框的颜色
+	 * @param borderColor
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setBorderColor(int borderColor) {
 		this.borderColor = borderColor;
 		return this;
 	}
 
+	/**
+	 * 表格行的背景颜色
+	 * @param rowBackgroundColors
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setRowBackgroundColors(int[] rowBackgroundColors) {
 		this.rowBackgroundColors = rowBackgroundColors;
 		return this;
 	}
 
+	/**
+	 * 单元格的高度
+	 * @param cellHeight
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setCellHeight(float cellHeight) {
 		this.cellHeight = cellHeight;
 		return this;
 	}
 
+	/**
+	 * 最高分所在的列索引
+	 * @param maxScoreIndex
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setMaxScoreIndex(int maxScoreIndex) {
 		this.maxScoreIndex = maxScoreIndex;
 		return this;
 	}
 
+	/**
+	 * 最低分所在的列索引
+	 * @param minScoreIndex
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setMinScoreIndex(int minScoreIndex) {
 		this.minScoreIndex = minScoreIndex;
 		return this;
 	}
 
+	/**
+	 * 平均分所在的列索引
+	 * @param avgScoreIndex
+	 * @return HistogramCurveExtremumChart
+	 */
 	public HistogramCurveExtremumChart setAvgScoreIndex(int avgScoreIndex) {
 		this.avgScoreIndex = avgScoreIndex;
 		return this;
 	}
 
+	/**
+	 * 画完表格之后，当前所在的横坐标
+	 * @return float
+	 */
 	public float getPositionY() {
 		this.positionY = this.y - this.height - this.positionY + 10;
 		return this.positionY;

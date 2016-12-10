@@ -86,41 +86,81 @@ public class ThreeTopTriangleGraph extends AbstractBaseUnitChart {
 		}
     }
 	
+	/**
+	 *  一个点的X坐标
+	 * @param top_x
+	 * @return ThreeTopTriangleGraph
+	 */
 	public ThreeTopTriangleGraph setTop_x(float top_x) {
 		this.top_x = top_x;
 		return this;
 	}
 
+	/**
+	 *  一个点的Y坐标
+	 * @param top_y
+	 * @return ThreeTopTriangleGraph
+	 */
 	public ThreeTopTriangleGraph setTop_y(float top_y) {
 		this.top_y = top_y;
 		return this;
 	}
 
+	/**
+	 *  一个点的X坐标
+	 * @param left_x
+	 * @return ThreeTopTriangleGraph
+	 */
 	public ThreeTopTriangleGraph setLeft_x(float left_x) {
 		this.left_x = left_x;
 		return this;
 	}
 
+	/**
+	 *  一个点的Y坐标
+	 * @param left_y
+	 * @return ThreeTopTriangleGraph
+	 */
 	public ThreeTopTriangleGraph setLeft_y(float left_y) {
 		this.left_y = left_y;
 		return this;
 	}
 
+	/**
+	 *  一个点的X坐标
+	 * @param right_x
+	 * @return ThreeTopTriangleGraph
+	 */
 	public ThreeTopTriangleGraph setRight_x(float right_x) {
 		this.right_x = right_x;
 		return this;
 	}
 
+	/**
+	 * 一个点的Y坐标
+	 * @param right_y
+	 * @return ThreeTopTriangleGraph
+	 */
 	public ThreeTopTriangleGraph setRight_y(float right_y) {
 		this.right_y = right_y;
 		return this;
 	}
 
+	/**
+	 * 图形颜色
+	 * @param color
+	 * @return ThreeTopTriangleGraph
+	 */
 	public ThreeTopTriangleGraph setColor(int color) {
 		this.color = color;
 		return this;
 	}
 
+	/**
+	 * 是否填充
+	 * @param isFillColor
+	 * @return ThreeTopTriangleGraph
+	 */
 	public ThreeTopTriangleGraph setFillColor(boolean isFillColor) {
 		this.isFillColor = isFillColor;
 		return this;

@@ -7,6 +7,11 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 import pdf.base.AbstractBaseChart;
 
+/**
+ * 所有PDF图形的超类
+ * @author cheny
+ *
+ */
 public abstract class AbstractChart extends AbstractBaseChart {
 	
 	protected PdfWriter writer;
@@ -14,6 +19,9 @@ public abstract class AbstractChart extends AbstractBaseChart {
 	protected Document document;
 	protected BaseFont baseFont;
 	
+	/**
+	 * 具体画图，需要实现的方法
+	 */
 	public abstract void chart();
 	
 	public AbstractChart(PdfWriter writer, PdfContentByte contentByte,
@@ -29,18 +37,34 @@ public abstract class AbstractChart extends AbstractBaseChart {
 		super();
 	}
 
+	/**
+	 * com.itextpdf.text.pdf.PdfWriter
+	 * @param writer
+	 */
 	public void setWriter(PdfWriter writer) {
 		this.writer = writer;
 	}
 
+	/**
+	 * com.itextpdf.text.pdf.PdfContentByte
+	 * @param contentByte
+	 */
 	public void setContentByte(PdfContentByte contentByte) {
 		this.contentByte = contentByte;
 	}
 
+	/**
+	 * com.itextpdf.text.Document
+	 * @param document
+	 */
 	public void setDocument(Document document) {
 		this.document = document;
 	}
 
+	/**
+	 * 基本的字体
+	 * @param baseFont
+	 */
 	public void setBaseFont(BaseFont baseFont) {
 		this.baseFont = baseFont;
 	}

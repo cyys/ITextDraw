@@ -562,111 +562,220 @@ public class TableChartedDoubleArrowCurveChart extends AbstractChart {
 		return cell;
 	}
 
+	/**
+	 * 表格的宽度
+	 * @param width
+	 * @return TableChartedDoubleArrowCurveChart
+	 */
 	public TableChartedDoubleArrowCurveChart setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
+	/**
+	 * 标题
+	 * @param title
+	 * @return TableChartedDoubleArrowCurveChart
+	 */
 	public TableChartedDoubleArrowCurveChart setTitle(String title) {
 		this.title = title;
 		return this;
 	}
 
+	/**
+	 * 标题背景颜色
+	 * @param titleColor
+	 * @return TableChartedDoubleArrowCurveChart
+	 */
 	public TableChartedDoubleArrowCurveChart setTitleColor(int titleColor) {
 		this.titleColor = titleColor;
 		return this;
 	}
 
+	/**
+	 * 表格表头信息
+	 * @param tableHeads
+	 * @return TableChartedDoubleArrowCurveChart
+	 */
 	public TableChartedDoubleArrowCurveChart setTableHeads(String[] tableHeads) {
 		this.tableHeads = tableHeads;
 		return this;
 	}
 
+	/**
+	 * 分数的刻度值
+	 * @param scoreLevels
+	 * @return TableChartedDoubleArrowCurveChart
+	 */
 	public TableChartedDoubleArrowCurveChart setScoreLevels(int[] scoreLevels) {
 		this.scoreLevels = scoreLevels;
 		return this;
 	}
 
+	/**
+	 * 表头背景颜色
+	 * @param tableHeadColor
+	 * @return TableChartedDoubleArrowCurveChart
+	 */
 	public TableChartedDoubleArrowCurveChart setTableHeadColor(int tableHeadColor) {
 		this.tableHeadColor = tableHeadColor;
 		return this;
 	}
 
+	/**
+	 * 父类名称
+	 * @param parentTypes
+	 * @return TableChartedDoubleArrowCurveChart
+	 */
 	public TableChartedDoubleArrowCurveChart setParentTypes(String[] parentTypes) {
 		this.parentTypes = parentTypes;
 		return this;
 	}
 
+	/**
+	 * 父类背景颜色
+	 * @param parentTypeColor
+	 * @return TableChartedDoubleArrowCurveChart
+	 */
 	public TableChartedDoubleArrowCurveChart setParentTypeColor(int parentTypeColor) {
 		this.parentTypeColor = parentTypeColor;
 		return this;
 	}
 
+	/**
+	 * 子类分组及每一行名称
+	 * @param childrenTypes
+	 * @return TableChartedDoubleArrowCurveChart
+	 */
 	public TableChartedDoubleArrowCurveChart setChildrenTypes(List<String[]> childrenTypes) {
 		this.childrenTypes = childrenTypes;
 		return this;
 	}
 
+	/**
+	 * 每一行的每列的分数
+	 * @param scores
+	 * @return TableChartedDoubleArrowCurveChart
+	 */
 	public TableChartedDoubleArrowCurveChart setScores(float[][] scores) {
 		this.scores = scores;
 		return this;
 	}
 
+	/**
+	 * 行的交替颜色
+	 * @param rowColors
+	 * @return TableChartedDoubleArrowCurveChart
+	 */
 	public TableChartedDoubleArrowCurveChart setRowColors(int[] rowColors) {
 		this.rowColors = rowColors;
 		return this;
 	}
 
+	/**
+	 * 指定那一列
+	 * @param colNumber
+	 * @return TableChartedDoubleArrowCurveChart
+	 */
 	public TableChartedDoubleArrowCurveChart setColNumber(int colNumber) {
 		this.colNumber = colNumber;
 		return this;
 	}
 
+	/**
+	 * 指定那一列的背景色
+	 * @param colColor
+	 * @return TableChartedDoubleArrowCurveChart
+	 */
 	public TableChartedDoubleArrowCurveChart setColColor(int colColor) {
 		this.colColor = colColor;
 		return this;
 	}
 
+	/**
+	 * 折线的颜色
+	 * @param curveColor
+	 * @return TableChartedDoubleArrowCurveChart
+	 */
 	public TableChartedDoubleArrowCurveChart setCurveColor(int curveColor) {
 		this.curveColor = curveColor;
 		return this;
 	}
 
+	/**
+	 *  每一行的高度
+	 * @param lineHeight
+	 * @return TableChartedDoubleArrowCurveChart
+	 */
 	public TableChartedDoubleArrowCurveChart setLineHeight(float lineHeight) {
 		this.lineHeight = lineHeight;
 		return this;
 	}
 
+	/**
+	 * 字体大小
+	 * @param fontSize
+	 * @return TableChartedDoubleArrowCurveChart
+	 */
 	public TableChartedDoubleArrowCurveChart setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 * 表格每一列的宽度
+	 * @param widths
+	 * @return TableChartedDoubleArrowCurveChart
+	 */
 	public TableChartedDoubleArrowCurveChart setWidths(float[] widths) {
 		this.widths = widths;
 		return this;
 	}
 
+	/**
+	 * 刻度文本的字体大小
+	 * @param levelFontSize
+	 * @return TableChartedDoubleArrowCurveChart
+	 */
 	public TableChartedDoubleArrowCurveChart setLevelFontSize(float levelFontSize) {
 		this.levelFontSize = levelFontSize;
 		return this;
 	}
 
+	/**
+	 * 最大分数的列
+	 * @param maxScoreColNum
+	 * @return TableChartedDoubleArrowCurveChart
+	 */
 	public TableChartedDoubleArrowCurveChart setMaxScoreColNum(int maxScoreColNum) {
 		this.maxScoreColNum = maxScoreColNum;
 		return this;
 	}
 
+	/**
+	 * 最小分数的列
+	 * @param minScoreColNum
+	 * @return TableChartedDoubleArrowCurveChart
+	 */
 	public TableChartedDoubleArrowCurveChart setMinScoreColNum(int minScoreColNum) {
 		this.minScoreColNum = minScoreColNum;
 		return this;
 	}
 
+	/**
+	 * 分数的列
+	 * @param curScoreColNum
+	 * @return TableChartedDoubleArrowCurveChart
+	 */
 	public TableChartedDoubleArrowCurveChart setCurScoreColNum(int curScoreColNum) {
 		this.curScoreColNum = curScoreColNum;
 		return this;
 	}
 
+	/**
+	 * 画完表格之后，当前所在的横坐标
+	 * @return float
+	 */
 	public float getPositionY() {
 		return this.positionY;
 	}

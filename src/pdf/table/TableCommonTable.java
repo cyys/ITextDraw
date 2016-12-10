@@ -139,76 +139,151 @@ public class TableCommonTable extends AbstractChart {
 		return cell;
 	}
 
+	/**
+	 * 表格宽度
+	 * @param width
+	 * @return TableCommonTable
+	 */
 	public TableCommonTable setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
+	/**
+	 * 每一行的数据
+	 * @param rowDatas
+	 * @return TableCommonTable
+	 */
 	public TableCommonTable setRowDatas(List<Object[]> rowDatas) {
 		this.rowDatas = rowDatas;
 		return this;
 	}
 
+	/**
+	 *  除了第一行，行的交替背景颜色
+	 * @param rowColors
+	 * @return TableCommonTable
+	 */
 	public TableCommonTable setRowColors(int[] rowColors) {
 		this.rowColors = rowColors;
 		return this;
 	}
 
+	/**
+	 * 除了第一行，字体大小
+	 * @param fontSize
+	 * @return TableCommonTable
+	 */
 	public TableCommonTable setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 * 表格边框的颜色
+	 * @param borderColor
+	 * @return TableCommonTable
+	 */
 	public TableCommonTable setBorderColor(int borderColor) {
 		this.borderColor = borderColor;
 		return this;
 	}
 
+	/**
+	 *  每一行的高度
+	 * @param rowHeight
+	 * @return TableCommonTable
+	 */
 	public TableCommonTable setRowHeight(float rowHeight) {
 		this.rowHeight = rowHeight;
 		return this;
 	}
 
+	/**
+	 * 每一列的宽度
+	 * @param widths
+	 * @return TableCommonTable
+	 */
 	public TableCommonTable setWidths(float[] widths) {
 		this.widths = widths;
 		return this;
 	}
 
+	/**
+	 *  第一行字体样式
+	 * @param firstRowFontType
+	 * @return TableCommonTable
+	 */
 	public TableCommonTable setFirstRowFontType(int firstRowFontType) {
 		this.firstRowFontType = firstRowFontType;
 		return this;
 	}
 
+	/**
+	 * 第一行的背景颜色
+	 * @param firstRowBackgroundColor
+	 * @return TableCommonTable
+	 */
 	public TableCommonTable setFirstRowBackgroundColor(int firstRowBackgroundColor) {
 		this.firstRowBackgroundColor = firstRowBackgroundColor;
 		return this;
 	}
 
+	/**
+	 *  第一行文字颜色
+	 * @param firstRowFontColor
+	 * @return TableCommonTable
+	 */
 	public TableCommonTable setFirstRowFontColor(int firstRowFontColor) {
 		this.firstRowFontColor = firstRowFontColor;
 		return this;
 	}
 
+	/**
+	 *  第一行字体大小
+	 * @param firstRowFontSize
+	 * @return TableCommonTable
+	 */
 	public TableCommonTable setFirstRowFontSize(float firstRowFontSize) {
 		this.firstRowFontSize = firstRowFontSize;
 		return this;
 	}
 
+	/**
+	 * 除了第一行的列,第一列背景颜色
+	 * @param firstColumnColors
+	 * @return TableCommonTable
+	 */
 	public TableCommonTable setFirstColumnColors(Integer firstColumnColors) {
 		this.firstColumnColors = firstColumnColors;
 		return this;
 	}
 
+	/**
+	 * 除了第一行的列,第一列文字颜色
+	 * @param firstColumnFontColor
+	 * @return TableCommonTable
+	 */
 	public TableCommonTable setFirstColumnFontColor(int firstColumnFontColor) {
 		this.firstColumnFontColor = firstColumnFontColor;
 		return this;
 	}
 
+	/**
+	 * 除了第一列,其它文字颜色
+	 * @param otherColumnFontColor
+	 * @return TableCommonTable
+	 */
 	public TableCommonTable setOtherColumnFontColor(int otherColumnFontColor) {
 		this.otherColumnFontColor = otherColumnFontColor;
 		return this;
 	}
 
+	/**
+	 *  除了第一列,其它列位置
+	 * @param otherColumnAlign
+	 * @return TableCommonTable
+	 */
 	public TableCommonTable setOtherColumnAlign(int otherColumnAlign) {
 		this.otherColumnAlign = otherColumnAlign;
 		return this;

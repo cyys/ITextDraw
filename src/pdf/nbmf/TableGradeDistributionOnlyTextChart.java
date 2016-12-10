@@ -29,7 +29,8 @@ public class TableGradeDistributionOnlyTextChart extends AbstractChart {
 	private String[]  gradeDescs;// 各个级别描述
 	private int[] gradeBackgroundColors;// 级别的背景颜色
 
-	private float curNumber;// 当前要画出的数值
+	private String curNumber;// 当前要画出的数值
+	private float curPercentage;// 当前要画出的数值的位置比值
 	private float maxNumber;//最大的数，用来找出当前数值要画出的位置
 	private float fontSize =8;// 字体大小
 	private int fontColor = 0x000000;// 文字颜色
@@ -179,101 +180,201 @@ public class TableGradeDistributionOnlyTextChart extends AbstractChart {
 
 		balloonGraph.setY(this.y -celHeight).setLineHeight(celHeight)
 				.setAreaHeight(8)
-				.setBallR(this.fontSize*(this.curNumber+"").length()*1.1f/3)
-				.setX(this.x +this.curNumber*this.width/this.maxNumber);
+				.setBallR(this.fontSize*(this.curNumber.length()>4?this.curNumber.length():4)*1.1f/3)
+				.setX(this.x +this.curPercentage*this.width/this.maxNumber);
 
 		balloonGraph.chart();
 		
-		this.moveText(this.contentByte, this.curNumber+"",
-				this.x +this.curNumber*this.width/this.maxNumber,
-				this.y +8+this.fontSize*(this.curNumber+"").length()*1.1f/4, Element.ALIGN_CENTER, 0);
+		this.moveText(this.contentByte, this.curNumber,
+				this.x +this.curPercentage*this.width/this.maxNumber,
+				this.y +8+this.fontSize*(this.curNumber.length()>4?
+				this.curNumber.length():4)*1.1f/4, Element.ALIGN_CENTER, 0);
 	}
 
+	/**
+	 * X坐标
+	 * @param x
+	 * @return TableGradeDistributionOnlyTextChart
+	 */
 	public TableGradeDistributionOnlyTextChart setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * X轴宽度
+	 * @param width
+	 * @return TableGradeDistributionOnlyTextChart
+	 */
 	public TableGradeDistributionOnlyTextChart setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
+	/**
+	 * Y坐标
+	 * @param y
+	 * @return TableGradeDistributionOnlyTextChart
+	 */
 	public TableGradeDistributionOnlyTextChart setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * 各个级别名称
+	 * @param gradeNames
+	 * @return TableGradeDistributionOnlyTextChart
+	 */
 	public TableGradeDistributionOnlyTextChart setGradeNames(String[] gradeNames) {
 		this.gradeNames = gradeNames;
 		return this;
 	}
 
+	/**
+	 *  级别的背景颜色
+	 * @param gradeBackgroundColors
+	 * @return TableGradeDistributionOnlyTextChart
+	 */
 	public TableGradeDistributionOnlyTextChart setGradeBackgroundColors(int[] gradeBackgroundColors) {
 		this.gradeBackgroundColors = gradeBackgroundColors;
 		return this;
 	}
 
+	/**
+	 *  文字颜色
+	 * @param fontColor
+	 * @return TableGradeDistributionOnlyTextChart
+	 */
 	public TableGradeDistributionOnlyTextChart setFontColor(int fontColor) {
 		this.fontColor = fontColor;
 		return this;
 	}
 
+	/**
+	 * 画完表格之后，当前所在的横坐标
+	 * @return float
+	 */
 	public float getPositionY() {
 		this.positionY = this.y - this.positionY-5;
 		return this.positionY;
 	}
 
+	/**
+	 * 各个级别描述
+	 * @param gradeDescs
+	 * @return TableGradeDistributionOnlyTextChart
+	 */
 	public TableGradeDistributionOnlyTextChart setGradeDescs(String[] gradeDescs) {
 		this.gradeDescs = gradeDescs;
 		return this;
 	}
 
-	public TableGradeDistributionOnlyTextChart setCurNumber(float curNumber) {
+	/**
+	 * 当前要画出的数值
+	 * @param curNumber
+	 * @return TableGradeDistributionOnlyTextChart
+	 */
+	public TableGradeDistributionOnlyTextChart setCurNumber(String curNumber) {
 		this.curNumber = curNumber;
 		return this;
 	}
 
+	/**
+	 * 最大的数，用来找出当前数值要画出的位置
+	 * @param maxNumber
+	 * @return TableGradeDistributionOnlyTextChart
+	 */
 	public TableGradeDistributionOnlyTextChart setMaxNumber(float maxNumber) {
 		this.maxNumber = maxNumber;
 		return this;
 	}
 
+	/**
+	 * 字体大小
+	 * @param fontSize
+	 * @return TableGradeDistributionOnlyTextChart
+	 */
 	public TableGradeDistributionOnlyTextChart setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 * 是否标记处当前分数的位置
+	 * @param isMarkCurPositon
+	 * @return TableGradeDistributionOnlyTextChart
+	 */
 	public TableGradeDistributionOnlyTextChart setMarkCurPositon(boolean isMarkCurPositon) {
 		this.isMarkCurPositon = isMarkCurPositon;
 		return this;
 	}
 
+	/**
+	 * 在不显示当前分数位置的情况下，会画出一条分隔线
+	 * @param sepLineColor
+	 * @return TableGradeDistributionOnlyTextChart
+	 */
 	public TableGradeDistributionOnlyTextChart setSepLineColor(int sepLineColor) {
 		this.sepLineColor = sepLineColor;
 		return this;
 	}
 
+	/**
+	 * 是否显示分隔线
+	 * @param isShowSepLine
+	 * @return TableGradeDistributionOnlyTextChart
+	 */
 	public TableGradeDistributionOnlyTextChart setShowSepLine(boolean isShowSepLine) {
 		this.isShowSepLine = isShowSepLine;
 		return this;
 	}
 
+	/**
+	 * 单元格的高度
+	 * @param cellHeight
+	 * @return TableGradeDistributionOnlyTextChart
+	 */
 	public TableGradeDistributionOnlyTextChart setCellHeight(float cellHeight) {
 		this.cellHeight = cellHeight;
 		return this;
 	}
 
+	/**
+	 * 没一列的百分比
+	 * @param widths
+	 * @return TableGradeDistributionOnlyTextChart
+	 */
 	public TableGradeDistributionOnlyTextChart setWidths(float[] widths) {
 		this.widths = widths;
 		return this;
 	}
 
+	/**
+	 * 分隔线与表格的距离
+	 * @param sepTopMargin
+	 * @return TableGradeDistributionOnlyTextChart
+	 */
 	public TableGradeDistributionOnlyTextChart setSepTopMargin(float sepTopMargin) {
 		this.sepTopMargin = sepTopMargin;
 		return this;
 	}
 
+	/**
+	 * 当前要画出的数值的位置比值
+	 * @param curPercentage
+	 * @return TableGradeDistributionOnlyTextChart
+	 */
+	public TableGradeDistributionOnlyTextChart setCurPercentage(float curPercentage) {
+		this.curPercentage = curPercentage;
+		return this;
+	}
+
+	/**
+	 * 分隔线的宽度
+	 * @param sepLineWidth
+	 * @return TableGradeDistributionOnlyTextChart
+	 */
 	public TableGradeDistributionOnlyTextChart setSepLineWidth(float sepLineWidth) {
 		this.sepLineWidth = sepLineWidth;
 		return this;

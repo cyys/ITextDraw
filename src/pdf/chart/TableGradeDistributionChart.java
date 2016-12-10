@@ -31,7 +31,7 @@ public class TableGradeDistributionChart extends AbstractChart {
 	private int[] gradeBackgroundColors;// 级别的背景颜色
 
 	private float[] levels;// 刻度
-	private String[] tagNames;// 各列名称
+	private String[] tagNames;// 各行名称
 	private float curScore;// 当前分数
 	private int[] percentageLevels;// 百分比刻度
 
@@ -309,91 +309,180 @@ public class TableGradeDistributionChart extends AbstractChart {
 		balloonGraph.chart();
 	}
 
+	/**
+	 * X坐标
+	 * @param x
+	 * @return TableGradeDistributionChart
+	 */
 	public TableGradeDistributionChart setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * 宽度
+	 * @param width
+	 * @return TableGradeDistributionChart
+	 */
 	public TableGradeDistributionChart setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
+	/**
+	 * Y坐标
+	 * @param y
+	 * @return TableGradeDistributionChart
+	 */
 	public TableGradeDistributionChart setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * 刻度
+	 * @param levels
+	 * @return TableGradeDistributionChart
+	 */
 	public TableGradeDistributionChart setLevels(float[] levels) {
 		this.levels = levels;
 		return this;
 	}
 
+	/**
+	 *  各行名称
+	 * @param tagNames
+	 * @return TableGradeDistributionChart
+	 */
 	public TableGradeDistributionChart setTagNames(String[] tagNames) {
 		this.tagNames = tagNames;
 		return this;
 	}
 
+	/**
+	 * 分数各个级别名称
+	 * @param gradeNames
+	 * @return TableGradeDistributionChart
+	 */
 	public TableGradeDistributionChart setGradeNames(String[] gradeNames) {
 		this.gradeNames = gradeNames;
 		return this;
 	}
 
+	/**
+	 * 各个级别所占百分比,人数
+	 * @param dataAreas
+	 * @return TableGradeDistributionChart
+	 */
 	public TableGradeDistributionChart setDataAreas(List<String[]> dataAreas) {
 		this.dataAreas = dataAreas;
 		return this;
 	}
 
+	/**
+	 * 级别的背景颜色
+	 * @param gradeBackgroundColors
+	 * @return TableGradeDistributionChart
+	 */
 	public TableGradeDistributionChart setGradeBackgroundColors(int[] gradeBackgroundColors) {
 		this.gradeBackgroundColors = gradeBackgroundColors;
 		return this;
 	}
 
+	/**
+	 *  当前分数
+	 * @param curScore
+	 * @return TableGradeDistributionChart
+	 */
 	public TableGradeDistributionChart setCurScore(float curScore) {
 		this.curScore = curScore;
 		return this;
 	}
 
+	/**
+	 * 百分比刻度
+	 * @param percentageLevels
+	 * @return TableGradeDistributionChart
+	 */
 	public TableGradeDistributionChart setPercentageLevels(int[] percentageLevels) {
 		this.percentageLevels = percentageLevels;
 		return this;
 	}
 
+	/**
+	 * 表格线条颜色
+	 * @param borderColor
+	 * @return TableGradeDistributionChart
+	 */
 	public TableGradeDistributionChart setBorderColor(int borderColor) {
 		this.borderColor = borderColor;
 		return this;
 	}
 
+	/**
+	 * 文字颜色
+	 * @param fontColor
+	 * @return TableGradeDistributionChart
+	 */
 	public TableGradeDistributionChart setFontColor(int fontColor) {
 		this.fontColor = fontColor;
 		return this;
 	}
 
+	/**
+	 *  百分比刻度的中文名称
+	 * @param percentageName
+	 * @return TableGradeDistributionChart
+	 */
 	public TableGradeDistributionChart setPercentageName(String percentageName) {
 		this.percentageName = percentageName;
 		return this;
 	}
 
+	/**
+	 * 直接添加百分号的数据索引
+	 * @param autoAddPercentageSymbolIndex
+	 * @return TableGradeDistributionChart
+	 */
 	public TableGradeDistributionChart setAutoAddPercentageSymbolIndex(int autoAddPercentageSymbolIndex) {
 		this.autoAddPercentageSymbolIndex = autoAddPercentageSymbolIndex;
 		return this;
 	}
 
+	/**
+	 * 字体大小
+	 * @param fontSize
+	 * @return TableGradeDistributionChart
+	 */
 	public TableGradeDistributionChart setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 * 第一列字体大小
+	 * @param firstColumnFontSize
+	 * @return TableGradeDistributionChart
+	 */
 	public TableGradeDistributionChart setFirstColumnFontSize(float firstColumnFontSize) {
 		this.firstColumnFontSize = firstColumnFontSize;
 		return this;
 	}
 
+	/**
+	 * 第一列背景颜色
+	 * @param firstColumnBackgroundColor
+	 * @return TableGradeDistributionChart
+	 */
 	public TableGradeDistributionChart setFirstColumnBackgroundColor(int firstColumnBackgroundColor) {
 		this.firstColumnBackgroundColor = firstColumnBackgroundColor;
 		return this;
 	}
 
+	/**
+	 * 画完表格之后，当前所在的横坐标
+	 * @return float
+	 */
 	public float getPositionY() {
 		this.positionY = this.y - this.positionY - 10;
 		return this.positionY;

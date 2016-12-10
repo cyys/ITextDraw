@@ -45,27 +45,53 @@ public class NoteTipGraph extends AbstractBaseUnitChart {
 		 this.getBaseChart().moveLine(this.contentByte, x0+0.4f,this.y , x1-0.8f,this.y);
 	}
 
+	/**
+	 * X坐标
+	 * @param x
+	 * @return NoteTipGraph
+	 */ 
 	public NoteTipGraph setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * Y坐标
+	 * @param y
+	 * @return NoteTipGraph
+	 */
 	public NoteTipGraph setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * 高度
+	 * @param height
+	 * @return NoteTipGraph
+	 */
 	public NoteTipGraph setHeight(float height) {
 		this.height = height;
 		return this;
 	}
 
+	/**
+	 * 宽度
+	 * @param width
+	 * @return NoteTipGraph
+	 */
 	public NoteTipGraph setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
-	public void setColor(int color) {
+	/**
+	 * 图形颜色
+	 * @param color
+	 * @return NoteTipGraph
+	 */
+	public NoteTipGraph setColor(int color) {
 		this.color = color;
+		return this;
 	}
 }

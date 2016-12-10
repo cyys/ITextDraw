@@ -207,86 +207,170 @@ public class TableHistogramChart extends AbstractChart {
 		}
 	}
 
+	/**
+	 * X坐标
+	 * @param x
+	 * @return TableHistogramChart
+	 */
 	public TableHistogramChart setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * Y坐标
+	 * @param y
+	 * @return TableHistogramChart
+	 */
 	public TableHistogramChart setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * Y轴高度
+	 * @param height
+	 * @return TableHistogramChart
+	 */
 	public TableHistogramChart setHeight(float height) {
 		this.height = height;
 		return this;
 	}
 
+	/**
+	 * X轴宽度
+	 * @param width
+	 * @return TableHistogramChart
+	 */
 	public TableHistogramChart setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
+	/**
+	 * 字体大小
+	 * @param fontSize
+	 * @return TableHistogramChart
+	 */
 	public TableHistogramChart setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 * 刻度
+	 * @param levels
+	 * @return TableHistogramChart
+	 */
 	public TableHistogramChart setLevels(int[] levels) {
 		this.levels = levels;
 		return this;
 	}
 
+	/**
+	 * 级别名称
+	 * @param gradeNames
+	 * @return TableHistogramChart
+	 */
 	public TableHistogramChart setGradeNames(String[] gradeNames) {
 		this.gradeNames = gradeNames;
 		return this;
 	}
 
+	/**
+	 * 分数
+	 * @param scores
+	 * @return TableHistogramChart
+	 */
 	public TableHistogramChart setScores(float[] scores) {
 		this.scores = scores;
 		return this;
 	}
 
+	/**
+	 * 分数级别的区间
+	 * @param scoreRanges
+	 * @return TableHistogramChart
+	 */
 	public TableHistogramChart setScoreRanges(String[] scoreRanges) {
 		this.scoreRanges = scoreRanges;
 		return this;
 	}
 
+	/**
+	 * 每一个分数级别人数
+	 * @param peopleNumbers
+	 * @return TableHistogramChart
+	 */
 	public TableHistogramChart setPeopleNumbers(String[] peopleNumbers) {
 		this.peopleNumbers = peopleNumbers;
 		return this;
 	}
 
+	/**
+	 * 柱状图背景颜色
+	 * @param histogramBackgroundColors
+	 * @return TableHistogramChart
+	 */
 	public TableHistogramChart setHistogramBackgroundColors(int[] histogramBackgroundColors) {
 		this.histogramBackgroundColors = histogramBackgroundColors;
 		return this;
 	}
 
+	/**
+	 * 刻度字体颜色
+	 * @param levelFontColor
+	 * @return TableHistogramChart
+	 */
 	public TableHistogramChart setLevelFontColor(int levelFontColor) {
 		this.levelFontColor = levelFontColor;
 		return this;
 	}
 
+	/**
+	 * 字体颜色
+	 * @param fontColor
+	 * @return TableHistogramChart
+	 */
 	public TableHistogramChart setFontColor(int fontColor) {
 		this.fontColor = fontColor;
 		return this;
 	}
 
+	/**
+	 * 边框的颜色
+	 * @param borderColor
+	 * @return TableHistogramChart
+	 */
 	public TableHistogramChart setBorderColor(int borderColor) {
 		this.borderColor = borderColor;
 		return this;
 	}
 
+	/**
+	 * 刻度线的颜色
+	 * @param levelBorderColor
+	 * @return TableHistogramChart
+	 */
 	public TableHistogramChart setLevelBorderColor(int levelBorderColor) {
 		this.levelBorderColor = levelBorderColor;
 		return this;
 	}
 
+	/**
+	 * 标签名称
+	 * @param tagName
+	 * @return TableHistogramChart
+	 */
 	public TableHistogramChart setTagName(String tagName) {
 		this.tagName = tagName;
 		return this;
 	}
 
+	/**
+	 * 画完表格之后，当前所在的横坐标
+	 * @return float
+	 */
 	public float getPositionY() {
 		this.positionY=this.y-this.positionY+10;
 		return this.positionY;

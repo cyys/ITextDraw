@@ -333,111 +333,220 @@ public class PolyLineChart extends AbstractChart {
 		this.moveLine(this.contentByte, x+r, y, x+r+5, y);
 	}
 
+	/**
+	 * 数据
+	 * @param dataList
+	 * @return PolyLineChart
+	 */
 	public PolyLineChart setDataList(List<Float[]> dataList) {
 		this.dataList = dataList;
 		return this;
 	}
 
+	/**
+	 * 坐标最大值
+	 * @param maxValue
+	 * @return PolyLineChart
+	 */
 	public PolyLineChart setMaxValue(float maxValue) {
 		this.maxValue = maxValue;
 		return this;
 	}
 
+	/**
+	 * 坐标行数
+	 * @param rownum
+	 * @return PolyLineChart
+	 */
 	public PolyLineChart setRownum(int rownum) {
 		this.rownum = rownum;
 		return this;
 	}
 
+	/**
+	 * 背景矩形色
+	 * @param normBGColor
+	 * @return PolyLineChart
+	 */
 	public PolyLineChart setNormBGColor(Integer[] normBGColor) {
 		this.normBGColor = normBGColor;
 		return this;
 	}
 
+	/**
+	 * 线色
+	 * @param batchColor
+	 * @return PolyLineChart
+	 */
 	public PolyLineChart setBatchColor(Integer[] batchColor) {
 		this.batchColor = batchColor;
 		return this;
 	}
 
+	/**
+	 * 模板宽
+	 * @param templateWidth
+	 * @return PolyLineChart
+	 */
 	public PolyLineChart setTemplateWidth(int templateWidth) {
 		this.templateWidth = templateWidth;
 		return this;
 	}
 
+	/**
+	 * 模板高
+	 * @param templateHeight
+	 * @return PolyLineChart
+	 */
 	public PolyLineChart setTemplateHeight(int templateHeight) {
 		this.templateHeight = templateHeight;
 		return this;
 	}
 
+	/**
+	 * 垂直偏移量
+	 * @param yOffset
+	 * @return PolyLineChart
+	 */
 	public PolyLineChart setyOffset(int yOffset) {
 		this.yOffset = yOffset;
 		return this;
 	}
 
+	/**
+	 * 水平偏移量
+	 * @param xOffset
+	 * @return PolyLineChart
+	 */
 	public PolyLineChart setxOffset(int xOffset) {
 		this.xOffset = xOffset;
 		return this;
 	}
 
+	/**
+	 * 坐标系左侧文字占位
+	 * @param tableTitleWidth
+	 * @return PolyLineChart
+	 */
 	public PolyLineChart setTableTitleWidth(int tableTitleWidth) {
 		this.tableTitleWidth = tableTitleWidth;
 		return this;
 	}
 
+	/**
+	 * 上留白
+	 * @param before
+	 * @return PolyLineChart
+	 */
 	public PolyLineChart setBefore(int before) {
 		this.before = before;
 		return this;
 	}
 
+	/**
+	 * 左边距
+	 * @param leftBlank
+	 * @return PolyLineChart
+	 */
 	public PolyLineChart setLeftBlank(int leftBlank) {
 		this.leftBlank = leftBlank;
 		return this;
 	}
 	
+	/**
+	 * 每一行数据的中文名称
+	 * @param dataRowNames
+	 * @return PolyLineChart
+	 */
 	public PolyLineChart setDataRowNames(String[] dataRowNames) {
 		this.dataRowNames = dataRowNames;
 		return this;
 	}
 
+	/**
+	 * 每一列的中文名称
+	 * @param dataColNames
+	 * @return PolyLineChart
+	 */
 	public PolyLineChart setDataColNames(String[] dataColNames) {
 		this.dataColNames = dataColNames;
 		return this;
 	}
 
+	/**
+	 * 每一列的背景颜色
+	 * @param dataColColors
+	 * @return PolyLineChart
+	 */
 	public PolyLineChart setDataColColors(int[] dataColColors) {
 		this.dataColColors = dataColColors;
 		return this;
 	}
 
+	/**
+	 * 表格的高度
+	 * @param cellHeight
+	 * @return PolyLineChart
+	 */
 	public PolyLineChart setCellHeight(float cellHeight) {
 		this.cellHeight = cellHeight;
 		return this;
 	}
 
+	/**
+	 * 字体大小
+	 * @param fontSize
+	 * @return PolyLineChart
+	 */
 	public PolyLineChart setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 * 表格边框的颜色
+	 * @param tableBorderColor
+	 * @return PolyLineChart
+	 */
 	public PolyLineChart setTableBorderColor(int tableBorderColor) {
 		this.tableBorderColor = tableBorderColor;
 		return this;
 	}
 
+	/**
+	 * 表格行的背景颜色
+	 * @param rowColors
+	 * @return PolyLineChart
+	 */
 	public PolyLineChart setRowColors(int[] rowColors) {
 		this.rowColors = rowColors;
 		return this;
 	}
 
+	/**
+	 * 字体颜色
+	 * @param fontColor
+	 * @return PolyLineChart
+	 */
 	public PolyLineChart setFontColor(int fontColor) {
 		this.fontColor = fontColor;
 		return this;
 	}
 
+	/**
+	 * 文字描述的宽度
+	 * @param scoreDescWidth
+	 * @return PolyLineChart
+	 */
 	public PolyLineChart setScoreDescWidth(int scoreDescWidth) {
 		this.scoreDescWidth = scoreDescWidth;
 		return this;
 	}
 
+	/**
+	 * 画完表格之后，当前所在的横坐标
+	 * @return float
+	 */
 	public float getPositionY() {
 		this.positionY=this.document.getPageSize().getHeight()-this.positionY;
 		this.positionY-=this.templateHeight;

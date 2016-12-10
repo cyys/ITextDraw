@@ -348,136 +348,270 @@ public class TableRectLineRightCategoryChart extends AbstractChart {
 		}
 	}
 
+	/**
+	 * X坐标
+	 * @param x
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * Y轴高度
+	 * @param height
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setHeight(float height) {
 		this.height = height;
 		return this;
 	}
 
+	/**
+	 * X轴宽度
+	 * @param width
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
+	/**
+	 *  Y坐标
+	 * @param y
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 *  刻度
+	 * @param levels
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setLevels(float[] levels) {
 		this.levels = levels;
 		return this;
 	}
 
+	/**
+	 *  名称。比如：指标
+	 * @param itemNames
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setItemNames(String[] itemNames) {
 		this.itemNames = itemNames;
 		return this;
 	}
 
+	/**
+	 * 标识名称
+	 * @param tagNames
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setTagNames(String[] tagNames) {
 		this.tagNames = tagNames;
 		return this;
 	}
 
+	/**
+	 * 分数
+	 * @param scores
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setScores(List<float[]> scores) {
 		this.scores = scores;
 		return this;
 	}
 
+	/**
+	 * 分数等级
+	 * @param gradeNames
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setGradeNames(String[] gradeNames) {
 		this.gradeNames = gradeNames;
 		return this;
 	}
 
+	/**
+	 * 线条颜色
+	 * @param levleLineColor
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setLevleLineColor(int levleLineColor) {
 		this.levleLineColor = levleLineColor;
 		return this;
 	}
 
+	/**
+	 * 矩形填充颜色
+	 * @param fillRectColor
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setFillRectColor(int fillRectColor) {
 		this.fillRectColor = fillRectColor;
 		return this;
 	}
 
+	/**
+	 * 分数级别填充颜色
+	 * @param gradeFillColor
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setGradeFillColor(int[] gradeFillColor) {
 		this.gradeFillColor = gradeFillColor;
 		return this;
 	}
 
+	/**
+	 * 垂直的分数线
+	 * @param scoreLineColor
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setScoreLineColor(int scoreLineColor) {
 		this.scoreLineColor = scoreLineColor;
 		return this;
 	}
 
+	/**
+	 * 坐标轴线
+	 * @param frameLineColor
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setFrameLineColor(int frameLineColor) {
 		this.frameLineColor = frameLineColor;
 		return this;
 	}
 
+	/**
+	 * 刻度文字颜色
+	 * @param levleTextColor
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setLevleTextColor(int levleTextColor) {
 		this.levleTextColor = levleTextColor;
 		return this;
 	}
 
+	/**
+	 *  矩形中间分隔线颜色
+	 * @param rectSepLineColor
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setRectSepLineColor(int rectSepLineColor) {
 		this.rectSepLineColor = rectSepLineColor;
 		return this;
 	}
 
+	/**
+	 * 分数填充点的颜色
+	 * @param scorePointColor
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setScorePointColor(int scorePointColor) {
 		this.scorePointColor = scorePointColor;
 		return this;
 	}
 
+	/**
+	 * 矩形边框颜色
+	 * @param rectLineColor
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setRectLineColor(int rectLineColor) {
 		this.rectLineColor = rectLineColor;
 		return this;
 	}
 
+	/**
+	 * 最大分数在集合的下标
+	 * @param maxScoreColNum
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setMaxScoreColNum(int maxScoreColNum) {
 		this.maxScoreColNum = maxScoreColNum;
 		return this;
 	}
 
+	/**
+	 * 最小分数在集合的下标
+	 * @param minScoreColNum
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setMinScoreColNum(int minScoreColNum) {
 		this.minScoreColNum = minScoreColNum;
 		return this;
 	}
 
+	/**
+	 * 分数在集合的下标
+	 * @param curScoreColNum
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setCurScoreColNum(int curScoreColNum) {
 		this.curScoreColNum = curScoreColNum;
 		return this;
 	}
 
+	/**
+	 * 表格背景颜色
+	 * @param tableBackColor
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setTableBackColor(int tableBackColor) {
 		this.tableBackColor = tableBackColor;
 		return this;
 	}
 
+	/**
+	 * 字体大小
+	 * @param fontSize
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 * 等级矩形框的宽度
+	 * @param gradeRectWidth
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setGradeRectWidth(float gradeRectWidth) {
 		this.gradeRectWidth = gradeRectWidth;
 		return this;
 	}
 
+	/**
+	 * 等级矩形框的高度
+	 * @param gradeRectHeight
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setGradeRectHeight(float gradeRectHeight) {
 		this.gradeRectHeight = gradeRectHeight;
 		return this;
 	}
 
+	/**
+	 * 显示在表格中的数据，在集合的下标:请确保 scores 的顺序与tagNames一一对应
+	 * @param showDataColInTables
+	 * @return TableRectLineRightCategoryChart
+	 */
 	public TableRectLineRightCategoryChart setShowDataColInTables(int[] showDataColInTables) {
 		this.showDataColInTables = showDataColInTables;
 		return this;
 	}
 
+	/**
+	 *  画完表格之后，当前所在的横坐标
+	 * @return float
+	 */
 	public float getPositionY() {
 		this.positionY=this.y-this.positionY-10;
 		return this.positionY;

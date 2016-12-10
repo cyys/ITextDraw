@@ -68,31 +68,61 @@ public class PolygonGraph extends AbstractBaseUnitChart {
         }
 	}
 
+	/**
+	 * X坐标
+	 * @param x
+	 * @return PolygonGraph
+	 */
 	public PolygonGraph setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * Y坐标
+	 * @param y
+	 * @return PolygonGraph
+	 */
 	public PolygonGraph setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * 半径
+	 * @param r
+	 * @return PolygonGraph
+	 */
 	public PolygonGraph setR(float r) {
 		this.r = r;
 		return this;
 	}
 
+	/**
+	 * 图形的边数
+	 * @param sideNum
+	 * @return PolygonGraph
+	 */
 	public PolygonGraph setSideNum(int sideNum) {
 		this.sideNum = sideNum;
 		return this;
 	}
 
+	/**
+	 * 旋转角度
+	 * @param rotation
+	 * @return PolygonGraph
+	 */
 	public PolygonGraph setRotation(float rotation) {
 		this.rotation = rotation;
 		return this;
 	}
 
+	/**
+	 * 是否填充
+	 * @param fillColor
+	 * @return PolygonGraph
+	 */
 	public PolygonGraph setFillColor(BaseColor fillColor) {
 		this.fillColor = fillColor;
 		return this;

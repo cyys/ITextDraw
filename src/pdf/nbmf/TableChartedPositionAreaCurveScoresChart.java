@@ -536,140 +536,259 @@ public class TableChartedPositionAreaCurveScoresChart extends AbstractChart {
 		return cell;
 	}
 
+	/**
+	 * 表格的宽度
+	 * @param width
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
+	/**
+	 * 表头字体颜色
+	 * @param tableHeadFontColor
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setTableHeadFontColor(int tableHeadFontColor) {
 		this.tableHeadFontColor = tableHeadFontColor;
 		return this;
 	}
 
+	/**
+	 * 表格表头信息
+	 * @param tableHeads
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setTableHeads(String[] tableHeads) {
 		this.tableHeads = tableHeads;
 		return this;
 	}
 
+	/**
+	 * 分数的刻度值
+	 * @param scoreLevels
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setScoreLevels(int[] scoreLevels) {
 		this.scoreLevels = scoreLevels;
 		return this;
 	}
 
+	/**
+	 * 表头背景颜色
+	 * @param tableHeadColor
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setTableHeadColor(int tableHeadColor) {
 		this.tableHeadColor = tableHeadColor;
 		return this;
 	}
 
+	/**
+	 * 父类名称
+	 * @param parentTypes
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setParentTypes(String[] parentTypes) {
 		this.parentTypes = parentTypes;
 		return this;
 	}
 
+	/**
+	 *  父类背景颜色
+	 * @param parentTypeColor
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setParentTypeColor(int parentTypeColor) {
 		this.parentTypeColor = parentTypeColor;
 		return this;
 	}
 
+	/**
+	 *  子类分组及每一行名称
+	 * @param childrenTypes
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setChildrenTypes(List<String[]> childrenTypes) {
 		this.childrenTypes = childrenTypes;
 		return this;
 	}
 
+	/**
+	 * 每一行的每列的分数
+	 * @param scores
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setScores(float[][] scores) {
 		this.scores = scores;
 		return this;
 	}
 
+	/**
+	 * 行的交替颜色
+	 * @param rowColors
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setRowColors(int[] rowColors) {
 		this.rowColors = rowColors;
 		return this;
 	}
 
+	/**
+	 *  折现的颜色
+	 * @param curveColor
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setCurveColor(int curveColor) {
 		this.curveColor = curveColor;
 		return this;
 	}
 
+	/**
+	 * 每一行的高度
+	 * @param lineHeight
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setLineHeight(float lineHeight) {
 		this.lineHeight = lineHeight;
 		return this;
 	}
 
+	/**
+	 *  除了刻线之外的文字大小
+	 * @param fontSize
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 * 表格每一列的宽度
+	 * @param widths
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setWidths(float[] widths) {
 		this.widths = widths;
 		return this;
 	}
 
+	/**
+	 * 刻度文本的字体大小
+	 * @param levelFontSize
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setLevelFontSize(float levelFontSize) {
 		this.levelFontSize = levelFontSize;
 		return this;
 	}
 
+	/**
+	 * 画完表格之后，当前所在的横坐标
+	 * @return float
+	 */
 	public float getPositionY() {
 		return this.positionY;
 	}
 
+	/**
+	 * 字体的颜色
+	 * @param fontColor
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setFontColor(int fontColor) {
 		this.fontColor = fontColor;
 		return this;
 	}
 
+	/**
+	 * 表格边框的颜色
+	 * @param borderColor
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setBorderColor(int borderColor) {
 		this.borderColor = borderColor;
 		return this;
 	}
 
-	public TableChartedPositionAreaCurveScoresChart setRealRowHeight(float[] realRowHeight) {
-		this.realRowHeight = realRowHeight;
-		return this;
-	}
-
-	public TableChartedPositionAreaCurveScoresChart setLineNumber(int lineNumber) {
-		this.lineNumber = lineNumber;
-		return this;
-	}
-
+	/**
+	 * 垂直线的颜色
+	 * @param verticalLineColor
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setVerticalLineColor(int verticalLineColor) {
 		this.verticalLineColor = verticalLineColor;
 		return this;
 	}
 
+	/**
+	 * 垂直线所在区域的颜色
+	 * @param verticalAreaColor
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setVerticalAreaColor(int verticalAreaColor) {
 		this.verticalAreaColor = verticalAreaColor;
 		return this;
 	}
 
+	/**
+	 * 级别颜色标注框与表格间的空隙
+	 * @param gradeRectangeGap
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setGradeRectangeGap(float gradeRectangeGap) {
 		this.gradeRectangeGap = gradeRectangeGap;
 		return this;
 	}
 
+	/**
+	 * 表头字体大小
+	 * @param tableHeadFontSize
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setTableHeadFontSize(float tableHeadFontSize) {
 		this.tableHeadFontSize = tableHeadFontSize;
 		return this;
 	}
 
+	/**
+	 * 第一列字体的大小
+	 * @param firstColumnFontSize
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setFirstColumnFontSize(float firstColumnFontSize) {
 		this.firstColumnFontSize = firstColumnFontSize;
 		return this;
 	}
 
+	/**
+	 * 最大分数的列
+	 * @param maxScoreColNum
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setMaxScoreColNum(int maxScoreColNum) {
 		this.maxScoreColNum = maxScoreColNum;
 		return this;
 	}
 
+	/**
+	 * 最小分数的列
+	 * @param minScoreColNum
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setMinScoreColNum(int minScoreColNum) {
 		this.minScoreColNum = minScoreColNum;
 		return this;
 	}
 
+	/**
+	 * 分数的列
+	 * @param curScoreColNum
+	 * @return TableChartedPositionAreaCurveScoresChart
+	 */
 	public TableChartedPositionAreaCurveScoresChart setCurScoreColNum(int curScoreColNum) {
 		this.curScoreColNum = curScoreColNum;
 		return this;

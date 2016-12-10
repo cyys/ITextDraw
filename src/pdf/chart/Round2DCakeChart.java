@@ -200,51 +200,100 @@ public class Round2DCakeChart extends AbstractChart {
 		this.moveLine(this.contentByte, this.x, this.y, x0, y0);
 	}
 
+	/**
+	 * X坐标
+	 * @param x
+	 * @return Round2DCakeChart
+	 */
 	public Round2DCakeChart setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * Y坐标
+	 * @param y
+	 * @return Round2DCakeChart
+	 */
 	public Round2DCakeChart setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * 半径
+	 * @param r
+	 * @return Round2DCakeChart
+	 */
 	public Round2DCakeChart setR(float r) {
 		this.r = r;
 		return this;
 	}
 
+	/**
+	 * 每个图形块的填充颜色
+	 * @param fillColors
+	 * @return Round2DCakeChart
+	 */
 	public Round2DCakeChart setFillColors(BaseColor[] fillColors) {
 		this.fillColors = fillColors;
 		return this;
 	}
 
+	/**
+	 *  每一个图形块的描述
+	 * @param descs
+	 * @return Round2DCakeChart
+	 */
 	public Round2DCakeChart setDescs(String[] descs) {
 		this.descs = descs;
 		return this;
 	}
 
+	/**
+	 * 分数百分比
+	 * @param scores
+	 * @return Round2DCakeChart
+	 */
 	public Round2DCakeChart setScores(float[] scores) {
 		this.scores = scores;
 		return this;
 	}
 
+	/**
+	 * 旋转角度
+	 * @param rotation
+	 * @return Round2DCakeChart
+	 */
 	public Round2DCakeChart setRotation(float rotation) {
 		this.rotation = rotation;
 		return this;
 	}
 
+	/**
+	 * 字体大小
+	 * @param fontSize
+	 * @return Round2DCakeChart
+	 */
 	public Round2DCakeChart setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 * 每个扇形区域分割的白线宽度
+	 * @param whiteSepLineWidth
+	 * @return Round2DCakeChart
+	 */
 	public Round2DCakeChart setWhiteSepLineWidth(float whiteSepLineWidth) {
 		this.whiteSepLineWidth = whiteSepLineWidth;
 		return this;
 	}
 
+	/**
+	 * 画完图形之后，当前所在的横坐标
+	 * @return float
+	 */
 	public float getPositionY() {
 		this.positionY = this.y - this.r - 40;
 		return this.positionY;

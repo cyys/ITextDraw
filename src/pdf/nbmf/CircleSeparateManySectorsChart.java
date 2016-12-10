@@ -20,7 +20,7 @@ public class CircleSeparateManySectorsChart extends AbstractChart {
 
 	// 初始化x,y的位置，及图形的大小，扇形宽度
 	private float x;
-	private float sectorWidth =30;
+	private float sectorWidth =30;//中间有颜色的区域宽度
 	private float r=80;
 	private float y;
 	private float rotation=45;
@@ -39,8 +39,8 @@ public class CircleSeparateManySectorsChart extends AbstractChart {
 	private int fontColor = 0xFFFFFF;// 文字颜色
 
 	private boolean showPoint=true;//是否显示分数指针
-	private float pointWidth=5;//宽度
-	private float pointHeight=5;//高度
+	private float pointWidth=5;//指针宽度
+	private float pointHeight=5;//指针高度
 	private float positionY;// 画完表格之后，当前所在的横坐标
 	
 	private final int SIDE_NUM=3600;//将一个圆分成的等分
@@ -259,101 +259,200 @@ public class CircleSeparateManySectorsChart extends AbstractChart {
 		return textWidth;
 	}
 
+	/**
+	 * X坐标
+	 * @param x
+	 * @return CircleSeparateManySectorsChart
+	 */
 	public CircleSeparateManySectorsChart setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * 中间有颜色的区域宽度
+	 * @param sectorWidth
+	 * @return CircleSeparateManySectorsChart
+	 */
 	public CircleSeparateManySectorsChart setSectorWidth(float sectorWidth) {
 		this.sectorWidth = sectorWidth;
 		return this;
 	}
 
+	/**
+	 * 半径
+	 * @param r
+	 * @return CircleSeparateManySectorsChart
+	 */
 	public CircleSeparateManySectorsChart setR(float r) {
 		this.r = r;
 		return this;
 	}
 
+	/**
+	 * 名称。比如：指标
+	 * @param itemNames
+	 * @return CircleSeparateManySectorsChart
+	 */
 	public CircleSeparateManySectorsChart setItemNames(String[] itemNames) {
 		this.itemNames = itemNames;
 		return this;
 	}
 
+	/**
+	 * 分数添加的后缀
+	 * @param scoreSuffix
+	 * @return CircleSeparateManySectorsChart
+	 */
 	public CircleSeparateManySectorsChart setScoreSuffix(String scoreSuffix) {
 		this.scoreSuffix = scoreSuffix;
 		return this;
 	}
 
+	/**
+	 * 分数
+	 * @param scores
+	 * @return CircleSeparateManySectorsChart
+	 */
 	public CircleSeparateManySectorsChart setScores(float[] scores) {
 		this.scores = scores;
 		return this;
 	}
 
+	/**
+	 * 总分文字描述
+	 * @param totalScoreName
+	 * @return CircleSeparateManySectorsChart
+	 */
 	public CircleSeparateManySectorsChart setTotalScoreName(String totalScoreName) {
 		this.totalScoreName = totalScoreName;
 		return this;
 	}
 
+	/**
+	 * 总分分数
+	 * @param totalScore
+	 * @return CircleSeparateManySectorsChart
+	 */
 	public CircleSeparateManySectorsChart setTotalScore(float totalScore) {
 		this.totalScore = totalScore;
 		return this;
 	}
 
+	/**
+	 * 是否显示分数指针
+	 * @param showPoint
+	 * @return CircleSeparateManySectorsChart
+	 */
 	public CircleSeparateManySectorsChart setShowPoint(boolean showPoint) {
 		this.showPoint = showPoint;
 		return this;
 	}
 
+	/**
+	 * Y坐标
+	 * @param y
+	 * @return CircleSeparateManySectorsChart
+	 */
 	public CircleSeparateManySectorsChart setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * 文字颜色
+	 * @param fontColor
+	 * @return CircleSeparateManySectorsChart
+	 */
 	public CircleSeparateManySectorsChart setFontColor(int fontColor) {
 		this.fontColor = fontColor;
 		return this;
 	}
 
+	/**
+	 * 画完表格之后，当前所在的横坐标
+	 * @return float
+	 */
 	public float getPositionY() {
 		this.positionY = this.y -this.r-5;
 		return this.positionY;
 	}
 
+	/**
+	 * 字体大小
+	 * @param fontSize
+	 * @return CircleSeparateManySectorsChart
+	 */
 	public CircleSeparateManySectorsChart setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
 	}
 
+	/**
+	 * 旋转角度
+	 * @param rotation
+	 * @return CircleSeparateManySectorsChart
+	 */
 	public CircleSeparateManySectorsChart setRotation(float rotation) {
 		this.rotation = rotation;
 		return this;
 	}
 
+	/**
+	 * 背景颜色
+	 * @param fillColors
+	 * @return CircleSeparateManySectorsChart
+	 */
 	public CircleSeparateManySectorsChart setFillColors(int[] fillColors) {
 		this.fillColors = fillColors;
 		return this;
 	}
 
+	/**
+	 * 总分文字颜色
+	 * @param totalScoreNameColor
+	 * @return CircleSeparateManySectorsChart
+	 */
 	public CircleSeparateManySectorsChart setTotalScoreNameColor(int totalScoreNameColor) {
 		this.totalScoreNameColor = totalScoreNameColor;
 		return this;
 	}
 
+	/**
+	 * 总分分数颜色
+	 * @param totalScoreColor
+	 * @return CircleSeparateManySectorsChart
+	 */
 	public CircleSeparateManySectorsChart setTotalScoreColor(int totalScoreColor) {
 		this.totalScoreColor = totalScoreColor;
 		return this;
 	}
 
+	/**
+	 * 总分字体大小
+	 * @param totalScoreColorFontSize
+	 * @return CircleSeparateManySectorsChart
+	 */
 	public CircleSeparateManySectorsChart setTotalScoreColorFontSize(float totalScoreColorFontSize) {
 		this.totalScoreColorFontSize = totalScoreColorFontSize;
 		return this;
 	}
 
+	/**
+	 * 指针宽度
+	 * @param pointWidth
+	 * @return CircleSeparateManySectorsChart
+	 */
 	public CircleSeparateManySectorsChart setPointWidth(float pointWidth) {
 		this.pointWidth = pointWidth;
 		return this;
 	}
 
+	/**
+	 * 指针高度
+	 * @param pointHeight
+	 * @return CircleSeparateManySectorsChart
+	 */
 	public CircleSeparateManySectorsChart setPointHeight(float pointHeight) {
 		this.pointHeight = pointHeight;
 		return this;

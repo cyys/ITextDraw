@@ -12,24 +12,35 @@ import pdf.base.TPoint;
 /**
  * 单箭头图形
  * @author cheny
- *
  */
 public class ArrowGraph extends AbstractBaseUnitChart {
 	
 	//箭头的方向
+	/**
+	 * 向上
+	 */
 	public static final int ARROW_UP=1;
+	/**
+	 * 向下
+	 */
 	public static final int ARROW_DOWN=2;
+	/**
+	 * 向右
+	 */
 	public static final int ARROW_RIGHT=3;
+	/**
+	 * 向左
+	 */
 	public static final int ARROW_LEFT=4;
 	
-	private float height=15;
-	private float width=5;
-	private float arrowWidth=5;
-	private int color;
-	private int arrowDirection=ARROW_RIGHT;
+	private float height=15;//矩形区域的高度
+	private float width=5;//矩形区域的宽度
+	private float arrowWidth=5;//箭头的宽度
+	private int color;// 图形的颜色
+	private int arrowDirection=ARROW_RIGHT;//箭头的方向
 	//箭头右：左上角 ，左：右上角，上：左下角，下：左上角
-	private float x;
-	private float y;
+	private float x;//横坐标
+	private float y;//纵坐标
 
 	public ArrowGraph(AbstractBaseChart baseChart, PdfWriter writer, PdfContentByte contentByte, Document document) {
 		super(baseChart, writer, contentByte, document);
@@ -120,36 +131,71 @@ public class ArrowGraph extends AbstractBaseUnitChart {
 		}
 	}
 
+	/**
+	 * 矩形区域的高度
+	 * @param height
+	 * @return ArrowGraph
+	 */
 	public ArrowGraph setHeight(float height) {
 		this.height = height;
 		return this;
 	}
 
+	/**
+	 * 矩形区域的宽度
+	 * @param width
+	 * @return ArrowGraph
+	 */
 	public ArrowGraph setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
+	/**
+	 * 箭头的宽度
+	 * @param arrowWidth
+	 * @return ArrowGraph
+	 */
 	public ArrowGraph setArrowWidth(float arrowWidth) {
 		this.arrowWidth = arrowWidth;
 		return this;
 	}
 
+	/**
+	 * 横坐标
+	 * @param x
+	 * @return ArrowGraph
+	 */
 	public ArrowGraph setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * 纵坐标
+	 * @param y
+	 * @return ArrowGraph
+	 */
 	public ArrowGraph setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * 图形的颜色
+	 * @param color
+	 * @return ArrowGraph
+	 */
 	public ArrowGraph setColor(int color) {
 		this.color = color;
 		return this;
 	}
 
+	/**
+	 * 箭头的方向
+	 * @param arrowDirection
+	 * @return ArrowGraph
+	 */
 	public ArrowGraph setArrowDirection(int arrowDirection) {
 		this.arrowDirection = arrowDirection;
 		return this;

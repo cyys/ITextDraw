@@ -69,26 +69,51 @@ public class TwoTriangleGraph extends AbstractBaseUnitChart {
         }
     }
 
+	/**
+	 * 高度
+	 * @param height
+	 * @return TwoTriangleGraph
+	 */
 	public TwoTriangleGraph setHeight(float height) {
 		this.height = height;
 		return this;
 	}
 
+	/**
+	 * 宽度
+	 * @param width
+	 * @return TwoTriangleGraph
+	 */
 	public TwoTriangleGraph setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
+	/**
+	 * X坐标
+	 * @param x
+	 * @return TwoTriangleGraph
+	 */
 	public TwoTriangleGraph setX(float x) {
 		this.x = x;
 		return this;
 	}
 
+	/**
+	 * Y坐标
+	 * @param y
+	 * @return TwoTriangleGraph
+	 */
 	public TwoTriangleGraph setY(float y) {
 		this.y = y;
 		return this;
 	}
 
+	/**
+	 * 图形颜色
+	 * @param color
+	 * @return TwoTriangleGraph
+	 */
 	public TwoTriangleGraph setColor(BaseColor color) {
 		this.color = color;
 		return this;

@@ -156,41 +156,81 @@ public class TableLikeSevenAndAlternateLine extends AbstractChart {
 		return cell;
 	}
 
+	/**
+	 * 表格宽度
+	 * @param width
+	 * @return TableLikeSevenAndAlternateLine
+	 */
 	public TableLikeSevenAndAlternateLine setWidth(float width) {
 		this.width = width;
 		return this;
 	}
 
+	/**
+	 * 表头数据
+	 * @param headDatas
+	 * @return TableLikeSevenAndAlternateLine
+	 */
 	public TableLikeSevenAndAlternateLine setHeadDatas(String[] headDatas) {
 		this.headDatas = headDatas;
 		return this;
 	}
 
+	/**
+	 * 每一行的数据
+	 * @param rowDatas
+	 * @return TableLikeSevenAndAlternateLine
+	 */
 	public TableLikeSevenAndAlternateLine setRowDatas(List<Object[]> rowDatas) {
 		this.rowDatas = rowDatas;
 		return this;
 	}
 
+	/**
+	 * 第一列背景颜色
+	 * @param firstColumnColor
+	 * @return TableLikeSevenAndAlternateLine
+	 */
 	public TableLikeSevenAndAlternateLine setFirstColumnColor(int firstColumnColor) {
 		this.firstColumnColor = firstColumnColor;
 		return this;
 	}
 
+	/**
+	 * 行的交替背景颜色
+	 * @param rowColors
+	 * @return TableLikeSevenAndAlternateLine
+	 */
 	public TableLikeSevenAndAlternateLine setRowColors(int[] rowColors) {
 		this.rowColors = rowColors;
 		return this;
 	}
 
+	/**
+	 * 表头文字颜色
+	 * @param headFontColor
+	 * @return TableLikeSevenAndAlternateLine
+	 */
 	public TableLikeSevenAndAlternateLine setHeadFontColor(int headFontColor) {
 		this.headFontColor = headFontColor;
 		return this;
 	}
 
+	/**
+	 * 表头背景颜色
+	 * @param headBackgroundColor
+	 * @return TableLikeSevenAndAlternateLine
+	 */
 	public TableLikeSevenAndAlternateLine setHeadBackgroundColor(int headBackgroundColor) {
 		this.headBackgroundColor = headBackgroundColor;
 		return this;
 	}
 
+	/**
+	 * 字体大小
+	 * @param fontSize
+	 * @return TableLikeSevenAndAlternateLine
+	 */
 	public TableLikeSevenAndAlternateLine setFontSize(float fontSize) {
 		this.fontSize = fontSize;
 		return this;
