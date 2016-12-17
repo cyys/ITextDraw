@@ -141,16 +141,38 @@ public class TableChartedManyCurveScoresChart extends AbstractChart {
 	}
 
 	/**
+	 * 计算itemName多行显示的时候，每一行多长
+	 * @param lineWidth
+	 * @param sepWidth
+	 * @return
+	 */
+	private int calItemNameEveryLen(float lineWidth,float sepWidth){
+		float itemWidth=30;
+		int curTextPosstion=this.widths.length-2;
+		float textWidth=0;
+		int len=this.scores[0].length;
+		for(int i=len-1;i>=0;i--){
+			textWidth=this.calTextWidth(this.itemMarkFontSize, this.tableHeads[curTextPosstion]);
+			itemWidth+=lineWidth+textWidth+sepWidth;
+			curTextPosstion--;
+		}
+		int everyLen=(int)Math.ceil(itemWidth/this.width);
+		everyLen=len%everyLen==0?len/everyLen:len/everyLen+1;
+		return everyLen;
+	}
+	
+	/**
 	 * 画出各个分数列名称所对应的颜色
 	 */
 	private void drawItemNames() {
 		float y = this.writer.getVerticalPosition(true) + this.itemMarkRectangeGap;
 		float x = (this.document.getPageSize().getWidth() - this.width) / 2 + this.width-30;
-		float lineWidth= 20,textWidth=0;
+		float lineWidth= 20,textWidth=0,sepWidth=10;
 		int curTextPosstion=this.widths.length-2;
 		this.contentByte.setFontAndSize(this.baseFont, this.itemMarkFontSize);
-
-		for(int len=this.scores[0].length,i=len-1;i>=0;i--){
+		int everyLen=this.calItemNameEveryLen(lineWidth,sepWidth);
+		
+		for(int len=this.scores[0].length,j=1,i=len-1;i>=0;i--,j++){
 			textWidth=this.calTextWidth(this.itemMarkFontSize, this.tableHeads[curTextPosstion]);
 			this.contentByte.setColorStroke(this.curveColors_[i]);
 			this.contentByte.setColorFill(this.curveColors_[i]);
@@ -164,7 +186,11 @@ public class TableChartedManyCurveScoresChart extends AbstractChart {
 					x-textWidth, y-2.5f, Element.ALIGN_LEFT, 0);
 			
 			curTextPosstion--;
-			x-=lineWidth+this.calTextWidth(this.itemMarkFontSize, this.tableHeads[i])+10;
+			x-=lineWidth+textWidth+sepWidth;
+			if(j%everyLen==0){
+				y+=this.itemMarkFontSize+1;
+				x= (this.document.getPageSize().getWidth() - this.width) / 2 + this.width-30;
+			}
 		}
 	}
 	

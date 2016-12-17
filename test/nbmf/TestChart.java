@@ -269,15 +269,17 @@ public class TestChart {
 		chart.setWidth(450)
 		.setFontSize(8)
 		.setLineHeight(15)
-		.setWidths(new float[] { 10, 30,5,5,5, 5, 50 })
+		.setWidths(new float[] { 10, 30,5,5,5, 5,5, 50 })
 		.setScoreLevels(new int[] { 0, 1, 2, 3, 4,5 })
 		.setRowColors(new int[] { 0xFFFFFF, 0xF2F2F2 })
 		.setLevelFontSize(7)
-		.setStringOnCurve( new String[] { "■", "★", "●", "▲" })
-		.setScores(new float[][] { { 3f, 2f,1.5f,4f }, { 2, 2.5f, 2.0f,3.5f }, { 3f, 2f,1.5f,4f }, { 2, 1, 0.8f ,2.2f},
- 			{ 3.2f, 2, 1.85f,3.2f }, { 2.3f, 3.1f, 1.05f,3.2f }, { 5, 4, 3.02f,5f }, { 2, 2.5f, 2.0f,3.5f },  { 2, 1, 0.8f ,2.2f},
- 			{ 3.2f, 2, 1.85f,3.2f },{ 2.3f, 3.1f, 1.05f,3.2f }, { 3f, 2f,1.5f,4f }, { 5, 4, 3.02f,5f }})
-		.setTableHeads(new String[] { "指  标", "维度", "得分", "平均", "最低", "最高", "  " })
+		.setCurveColor( new int[] { 0xBFBFBF, 0x4BACC6, 0x264F81, 0x4F81BD, 0x4BACC6 })
+		.setItemMarkFontSize(7)
+		.setStringOnCurve( new String[] { "■", "★", "●", "▲" , "★"})
+		.setScores(new float[][] { { 3f, 2f,1.5f,4f ,4f }, { 2, 2.5f, 2.0f,3.5f ,4f }, { 3f, 2f,1.5f,4f,4f  }, { 2, 1, 0.8f ,2.2f,4f },
+ 			{ 3.2f, 2, 1.85f,3.2f,4f  }, { 2.3f, 3.1f, 1.05f,3.2f,4f  }, { 5, 4, 3.02f,5f,4f  }, { 2, 2.5f, 2.0f,3.5f,4f  },  { 2, 1, 0.8f ,2.2f,4f },
+ 			{ 3.2f, 2, 1.85f,3.2f ,4f },{ 2.3f, 3.1f, 1.05f,3.2f,4f  }, { 3f, 2f,1.5f,4f,4f  }, { 5, 4, 3.02f,5f,4f  }})
+		.setTableHeads(new String[] { "指  标", "维度","得分得分得分得分", "得分得分得分得分", "平均平均平均平均", "最低最低最低最低", "最高最高最高最高", "  " })
 		.setChildrenTypes(new ArrayList<String[]>() {
 			{
 				add(new String[] { "沟通能力沟通能力沟通能力沟通能力沟通能力", "合作能力"});
@@ -347,7 +349,7 @@ public class TestChart {
 	@Test
 	public void testCircleSeparateFixedSectorsChart() throws Exception {
 		doc.open();
-
+		
 		CircleSeparateFixedSectorsChart tableGradeDistributionChart = new CircleSeparateFixedSectorsChart(writer,
 				writer.getDirectContent(), doc, bfChinese);
 		tableGradeDistributionChart.setX(doc.getPageSize().getWidth()/2).setY(570)
